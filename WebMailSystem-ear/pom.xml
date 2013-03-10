@@ -20,38 +20,68 @@
 		<dependency>
 			<groupId>WebMailSystem</groupId>
 			<artifactId>WebMailSystem-web</artifactId>
+			<version>1.0</version>
 			<type>war</type>
 		</dependency>
 		<dependency>
 			<groupId>WebMailSystem</groupId>
 			<artifactId>WebMailSystem-ejb</artifactId>
+			<version>1.0</version>
 			<type>ejb</type>
 		</dependency>
 	</dependencies>
-
 	<build>
 		<finalName>WebMailSystem</finalName>
 		<plugins>
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-ear-plugin</artifactId>
-				<version>2.6</version>
-				<configuration>
-					<!-- Tell Maven we are using Java EE 6 -->
-					<version>6</version>
-					<modules>
-						<ejbModule>
-							<groupId>WebMailSystem</groupId>
-							<artifactId>WebMailSystem-ejb</artifactId>
-						</ejbModule>
-						<webModule>
-							<groupId>WebMailSystem</groupId>
-							<artifactId>WebMailSystem-web</artifactId>
-							<contextRoot>/WebMailSystem</contextRoot>
-						</webModule>
-					</modules>
-				</configuration>
-			</plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-ear-plugin</artifactId>
+			<version>2.6</version>
+			<configuration>
+				<!-- Tell Maven we are using Java EE 6 -->
+				<version>6</version>
+				<modules>
+					<ejbModule>
+						<groupId>WebMailSystem</groupId>
+						<artifactId>WebMailSystem-ejb</artifactId>
+					</ejbModule>
+					<webModule>
+						<groupId>WebMailSystem</groupId>
+						<artifactId>WebMailSystem-web</artifactId>
+						<contextRoot>/WebMailSystem</contextRoot>
+					</webModule>
+				</modules>
+			</configuration>
+		</plugin>
+
+			<!--<plugin>-->
+				<!--<groupId>org.glassfish.maven.plugin</groupId>-->
+				<!--<artifactId>maven-glassfish-plugin</artifactId>-->
+				<!--<version>2.1</version>-->
+				<!--<configuration>-->
+					<!--<user>admin</user>-->
+					<!--<glassfishDirectory>${glassfish.home}</glassfishDirectory>-->
+					<!--<components>-->
+						<!--<component>-->
+							<!--<name>${project.artifactId}</name>-->
+							<!--<artifact>${project.build.directory}/${project.build.finalName}.ear</artifact>-->
+						<!--</component>-->
+					<!--</components>-->
+					<!--<domain>-->
+						<!--<name>${project.artifactId}</name>-->
+						<!--<adminPort>4848</adminPort>-->
+						<!--<httpPort>8080</httpPort>-->
+						<!--<httpsPort>8181</httpsPort>-->
+					<!--</domain>-->
+				<!--</configuration>-->
+			<!--</plugin>-->
 		</plugins>
 	</build>
+	<!--<distributionManagement>-->
+		<!--<repository>-->
+			<!--<id>${project.artifactId}</id>-->
+			<!--<name>${project.artifactId}</name>-->
+			<!--<url>C:\Program Files\glassfish3\glassfish\domains\domain1\applications</url>-->
+		<!--</repository>-->
+	<!--</distributionManagement>-->
 </project>

@@ -4,18 +4,18 @@ import com.tsystems.javaschool.webmailsystem.entity.FolderEntity;
 import com.tsystems.javaschool.webmailsystem.entity.MessageEntity;
 
 import javax.ejb.EJB;
-import javax.ejb.Stateless;
+import javax.ejb.Local;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-@Stateless
-public class MessageDAOImpl implements MessageDAO {
+@Local(FolderDAO.class)
+public class MessageDAOBean implements MessageDAO {
 
 	@PersistenceContext(unitName = "defaultPersistenceUnit")
 	private EntityManager entityManager;
 
 	@EJB
-	private FolderDAOImpl folderDAO;
+	private FolderDAO folderDAO;
 
 	public boolean send(MessageEntity message) {
 		FolderEntity senderFolder = folderDAO.findFolderByFolderNameAndEmail("Outbox", message.getSender());

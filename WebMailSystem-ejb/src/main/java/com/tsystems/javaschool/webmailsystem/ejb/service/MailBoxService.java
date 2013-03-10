@@ -1,7 +1,7 @@
 package com.tsystems.javaschool.webmailsystem.ejb.service;
 
+import com.tsystems.javaschool.webmailsystem.ejb.dao.MailBoxDAO;
 import com.tsystems.javaschool.webmailsystem.entity.MailBoxEntity;
-import com.tsystems.javaschool.webmailsystem.ejb.dao.MailBoxDAOImpl;
 import org.apache.log4j.Logger;
 
 import javax.ejb.EJB;
@@ -12,26 +12,18 @@ import javax.persistence.PersistenceException;
 @Stateless
 public class MailBoxService {
 	@EJB
-	private MailBoxDAOImpl mailBoxDAO;
+	private MailBoxDAO mailBoxDAO;
 
 	private Logger logger = Logger.getLogger(FolderService.class);
 
-	public boolean login(Object neededMailBox) {
+	public boolean login(String email, String password) {
+		MailBoxEntity neededMailBox = new MailBoxEntity(email,password,null);
 		try {
 			MailBoxEntity mailBox = mailBoxDAO.findByEmail(((MailBoxEntity) neededMailBox).getEmail());
-			byte[] password = mailBox.getPassword();
-			byte[] neededPassword = ((MailBoxEntity) neededMailBox).getPassword();
-			if (password.length != neededPassword.length) {
-				logger.info("Entered password for mailbox with email address "
+			if (!MailBoxEntity.comparePasswords(neededMailBox.getPassword(),mailBox.getPassword())) {
+				logger.info("Entered password for mailbox with email"
 						+ ((MailBoxEntity) neededMailBox).getEmail() + " is wrong");
 				return false;
-			}
-			for (int i = 0; i < password.length; i++) {
-				if (password[i] != neededPassword[i]) {
-					logger.info("Entered password for mailbox with email address "
-							+ ((MailBoxEntity) neededMailBox).getEmail() + " is wrong");
-					return false;
-				}
 			}
 			logger.info("Successful login into mailbox " + mailBox.getEmail());
 			return true;

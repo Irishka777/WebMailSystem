@@ -4,19 +4,20 @@ import com.tsystems.javaschool.webmailsystem.entity.FolderEntity;
 import com.tsystems.javaschool.webmailsystem.entity.MailBoxEntity;
 
 import javax.ejb.EJB;
+import javax.ejb.Local;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
-@Stateless
-public class MailBoxDAOImpl implements MailBoxDAO {
+@Local(FolderDAO.class)
+public class MailBoxDAOBean implements MailBoxDAO {
 
 	@PersistenceContext(unitName = "defaultPersistenceUnit")
 	private EntityManager entityManager;
 
 	@EJB
-	private FolderDAOImpl folderDAO;
+	private FolderDAO folderDAO;
 
 	public boolean insert(MailBoxEntity mailBox) {
 		entityManager.persist(mailBox);

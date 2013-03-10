@@ -17,6 +17,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<glassfish.home>C:\Program Files\glassfish3\glassfish</glassfish.home>
 	</properties>
 
 	<dependencyManagement>
@@ -34,10 +35,21 @@
 				<version>1.2.16</version>
 			</dependency>
 			<dependency>
+				<groupId>javax</groupId>
+				<artifactId>javaee-api</artifactId>
+				<version>6.0</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
 				<groupId>javax.faces</groupId>
 				<artifactId>jsf-api</artifactId>
 				<version>2.0</version>
 				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>mysql</groupId>
+				<artifactId>mysql-connector-java</artifactId>
+				<version>5.1.2</version>
 			</dependency>
 			<dependency>
 				<!-- Define the version of the EJB jar so that we don't need to

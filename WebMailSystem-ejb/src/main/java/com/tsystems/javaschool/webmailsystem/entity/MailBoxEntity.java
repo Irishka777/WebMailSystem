@@ -53,6 +53,18 @@ public class MailBoxEntity implements Serializable {
 		creationDate = Calendar.getInstance();
 		this.user = user;
 	}
+
+	public static boolean comparePasswords(byte[] password1, byte[] password2) {
+		if (password1.length != password2.length) {
+			return false;
+		}
+		for (int i = 0; i < password1.length; i++) {
+			if (password1[i] != password2[i]) {
+				return false;
+			}
+		}
+		return true;
+	}
 	
 	public void setId(long id) {
 		this.id = id;

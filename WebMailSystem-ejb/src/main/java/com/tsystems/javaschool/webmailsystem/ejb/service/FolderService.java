@@ -1,8 +1,8 @@
 package com.tsystems.javaschool.webmailsystem.ejb.service;
 
+import com.tsystems.javaschool.webmailsystem.ejb.dao.FolderDAO;
 import com.tsystems.javaschool.webmailsystem.entity.FolderEntity;
 import com.tsystems.javaschool.webmailsystem.entity.MailBoxEntity;
-import com.tsystems.javaschool.webmailsystem.ejb.dao.FolderDAOImpl;
 import org.apache.log4j.Logger;
 
 import javax.ejb.EJB;
@@ -12,8 +12,9 @@ import java.util.List;
 
 @Stateless
 public class FolderService {
+
 	@EJB
-	private FolderDAOImpl folderDAO;
+	private FolderDAO folderDAO;
 
 	private Logger logger = Logger.getLogger(FolderService.class);
 	

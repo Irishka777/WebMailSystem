@@ -1,22 +1,37 @@
 body {
+
+    text-align: center;
+}
+form {
+    border-style: solid;
+    width: 50%;
+    text-align: center;
+    background: #00ffff;
+    margin: auto;
+}
+h2 {
     text-align: center;
 }
 label {
     text-align: left;
     display: inline-block;
-    width: 120px;
+    width: 20%;
 }
 input {
-    text-align: left;
-    display: inline-block;
-    width: 150px;
+    /*text-align: center;*/
+    /*display: inline-block;*/
+    width: 60%;
 }
+/*button {*/
+    /*display: inline-block;*/
+    /*text-align: center;*/
+/*}*/
 textarea {
     text-align: left;
     display: inline-block;
-    width: 150px;
-    height: 150px;
+    width: 60%;
+    height: 300px;
 }
-/*form {*/
-    /*vertical-align: middle;*/
-/*}*/
+fieldset {
+    text-align: center;
+}
