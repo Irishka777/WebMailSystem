@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="ear" name="WebMailSystem-ear:ear">
+    <output-path>$PROJECT_DIR$/WebMailSystem-ear/target</output-path>
+    <root id="archive" name="WebMailSystem.ear">
+      <element id="artifact" artifact-name="WebMailSystem-ear:ear exploded" />
+    </root>
+  </artifact>
+</component>

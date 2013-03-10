@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/WebMailSystem.iml" filepath="$PROJECT_DIR$/WebMailSystem.iml" />
+      <module fileurl="file://$PROJECT_DIR$/WebMailSystem-ear/WebMailSystem-ear.iml" filepath="$PROJECT_DIR$/WebMailSystem-ear/WebMailSystem-ear.iml" />
+      <module fileurl="file://$PROJECT_DIR$/WebMailSystem-ejb/WebMailSystem-ejb.iml" filepath="$PROJECT_DIR$/WebMailSystem-ejb/WebMailSystem-ejb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/WebMailSystem-web/WebMailSystem-web.iml" filepath="$PROJECT_DIR$/WebMailSystem-web/WebMailSystem-web.iml" />
+    </modules>
+  </component>
+</project>
+

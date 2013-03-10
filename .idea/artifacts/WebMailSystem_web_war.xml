@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="WebMailSystem-web:war">
+    <output-path>$PROJECT_DIR$/WebMailSystem-web/target</output-path>
+    <root id="archive" name="WebMailSystem-web-1.0.war">
+      <element id="artifact" artifact-name="WebMailSystem-web:war exploded" />
+    </root>
+  </artifact>
+</component>

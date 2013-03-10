@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-ejb" name="WebMailSystem-ejb:ejb exploded">
+    <output-path>$PROJECT_DIR$/WebMailSystem-ejb/target/WebMailSystem-ejb-1.0</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="WebMailSystem-ejb/ejb/EJB" />
+      <element id="module-output" name="WebMailSystem-ejb" />
+    </root>
+  </artifact>
+</component>

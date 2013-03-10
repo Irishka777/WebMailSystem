@@ -1,0 +1,22 @@
+body {
+    text-align: center;
+}
+label {
+    text-align: left;
+    display: inline-block;
+    width: 120px;
+}
+input {
+    text-align: left;
+    display: inline-block;
+    width: 150px;
+}
+textarea {
+    text-align: left;
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+}
+/*form {*/
+    /*vertical-align: middle;*/
+/*}*/

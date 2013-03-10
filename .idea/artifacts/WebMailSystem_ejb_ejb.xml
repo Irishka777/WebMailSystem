@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="ejb-jar" name="WebMailSystem-ejb:ejb">
+    <output-path>$PROJECT_DIR$/WebMailSystem-ejb/target</output-path>
+    <root id="archive" name="WebMailSystem-ejb-1.0.jar">
+      <element id="artifact" artifact-name="WebMailSystem-ejb:ejb exploded" />
+    </root>
+  </artifact>
+</component>

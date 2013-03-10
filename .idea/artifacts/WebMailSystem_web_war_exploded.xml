@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="WebMailSystem-web:war exploded">
+    <output-path>$PROJECT_DIR$/WebMailSystem-web/target/WebMailSystem-web-1.0</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="WebMailSystem-web/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="WebMailSystem-web" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: log4j:log4j:1.2.16" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
