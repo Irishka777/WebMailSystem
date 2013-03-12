@@ -14,40 +14,89 @@
 <h:body>
 	<h:form>
 		<h2>Sign up</h2>
-		<h:outputLabel value="Email address: "
-					   for="emailaddress"/>
-		<h:inputText id="emailaddress"
-					 value="#{signUpBean.email}"/>
-		<br/>
-		<h:outputLabel value="Password: "
-					   for="password"/>
-		<h:inputSecret id="password"
-					   value="#{signUpBean.password}"/>
-		<br/>
-		<h:outputLabel value="Password re-enter: "
-					   for="passwordreenter"/>
-		<h:inputSecret id="passwordreenter"
-					   value="#{signUpBean.passwordReenter}"/>
-		<p/>
-		<fieldset>
-			<legend>Personal data</legend>
+		<h:panelGrid columns="3">
+			<h:outputLabel value="Email: "
+						   for="email"/>
+			<h:inputText id="email"
+						 label="Email"
+						 required="true"
+						 value="#{signUpBean.email}"/>
+			<h:message for="email"/>
+			<h:outputLabel value="Password: "
+						   for="password"/>
+			<h:inputSecret id="password"
+						   label="Password"
+						   required="true"
+						   value="#{signUpBean.password}"/>
+			<h:message for="password"/>
+			<h:outputLabel value="Password re-enter: "
+						   for="passwordreenter"/>
+			<h:inputSecret id="passwordreenter"
+						   label="Password re-enter"
+						   required="true"
+						   value="#{signUpBean.passwordReenter}"/>
+			<h:message for="passwordreenter"/>
 			<h:outputLabel value="First name: "
 						   for="firstname"/>
 			<h:inputText id="firstname"
+						 label="First name"
+						 required="true"
 						 value="#{signUpBean.firstName}"/>
-			<br/>
+			<h:message for="firstname"/>
 			<h:outputLabel value="Last name: "
 						   for="lastname"/>
 			<h:inputText id="lastname"
+						 label="Last name"
+						 required="true"
 						 value="#{signUpBean.lastName}"/>
-			<br/>
+			<h:message for="lastname"/>
 			<h:outputLabel value="Phone number: "
 						   for="phonenumber"/>
 			<h:inputText id="phonenumber"
+						 label="Phone number"
 						 value="#{signUpBean.phoneNumber}"/>
-			<br/>
-		</fieldset>
-		<p/>
+			<h:message for="phonenumber"/>
+			<!--<h:outputLabel value="Date of birth: "-->
+						   <!--for="dateofbirth"/>-->
+			<!--<h:inputText id="dateofbirth"-->
+						 <!--label="Date of birth"-->
+						 <!--value="#{signUpBean.dateOfBirth}"/>-->
+			<!--<h:message for="dateofbirth"/>-->
+		</h:panelGrid>
+		<!--<h:outputLabel value="Email address: "-->
+					   <!--for="emailaddress"/>-->
+		<!--<h:inputText id="emailaddress"-->
+					 <!--value="#{signUpBean.email}"/>-->
+		<!--<br/>-->
+		<!--<h:outputLabel value="Password: "-->
+					   <!--for="password"/>-->
+		<!--<h:inputSecret id="password"-->
+					   <!--value="#{signUpBean.password}"/>-->
+		<!--<br/>-->
+		<!--<h:outputLabel value="Password re-enter: "-->
+					   <!--for="passwordreenter"/>-->
+		<!--<h:inputSecret id="passwordreenter"-->
+					   <!--value="#{signUpBean.passwordReenter}"/>-->
+		<!--<p/>-->
+		<!--<fieldset>-->
+			<!--<legend>Personal data</legend>-->
+			<!--<h:outputLabel value="First name: "-->
+						   <!--for="firstname"/>-->
+			<!--<h:inputText id="firstname"-->
+						 <!--value="#{signUpBean.firstName}"/>-->
+			<!--<br/>-->
+			<!--<h:outputLabel value="Last name: "-->
+						   <!--for="lastname"/>-->
+			<!--<h:inputText id="lastname"-->
+						 <!--value="#{signUpBean.lastName}"/>-->
+			<!--<br/>-->
+			<!--<h:outputLabel value="Phone number: "-->
+						   <!--for="phonenumber"/>-->
+			<!--<h:inputText id="phonenumber"-->
+						 <!--value="#{signUpBean.phoneNumber}"/>-->
+			<!--<br/>-->
+		<!--</fieldset>-->
+		<!--<p/>-->
 		<h:button id="login"
 				  value="Back"
 				  outcome="loginForm"/>

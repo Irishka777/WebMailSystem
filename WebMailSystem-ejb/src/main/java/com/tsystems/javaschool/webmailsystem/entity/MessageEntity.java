@@ -2,6 +2,7 @@ package com.tsystems.javaschool.webmailsystem.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 
@@ -71,6 +72,7 @@ public class MessageEntity implements Serializable {
 	public void setDate(Calendar currentDate) {
 		date = currentDate;
 	}
+
 	public Calendar getDate() {
 		return date;
 	}

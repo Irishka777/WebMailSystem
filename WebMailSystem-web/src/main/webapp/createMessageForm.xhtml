@@ -11,24 +11,35 @@
 </h:head>
 <h:body>
 	<h:form>
-		<h:outputLabel value="Receiver: "
-					   for="receiver"/>
-		<h:inputText id="receiver"
-					 value="#{createMessageBean.receiver}"/>
-		<br/>
-		<h:outputLabel value="Theme: "
-					   for="theme"/>
-		<h:inputText id="theme"
-					 value="#{createMessageBean.theme}"/>
-		<br/>
-		<h:outputLabel value="Message: "
-					   for="messagebody"/>
-		<h:inputTextarea id="messagebody"
-						 value="#{createMessageBean.messageBody}"/>
-		<p/>
+		<h:panelGrid columns="2">
+			<h:outputLabel value="Receiver: "
+						   for="receiver"/>
+			<h:inputText id="receiver"
+						 label="Receiver"
+						 value="#{createMessageBean.receiver}"/>
+			<h:outputLabel value="Theme: "
+						   for="theme"/>
+			<h:inputText id="theme"
+						 label="Theme"
+						 value="#{createMessageBean.theme}"/>
+			<h:outputLabel value="Message: "
+						   for="messagebody"/>
+			<h:inputTextarea id="messagebody"
+							 label="Message"
+							 value="#{createMessageBean.messageBody}"/>
+		</h:panelGrid>
 		<h:commandButton id="send"
 						 value="Send"
-						 action="messageSuccessfullySentPage" />
+						 action="#{createMessageBean.sendMessage}" />
+		<h:commandButton id="save"
+						 value="Save"
+						 action="#{createMessageBean.saveMessage}" />
+		<h:commandButton id="messagesfromoutbox"
+				  value="Show messages from outbox"
+				  action="#{listOfMessages.findMessagesFromFolder}"/>
+		<h:commandButton id="foldersfrommailbox"
+						 value="Show folders from mailBox"
+						 action="#{listOfFolders.findFoldersFromMailBox}"/>
 	</h:form>
 </h:body>
 </html>

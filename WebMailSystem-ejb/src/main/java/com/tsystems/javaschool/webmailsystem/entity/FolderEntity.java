@@ -11,7 +11,7 @@ import java.util.List;
 @Table(name = "folder")
 @NamedQueries({
 	@NamedQuery(name = "findFolderByFolderNameAndEmail", query = "SELECT folder FROM FolderEntity folder WHERE " +
-			"folder.mailBox = :mailBox AND folder.folderName = :folderName"),
+			"folder.folderName = :folderName AND folder.mailBox = :mailBox"),
 	@NamedQuery(name = "getFoldersForMailBox", query = "SELECT folder FROM FolderEntity folder WHERE " +
 			"folder.mailBox = :mailBox")
 })

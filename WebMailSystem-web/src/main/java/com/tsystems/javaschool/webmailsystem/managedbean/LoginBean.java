@@ -1,16 +1,16 @@
 package com.tsystems.javaschool.webmailsystem.managedbean;
 
 import com.tsystems.javaschool.webmailsystem.ejb.service.MailBoxService;
+import com.tsystems.javaschool.webmailsystem.entity.MailBoxEntity;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.faces.context.FacesContext;
 
 /**
  *
  */
 @ManagedBean
-@RequestScoped
 public class LoginBean {
 	private String email;
 	private String password;
@@ -19,10 +19,12 @@ public class LoginBean {
 	private MailBoxService mailBoxService;
 
 	public String login() {
-		if (mailBoxService.login(email,password)) {
-			return "createMessageForm";
+		MailBoxEntity mailBox = mailBoxService.login(email,password);
+		if (mailBox == null) {
+			return "loginError";
 		}
-		return "loginError";
+		FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("mailBox",mailBox);
+		return "createMessageForm";
 	}
 
 	public String getEmail() {

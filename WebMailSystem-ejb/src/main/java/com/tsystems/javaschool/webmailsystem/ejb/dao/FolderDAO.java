@@ -34,7 +34,7 @@ public class FolderDAO {
 		return entityManager.find(FolderEntity.class, folder.getId());
 	}
 	
-	public List<FolderEntity> findFoldersForMailBox(MailBoxEntity mailBox) {
+	public List<FolderEntity> getFoldersForMailBox(MailBoxEntity mailBox) {
 		TypedQuery<FolderEntity> query = entityManager.createNamedQuery("getFoldersForMailBox", FolderEntity.class);
 		query.setParameter("mailBox", mailBox);
 		return query.getResultList();
@@ -43,8 +43,8 @@ public class FolderDAO {
 	public FolderEntity findFolderByFolderNameAndEmail(String folderName, MailBoxEntity emailAddress) {
 		TypedQuery<FolderEntity> query = entityManager
 				.createNamedQuery("findFolderByFolderNameAndEmail", FolderEntity.class);
-		query.setParameter("mailBox", emailAddress);
 		query.setParameter("folderName", folderName);
+		query.setParameter("mailBox", emailAddress);
 		return query.getSingleResult();
 	}
 }

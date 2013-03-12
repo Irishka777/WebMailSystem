@@ -3,6 +3,7 @@ package com.tsystems.javaschool.webmailsystem.ejb.service;
 import com.tsystems.javaschool.webmailsystem.ejb.dao.FolderDAO;
 import com.tsystems.javaschool.webmailsystem.entity.FolderEntity;
 import com.tsystems.javaschool.webmailsystem.entity.MailBoxEntity;
+import com.tsystems.javaschool.webmailsystem.entity.MessageEntity;
 import org.apache.log4j.Logger;
 
 import javax.ejb.EJB;
@@ -74,11 +75,24 @@ public class FolderService {
 		}
 	}
 	
-	public List<FolderEntity> findFoldersForMailBox(Object mailBox) {
+	public List<FolderEntity> getFoldersForMailBox(MailBoxEntity mailBox) {
 		try {
-			return folderDAO.findFoldersForMailBox((MailBoxEntity)mailBox);
+			return folderDAO.getFoldersForMailBox(mailBox);
 		} catch (NoResultException e) {
-			logger.warn("Mail box with such email address does not exist", e);
+			logger.warn("Mail box with email " + mailBox.getEmail() + " does not exist", e);
+			return null;
+		} catch (Exception e) {
+			logger.error(e.getMessage(), e);
+			return null;
+		}
+	}
+
+	public List<MessageEntity> getMessagesFromFolder(String folderName, MailBoxEntity mailBox) {
+		try {
+			FolderEntity folder = folderDAO.findFolderByFolderNameAndEmail(folderName,mailBox);
+			return folder.getListOfMessages();
+		} catch (NoResultException e) {
+			logger.warn("Folder with name " + folderName + " does not exist in " + mailBox.getEmail() , e);
 			return null;
 		} catch (Exception e) {
 			logger.error(e.getMessage(), e);

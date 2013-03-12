@@ -16,22 +16,22 @@ public class MailBoxService {
 
 	private Logger logger = Logger.getLogger(MailBoxService.class);
 
-	public boolean login(String email, String password) {
+	public MailBoxEntity login(String email, String password) {
 		try {
 			MailBoxEntity mailBox = mailBoxDAO.findByEmail(email);
 			byte[] encodedPassword = MailBoxEntity.convertPasswordStringIntoBytesArrayUsingMD5AndSalt(password);
 			if (!MailBoxEntity.comparePasswords(encodedPassword,mailBox.getPassword())) {
 				logger.info("Entered password for mailbox with email" + email + " is wrong");
-				return false;
+				return null;
 			}
 			logger.info("Successful login into mailbox " + mailBox.getEmail());
-			return true;
+			return mailBox;
 		} catch (NoResultException e) {
 			logger.warn("Mailbox with email " + email + " does not exist", e);
-			return false;
+			return null;
 		} catch (Exception e) {
 			logger.error(e.getMessage(), e);
-			return false;
+			return null;
 		}
 	}
 	

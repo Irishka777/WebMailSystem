@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+		PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" lang="en"
+	  xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<title>List of messages</title>
+</h:head>
+<h:body>
+	<h:form>
+		<h3>Messages from folder Outbox:</h3>
+		<h:dataTable var="message"
+					 value="#{listOfMessages.listOfMessages}">
+			<h:column>
+				<f:facet name="header">sender</f:facet>
+				#{message.sender}
+			</h:column>
+			<h:column>
+				<f:facet name="header">receiver</f:facet>
+				#{message.receiver}
+			</h:column>
+			<h:column>
+				<f:facet name="header">theme</f:facet>
+				#{message.theme}
+			</h:column>
+			<h:column>
+				<f:facet name="header">date</f:facet>
+				#{message.date}
+			</h:column>
+		</h:dataTable>
+		<h:commandButton id="messagesfromoutbox"
+						 value="Show messages from outbox"
+						 action="#{listOfFolders.findFoldersFromMailBox}"/>
+	</h:form>
+</h:body>
+</html>
