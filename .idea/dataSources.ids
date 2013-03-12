@@ -9,7 +9,7 @@
     <user-password>dfcbdfcedfc7dfc3dfc4</user-password>
     <libraries>
       <library>
-        <url>file://$PROJECT_DIR$/WebMailSystem-ear/target/WebMailSystem/mysql-connector-java-5.1.2.jar</url>
+        <url>file://D:/glassfish3/glassfish/lib/mysql-connector-java-5.1.23-bin.jar</url>
       </library>
     </libraries>
     <schema name="" catalog="information_schema" />

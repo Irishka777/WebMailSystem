@@ -14,7 +14,7 @@ import java.util.Calendar;
 @NamedQuery(name = "findByEmail", query = "SELECT box FROM MailBoxEntity box WHERE box.email = :address")
 public class MailBoxEntity implements Serializable {
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long id;
 	
 	@Column(nullable = false, unique = true)
@@ -23,7 +23,6 @@ public class MailBoxEntity implements Serializable {
 	@Column(columnDefinition = "binary(50)")
 	private byte[] password;
 
-//	@Column(columnDefinition = "DATETIME")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Calendar creationDate;
 	
@@ -35,11 +34,12 @@ public class MailBoxEntity implements Serializable {
 	public MailBoxEntity(String email, String password, UserEntity user) {
 		this.email = email.toLowerCase();
 
-		byte[] bytesOfPassword = convertPasswordStringIntoBytesArrayUsingMD5AndSalt(password);
-		this.password = new byte[50];
-		for (int i = 0; i < bytesOfPassword.length; i++) {
-			this.password[i] = bytesOfPassword[i];
-		}
+//		byte[] bytesOfPassword = convertPasswordStringIntoBytesArrayUsingMD5AndSalt(password);
+//		this.password = new byte[50];
+//		for (int i = 0; i < bytesOfPassword.length; i++) {
+//			this.password[i] = bytesOfPassword[i];
+//		}
+		this.password = convertPasswordStringIntoBytesArrayUsingMD5AndSalt(password);
 
 		creationDate = Calendar.getInstance();
 		this.user = user;
@@ -51,7 +51,12 @@ public class MailBoxEntity implements Serializable {
 			password = password+salt;
 
 			MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-			return messageDigest.digest(password.getBytes(Charset.forName("UTF8")));
+			byte[] bytesOfPassword = messageDigest.digest(password.getBytes(Charset.forName("UTF8")));
+			byte[] encodedPassword = new byte[50];
+			for (int i = 0; i < bytesOfPassword.length; i++) {
+				encodedPassword[i] = bytesOfPassword[i];
+			}
+			return encodedPassword;
 
 		} catch (NoSuchAlgorithmException e) {
 			return null;

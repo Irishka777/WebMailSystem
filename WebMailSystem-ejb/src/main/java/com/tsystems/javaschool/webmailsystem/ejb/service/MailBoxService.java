@@ -31,18 +31,17 @@ public class MailBoxService {
 			return false;
 		} catch (Exception e) {
 			logger.error(e.getMessage(), e);
-			e.printStackTrace();
 			return false;
 		}
 	}
 	
-	public boolean registration(Object mailBox) {
+	public boolean registration(MailBoxEntity mailBox) {
 		try {
-			mailBoxDAO.insert((MailBoxEntity) mailBox);
-			logger.info("Mailbox with email address" + ((MailBoxEntity) mailBox).getEmail() + " successfully created");
+			mailBoxDAO.insert(mailBox);
+			logger.info("Mailbox with email " + mailBox.getEmail() + " successfully created");
 			return true;
 		} catch (PersistenceException e) {
-			logger.warn("Mailbox with such email address already exists", e);
+			logger.warn("Mailbox with such email already exists", e);
 			return false;
 		} catch (Exception e) {
 			logger.error(e.getMessage(), e);

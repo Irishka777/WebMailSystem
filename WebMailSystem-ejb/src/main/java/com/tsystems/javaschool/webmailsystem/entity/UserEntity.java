@@ -9,7 +9,7 @@ import java.util.Date;
 @Table(name = "user")
 public class UserEntity implements Serializable {
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long id;
 	
 	private String firstName;

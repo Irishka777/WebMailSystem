@@ -11,7 +11,7 @@ import java.util.Calendar;
 public class MessageEntity implements Serializable {
 	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long id;
 
 	@OneToOne
@@ -20,7 +20,6 @@ public class MessageEntity implements Serializable {
 	@OneToOne
 	private MailBoxEntity receiver;
 
-//	@Column(columnDefinition = "DATETIME")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Calendar date;
 

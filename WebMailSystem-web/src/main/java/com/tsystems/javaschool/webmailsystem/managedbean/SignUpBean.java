@@ -1,6 +1,12 @@
 package com.tsystems.javaschool.webmailsystem.managedbean;
 
+import com.tsystems.javaschool.webmailsystem.ejb.service.MailBoxService;
+import com.tsystems.javaschool.webmailsystem.entity.MailBoxEntity;
+import com.tsystems.javaschool.webmailsystem.entity.UserEntity;
+
+import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -15,6 +21,19 @@ public class SignUpBean {
 	private String lastName;
 	private String phoneNumber;
 	private Date dateOfBirth;
+
+	@EJB
+	private MailBoxService mailBoxService;
+
+	public String registration() {
+		dateOfBirth = Calendar.getInstance().getTime(); // need convert
+		if (mailBoxService.registration(
+				new MailBoxEntity(email, password,
+						new UserEntity(firstName, lastName, dateOfBirth, phoneNumber)))) {
+			return "createMessageForm";
+		}
+		return "loginError";
+	}
 
 	public String getEmail() {
 		return email;

@@ -17,7 +17,7 @@ import java.util.List;
 })
 public class FolderEntity implements Serializable {
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long id;
 	
 	private String folderName;

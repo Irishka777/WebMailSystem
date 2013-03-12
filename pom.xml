@@ -50,7 +50,8 @@
 			<dependency>
 				<groupId>mysql</groupId>
 				<artifactId>mysql-connector-java</artifactId>
-				<version>5.1.2</version>
+				<version>5.1.23</version>
+				<!--<scope>provided</scope>-->
 			</dependency>
 			<dependency>
 				<!-- Define the version of the EJB jar so that we don't need to
