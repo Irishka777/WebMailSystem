@@ -19,8 +19,11 @@ public class MessageEntity implements Serializable {
 	
 	@OneToOne
 	private MailBoxEntity receiver;
-	
+
+//	@Column(columnDefinition = "DATETIME")
+	@Temporal(TemporalType.TIMESTAMP)
 	private Calendar date;
+
 	private String theme;
 	
 	@Column(columnDefinition = "TEXT")

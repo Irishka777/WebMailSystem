@@ -22,7 +22,9 @@ public class MailBoxEntity implements Serializable {
 	
 	@Column(columnDefinition = "binary(50)")
 	private byte[] password;
-	
+
+//	@Column(columnDefinition = "DATETIME")
+	@Temporal(TemporalType.TIMESTAMP)
 	private Calendar creationDate;
 	
 	@OneToOne(cascade = CascadeType.ALL)
@@ -33,25 +35,27 @@ public class MailBoxEntity implements Serializable {
 	public MailBoxEntity(String email, String password, UserEntity user) {
 		this.email = email.toLowerCase();
 
+		byte[] bytesOfPassword = convertPasswordStringIntoBytesArrayUsingMD5AndSalt(password);
+		this.password = new byte[50];
+		for (int i = 0; i < bytesOfPassword.length; i++) {
+			this.password[i] = bytesOfPassword[i];
+		}
+
+		creationDate = Calendar.getInstance();
+		this.user = user;
+	}
+
+	public static byte[] convertPasswordStringIntoBytesArrayUsingMD5AndSalt(String password) {
 		try {
 			String salt = "qwertyuiopasdfghjklzxcvbnm";
 			password = password+salt;
-			
+
 			MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-			byte[] bytesOfPassword;
-			bytesOfPassword = messageDigest.digest(password.getBytes(Charset.forName("UTF8")));
-			
-			this.password = new byte[50];
-			for (int i = 0; i < bytesOfPassword.length; i++) {
-				this.password[i] = bytesOfPassword[i];
-			}
-			
+			return messageDigest.digest(password.getBytes(Charset.forName("UTF8")));
+
 		} catch (NoSuchAlgorithmException e) {
-			e.printStackTrace();
+			return null;
 		}
-		
-		creationDate = Calendar.getInstance();
-		this.user = user;
 	}
 
 	public static boolean comparePasswords(byte[] password1, byte[] password2) {

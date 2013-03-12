@@ -20,7 +20,7 @@
 			<groupId>WebMailSystem</groupId>
 			<artifactId>WebMailSystem-ejb</artifactId>
 			<type>ejb</type>
-			<!--<scope>provided</scope>-->
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>javax.faces</groupId>

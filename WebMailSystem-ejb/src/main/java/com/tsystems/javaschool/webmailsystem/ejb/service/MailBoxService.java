@@ -14,24 +14,24 @@ public class MailBoxService {
 	@EJB
 	private MailBoxDAO mailBoxDAO;
 
-	private Logger logger = Logger.getLogger(FolderService.class);
+	private Logger logger = Logger.getLogger(MailBoxService.class);
 
 	public boolean login(String email, String password) {
-		MailBoxEntity neededMailBox = new MailBoxEntity(email,password,null);
 		try {
-			MailBoxEntity mailBox = mailBoxDAO.findByEmail(((MailBoxEntity) neededMailBox).getEmail());
-			if (!MailBoxEntity.comparePasswords(neededMailBox.getPassword(),mailBox.getPassword())) {
-				logger.info("Entered password for mailbox with email"
-						+ ((MailBoxEntity) neededMailBox).getEmail() + " is wrong");
+			MailBoxEntity mailBox = mailBoxDAO.findByEmail(email);
+			byte[] encodedPassword = MailBoxEntity.convertPasswordStringIntoBytesArrayUsingMD5AndSalt(password);
+			if (!MailBoxEntity.comparePasswords(encodedPassword,mailBox.getPassword())) {
+				logger.info("Entered password for mailbox with email" + email + " is wrong");
 				return false;
 			}
 			logger.info("Successful login into mailbox " + mailBox.getEmail());
 			return true;
 		} catch (NoResultException e) {
-			logger.warn("Mailbox with such email address does not exist", e);
+			logger.warn("Mailbox with email " + email + " does not exist", e);
 			return false;
 		} catch (Exception e) {
 			logger.error(e.getMessage(), e);
+			e.printStackTrace();
 			return false;
 		}
 	}

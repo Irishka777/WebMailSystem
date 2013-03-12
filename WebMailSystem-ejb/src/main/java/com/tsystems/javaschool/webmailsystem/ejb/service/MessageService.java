@@ -11,9 +11,9 @@ import javax.ejb.Stateless;
 public class MessageService {
 
 	@EJB
-	MessageDAO messageDAO;
+	private MessageDAO messageDAO;
 
-	private Logger logger = Logger.getLogger(FolderService.class);
+	private Logger logger = Logger.getLogger(MessageService.class);
 
 	public boolean sendMessage(Object message) {
 		try {

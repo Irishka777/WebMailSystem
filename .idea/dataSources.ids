@@ -29,7 +29,7 @@
     <table name="mailbox" schema="" catalog="mailsystemdb" type="TABLE">
       <column name="id" sqlType="bigint" length="19" precision="0" nullable="false" jdbcType="-5" />
       <column name="creationDate" sqlType="datetime" length="0" precision="0" nullable="true" jdbcType="93" />
-      <column name="emailAddress" sqlType="varchar" length="255" precision="0" nullable="false" jdbcType="12" />
+      <column name="email" sqlType="varchar" length="255" precision="0" nullable="false" jdbcType="12" />
       <column name="password" sqlType="binary" length="50" precision="0" nullable="true" jdbcType="-2" />
       <column name="user_id" sqlType="bigint" length="19" precision="0" nullable="true" jdbcType="-5" />
       <primary-key name="PRIMARY" columns="id" />
@@ -47,16 +47,16 @@
       <column name="sender_id" sqlType="bigint" length="19" precision="0" nullable="true" jdbcType="-5" />
       <column name="folder_id" sqlType="bigint" length="19" precision="0" nullable="true" jdbcType="-5" />
       <primary-key name="PRIMARY" columns="id" />
-      <foreign-key name="FK9C2397E722E44530" columns="sender_id" ref-table="mailbox" ref-schema="" ref-catalog="mailsystemdb" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2" />
       <foreign-key name="FK9C2397E79E4EEDC9" columns="folder_id" ref-table="folder" ref-schema="" ref-catalog="mailsystemdb" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2" />
+      <foreign-key name="FK9C2397E722E44530" columns="sender_id" ref-table="mailbox" ref-schema="" ref-catalog="mailsystemdb" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2" />
       <foreign-key name="FK9C2397E7A3A6A336" columns="receiver_id" ref-table="mailbox" ref-schema="" ref-catalog="mailsystemdb" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2" />
     </table>
     <table name="user" schema="" catalog="mailsystemdb" type="TABLE">
       <column name="id" sqlType="bigint" length="19" precision="0" nullable="false" jdbcType="-5" />
       <column name="dateOfBirth" sqlType="date" length="0" precision="0" nullable="true" jdbcType="91" />
-      <column name="name" sqlType="varchar" length="255" precision="0" nullable="true" jdbcType="12" />
+      <column name="firstName" sqlType="varchar" length="255" precision="0" nullable="true" jdbcType="12" />
+      <column name="lastName" sqlType="varchar" length="255" precision="0" nullable="true" jdbcType="12" />
       <column name="phoneNumber" sqlType="varchar" length="255" precision="0" nullable="true" jdbcType="12" />
-      <column name="surname" sqlType="varchar" length="255" precision="0" nullable="true" jdbcType="12" />
       <primary-key name="PRIMARY" columns="id" />
       <exported-key name="FK94BFA8747903FDE9" table="mailbox" schema="" catalog="mailsystemdb" columns="user_id" />
     </table>
