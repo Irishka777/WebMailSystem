@@ -1,32 +1,48 @@
 package com.tsystems.javaschool.webmailsystem.entity;
 
+import com.tsystems.javaschool.webmailsystem.dto.UserDTO;
+
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
+import java.util.Calendar;
 
-@SuppressWarnings("serial")
 @Entity
-@Table(name = "user")
-public class UserEntity implements Serializable {
+public class User implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long id;
-	
+
+	@Column(columnDefinition = "varchar(30)")
 	private String firstName;
+
+	@Column(columnDefinition = "varchar(30)")
 	private String lastName;
 
 	@Temporal(TemporalType.DATE)
-	private Date dateOfBirth;
+	private Calendar dateOfBirth;
 
+	@Column(columnDefinition = "varchar(30)")
 	private String phoneNumber;
 	
-	public UserEntity() {}
+	public User() {}
 	
-	public UserEntity(String firstName, String lastName, Date dateOfBirth, String phoneNumber) {
+	public User(String firstName, String lastName, Calendar dateOfBirth, String phoneNumber) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.dateOfBirth = dateOfBirth;
 		this.phoneNumber = phoneNumber;
+	}
+
+	public User(UserDTO user) {
+		this.id = user.getId();
+		this.firstName = user.getFirstName();
+		this.lastName = user.getLastName();
+		this.dateOfBirth = user.getDateOfBirth();
+		this.phoneNumber = user.getPhoneNumber();
+	}
+
+	public UserDTO getUserDTO() {
+		return new UserDTO(id,firstName,lastName,dateOfBirth,phoneNumber);
 	}
 	
 	public void setId(long id) {
@@ -50,10 +66,10 @@ public class UserEntity implements Serializable {
 		return lastName;
 	}
 	
-	public void setDate(Date dateOfBirth) {
+	public void setDate(Calendar dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
-	public Date getDate() {
+	public Calendar getDate() {
 		return dateOfBirth;
 	}
 	

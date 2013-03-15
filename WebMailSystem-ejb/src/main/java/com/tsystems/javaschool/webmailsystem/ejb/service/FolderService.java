@@ -1,14 +1,20 @@
 package com.tsystems.javaschool.webmailsystem.ejb.service;
 
+import com.tsystems.javaschool.webmailsystem.dto.FolderDTO;
+import com.tsystems.javaschool.webmailsystem.dto.MailBoxDTO;
+import com.tsystems.javaschool.webmailsystem.dto.MessageDTO;
 import com.tsystems.javaschool.webmailsystem.ejb.dao.FolderDAO;
-import com.tsystems.javaschool.webmailsystem.entity.FolderEntity;
-import com.tsystems.javaschool.webmailsystem.entity.MailBoxEntity;
-import com.tsystems.javaschool.webmailsystem.entity.MessageEntity;
+import com.tsystems.javaschool.webmailsystem.entity.Folder;
+import com.tsystems.javaschool.webmailsystem.entity.MailBox;
+import com.tsystems.javaschool.webmailsystem.entity.Message;
+import com.tsystems.javaschool.webmailsystem.exception.DataProcessingException;
+import com.tsystems.javaschool.webmailsystem.exception.ExceptionType;
 import org.apache.log4j.Logger;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.persistence.NoResultException;
+import java.util.ArrayList;
 import java.util.List;
 
 @Stateless
@@ -19,84 +25,95 @@ public class FolderService {
 
 	private Logger logger = Logger.getLogger(FolderService.class);
 	
-	public boolean createFolder(Object folder) {
+	public boolean createFolder(Object folder) throws DataProcessingException {
 		try {
-			folderDAO.insert((FolderEntity) folder);
-			logger.info("Folder " + ((FolderEntity) folder).getFolderName() + " successfully created");
+			folderDAO.create((Folder) folder);
+			logger.info("Folder " + ((Folder) folder).getFolderName() + " successfully created");
 			return true;
 		} catch (Exception e) {
 			logger.error(e.getMessage(), e);
-			return false;
+			throw new DataProcessingException(ExceptionType.UnexpectedException,e.getCause());
 		}
 	}
 	
-	public boolean deleteFolder(Object folder) {
+	public boolean deleteFolder(Object folder) throws DataProcessingException {
 		try {
-			folderDAO.delete((FolderEntity) folder);
-			logger.info("Folder " + ((FolderEntity) folder).getFolderName() + " successfully deleted");
+			folderDAO.delete((Folder) folder);
+			logger.info("Folder " + ((Folder) folder).getFolderName() + " successfully deleted");
 			return true;
 		} catch (Exception e) {
 			logger.error(e.getMessage(), e);
-			return false;
+			throw new DataProcessingException(ExceptionType.UnexpectedException,e.getCause());
 		}
 	}
 	
-	public boolean renameFolder(Object folder) {
+	public boolean renameFolder(Object folder) throws DataProcessingException {
 		try {
-			folderDAO.update((FolderEntity) folder);
-			logger.info("Folder " + ((FolderEntity) folder).getFolderName() + " successfully renamed");
+			folderDAO.update((Folder) folder);
+			logger.info("Folder " + ((Folder) folder).getFolderName() + " successfully renamed");
 			return true;
 		} catch (Exception e) {
 			logger.error(e.getMessage(), e);
-			return false;
+			throw new DataProcessingException(ExceptionType.UnexpectedException,e.getCause());
 		}
 	}
 	
-	public boolean moveMessageToAnotherFolder(Object folder) {
+	public boolean moveMessageToAnotherFolder(Object folder) throws DataProcessingException {
 		try {
-			folderDAO.update((FolderEntity) folder);
-			logger.info("Message successfully moved into folder " + ((FolderEntity) folder).getFolderName());
+			folderDAO.update((Folder) folder);
+			logger.info("Message successfully moved into folder " + ((Folder) folder).getFolderName());
 			return true;
 		} catch (Exception e) {
 			logger.error(e.getMessage(), e);
-			return false;
+			throw new DataProcessingException(ExceptionType.UnexpectedException,e.getCause());
 		}
 	}
 	
-	public FolderEntity getFolder(Object folder) {
+	public Folder getFolder(Object folder) throws DataProcessingException {
 		try {
-			return folderDAO.getFolder((FolderEntity)folder);
+			return folderDAO.getFolder((Folder)folder);
 		} catch (NoResultException e) {
 			logger.warn("Folder with such id does not exist", e);
-			return null;
+			throw new DataProcessingException(ExceptionType.NoSuchFolderException);
 		} catch (Exception e) {
 			logger.error(e.getMessage(), e);
-			return null;
+			throw new DataProcessingException(ExceptionType.UnexpectedException,e.getCause());
 		}
 	}
 	
-	public List<FolderEntity> getFoldersForMailBox(MailBoxEntity mailBox) {
+	public List<FolderDTO> getFoldersForMailBox(MailBoxDTO mailBoxDTO) throws DataProcessingException {
 		try {
-			return folderDAO.getFoldersForMailBox(mailBox);
+			List<Folder> listOfFolders = folderDAO.getFoldersForMailBox(mailBoxDTO.getEmail());
+			List<FolderDTO> listOfFolderDTO= new ArrayList<FolderDTO>();
+			for (Folder folder : listOfFolders) {
+				listOfFolderDTO.add(folder.getFolderDTO());
+			}
+			return listOfFolderDTO;
 		} catch (NoResultException e) {
-			logger.warn("Mail box with email " + mailBox.getEmail() + " does not exist", e);
-			return null;
+			logger.warn("Mail box with email " + mailBoxDTO.getEmail() + " does not exist", e);
+			throw new DataProcessingException(ExceptionType.NoSuchFolderException);
 		} catch (Exception e) {
 			logger.error(e.getMessage(), e);
-			return null;
+			throw new DataProcessingException(ExceptionType.UnexpectedException,e.getCause());
 		}
 	}
 
-	public List<MessageEntity> getMessagesFromFolder(String folderName, MailBoxEntity mailBox) {
+	public List<MessageDTO> getMessagesFromFolder(String folderName, String email) throws DataProcessingException {
 		try {
-			FolderEntity folder = folderDAO.findFolderByFolderNameAndEmail(folderName,mailBox);
-			return folder.getListOfMessages();
+			List<Message> listOfMessages = folderDAO.getMessagesFromFolder(folderName, email);
+			List<MessageDTO> listOfMessagesDTO= new ArrayList<MessageDTO>();
+			for (Message message : listOfMessages) {
+				listOfMessagesDTO.add(message.getMessageDTO());
+			}
+			return listOfMessagesDTO;
+//			Folder folder = folderDAO.findFolderByFolderNameAndEmail(folderName,mailBox);
+//			return folder.getListOfMessages();
 		} catch (NoResultException e) {
-			logger.warn("Folder with name " + folderName + " does not exist in " + mailBox.getEmail() , e);
-			return null;
+			logger.warn("Folder with name " + folderName + " does not exist in " + email, e);
+			throw new DataProcessingException(ExceptionType.NoSuchFolderException);
 		} catch (Exception e) {
 			logger.error(e.getMessage(), e);
-			return null;
+			throw new DataProcessingException(ExceptionType.UnexpectedException,e.getCause());
 		}
 	}
 }

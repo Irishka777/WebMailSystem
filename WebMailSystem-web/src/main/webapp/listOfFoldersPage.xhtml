@@ -11,14 +11,14 @@
 	<title>List of folders</title>
 </h:head>
 <h:body>
-	<h:form>
+	<h:form id="listOfFoldersPage">
 		<h3>Folders:</h3>
 		<h:selectOneListbox>
 			<f:selectItems value="#{listOfFolders.folders}"/>
 		</h:selectOneListbox>
 		<h:commandButton id="messagesfromoutbox"
 						 value="Show messages from outbox"
-						 action="#{listOfMessages.findMessagesFromFolder}"/>
+						 action="#{messagesBean.findMessagesFromFolder}"/>
 	</h:form>
 </h:body>
 </html>

@@ -22,12 +22,14 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
+        <module name="Common" />
         <module name="WebMailSystem-ear" />
         <module name="WebMailSystem-ejb" />
         <module name="WebMailSystem-web" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="Common" target="1.6" />
       <module name="WebMailSystem" target="1.6" />
       <module name="WebMailSystem-ear" target="1.6" />
       <module name="WebMailSystem-ejb" target="1.6" />

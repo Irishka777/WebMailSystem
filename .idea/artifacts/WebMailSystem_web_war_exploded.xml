@@ -10,6 +10,7 @@
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: log4j:log4j:1.2.16" />
           <element id="library" level="project" name="Maven: org.primefaces:primefaces:3.5" />
+          <element id="library" level="project" name="Maven: org.primefaces.themes:all-themes:1.0.9" />
         </element>
       </element>
     </root>

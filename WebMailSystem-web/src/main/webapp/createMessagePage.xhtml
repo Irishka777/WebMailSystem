@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+		PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" lang="en"
+	  xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<h:outputStylesheet library="css" name="style.css"/>
+	<title>Create a message</title>
+</h:head>
+<h:body>
+	<ui:composition template="foldersAndMessagesTemplate.xhtml">
+		<ui:define name="content">
+			<h:form>
+				<h:panelGrid columns="2">
+					<f:facet name="header">
+						Create a message
+					</f:facet>
+
+					<p:outputLabel for="receiver" value="Receiver: "/>
+					<p:inputText id="receiver" value="#{createMessageBean.receiver}"/>
+
+					<p:outputLabel for="theme" value="Theme: "/>
+					<p:inputText id="theme" value="#{createMessageBean.theme}"/>
+
+					<p:outputLabel for="messagebody" value="Message: "/>
+					<p:inputTextarea id="messagebody" value="#{createMessageBean.messageBody}"/>
+
+					<f:facet name="footer">
+						<p:commandButton ajax="false" value="Send" action="#{createMessageBean.sendMessage}"/>
+						<p:commandButton ajax="false" value="Save" action="#{createMessageBean.saveMessage}"/>
+						<p:button value="Back" outcome="messagesPage"/>
+					</f:facet>
+				</h:panelGrid>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

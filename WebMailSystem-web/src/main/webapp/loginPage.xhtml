@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+		PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" lang="en"
+	  xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:p="http://primefaces.org/ui"
+	  xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<h:outputStylesheet library="css" name="style.css"/>
+	<title>Log In</title>
+</h:head>
+<h:body>
+	<p:layout fullPage="true">
+		<p:layoutUnit position="north" header="Log In"/>
+		<p:layoutUnit position="center">
+			<h:form>
+				<h:panelGrid columns="3">
+
+					<p:outputLabel for="email" value="Email:"/>
+					<p:inputText id="email" value="#{loginBean.email}"/>
+					<p:message for="email" display="text"/>
+
+					<p:outputLabel for="password" value="Password:"/>
+					<p:password id="password" value="#{loginBean.password}"/>
+					<p:message for="password" display="text"/>
+
+					<f:facet name="footer">
+						<p:commandButton ajax="false" value="Log in" action="#{loginBean.login}"/>
+						<p:button value="Sign up" outcome="signUpPage"/>
+					</f:facet>
+
+				</h:panelGrid>
+			</h:form>
+		</p:layoutUnit>
+	</p:layout>
+</h:body>
+</html>

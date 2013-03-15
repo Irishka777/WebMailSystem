@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+		PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" lang="en"
+	  xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:p="http://primefaces.org/ui"
+	  xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title></title>
+</h:head>
+<h:body>
+	<ui:composition>
+		<p:dataTable id="messages"
+					 var="message"
+					 value="#{messagesBean.listOfMessages}"
+					 selectionMode="single"
+					 selection="#{messagesBean.selectedMessage}"
+					 sortBy="#{message.date}">
+			<f:facet name="header">Messages:</f:facet>
+			<p:column>
+				<f:facet name="header">sender</f:facet>
+				#{message.sender}
+			</p:column>
+			<p:column>
+				<f:facet name="header">receiver</f:facet>
+				#{message.receiver}
+			</p:column>
+			<p:column>
+				<f:facet name="header">theme</f:facet>
+				#{message.theme}
+			</p:column>
+			<p:column>
+				<f:facet name="header">date</f:facet>
+				#{message.date}
+			</p:column>
+		</p:dataTable>
+	</ui:composition>
+</h:body>
+</html>

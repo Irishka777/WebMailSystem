@@ -1,13 +1,12 @@
 package com.tsystems.javaschool.webmailsystem.ejb.dao;
 
-import com.tsystems.javaschool.webmailsystem.entity.FolderEntity;
-import com.tsystems.javaschool.webmailsystem.entity.MailBoxEntity;
+import com.tsystems.javaschool.webmailsystem.entity.Folder;
+import com.tsystems.javaschool.webmailsystem.entity.MailBox;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.TypedQuery;
 
 @Stateless
 public class MailBoxDAO {
@@ -18,29 +17,32 @@ public class MailBoxDAO {
 	@EJB
 	private FolderDAO folderDAO;
 
-	public boolean insert(MailBoxEntity mailBox) {
+	public boolean create(MailBox mailBox) {
 		entityManager.persist(mailBox);
-	
-		MailBoxEntity createdMailBox = findByEmail(mailBox.getEmail());
-		folderDAO.insert(new FolderEntity("Inbox",createdMailBox));
-		folderDAO.insert(new FolderEntity("Outbox",createdMailBox));
-		folderDAO.insert(new FolderEntity("Draft",createdMailBox));
+
+		folderDAO.create(new Folder("Inbox", mailBox));
+		folderDAO.create(new Folder("Outbox", mailBox));
+		folderDAO.create(new Folder("Draft", mailBox));
 		
 		return true;
 	}
 	
-	public MailBoxEntity update(MailBoxEntity mailBox) {
+	public MailBox update(MailBox mailBox) {
 		return entityManager.merge(mailBox);
 	}
 	
-	public boolean delete(MailBoxEntity mailBox) {
+	public boolean delete(MailBox mailBox) {
 		return true;
 	}
-	
-	public MailBoxEntity findByEmail(String email) {
-		TypedQuery<MailBoxEntity> query = entityManager.createNamedQuery("findByEmail"
-				, MailBoxEntity.class);
-		query.setParameter("address", email);
-		return query.getSingleResult();
+
+	public MailBox find(String email) {
+		return entityManager.find(MailBox.class,email);
 	}
+	
+//	public MailBox findByEmail(String email) {
+//		TypedQuery<MailBox> query = entityManager.createNamedQuery("findByEmail"
+//				, MailBox.class);
+//		query.setParameter("address", email);
+//		return query.getSingleResult();
+//	}
 }

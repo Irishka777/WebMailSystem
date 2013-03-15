@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><component name="dataSourceStorage">
-  <data-source source="LOCAL" name="Data Source" product="MySQL" version="5.5.30" jdbc-version="3.0" driver-name="MySQL-AB JDBC Driver" driver-version="mysql-connector-java-5.1.2-beta ( $Date: 2007-06-15 03:24:27 +0200 (Fri, 15 Jun 2007) $, $Revision: 6451 $ )" uuid="8d23d998-990c-4eb5-a2bd-a19d8fc7e992">
+  <data-source source="LOCAL" name="Data Source" product="MySQL" version="5.5.30" jdbc-version="4.0" driver-name="MySQL-AB JDBC Driver" driver-version="mysql-connector-java-5.1.23 ( Revision: ${bzr.revision-id} )" uuid="8d23d998-990c-4eb5-a2bd-a19d8fc7e992">
     <extra-name-characters>#@</extra-name-characters>
     <identifier-quote-string>`</identifier-quote-string>
     <synchronize>true</synchronize>
@@ -19,46 +19,46 @@
     <schema name="" catalog="test" />
     <schema name="" catalog="testdb" />
     <table name="folder" schema="" catalog="mailsystemdb" type="TABLE">
-      <column name="id" sqlType="bigint" length="19" precision="0" nullable="false" jdbcType="-5" />
-      <column name="folderName" sqlType="varchar" length="255" precision="0" nullable="true" jdbcType="12" />
-      <column name="mailBox_id" sqlType="bigint" length="19" precision="0" nullable="true" jdbcType="-5" />
-      <primary-key name="PRIMARY" columns="id" />
-      <foreign-key name="FK7DC2088EEC37D251" columns="mailBox_id" ref-table="mailbox" ref-schema="" ref-catalog="mailsystemdb" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2" />
-      <exported-key name="FK9C2397E79E4EEDC9" table="message" schema="" catalog="mailsystemdb" columns="folder_id" />
+      <column name="ID" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5" autoIncrement="true" />
+      <column name="FOLDERNAME" sqlType="VARCHAR" length="30" precision="0" nullable="true" jdbcType="12" />
+      <column name="MAILBOX_EMAIL" sqlType="VARCHAR" length="30" precision="0" nullable="true" jdbcType="12" />
+      <primary-key name="PRIMARY" columns="ID" />
+      <foreign-key name="FK_FOLDER_MAILBOX_EMAIL" columns="MAILBOX_EMAIL" ref-table="mailbox" ref-schema="" ref-catalog="mailsystemdb" ref-columns="EMAIL" update-rule="3" delete-rule="3" deferrability="2" />
+      <exported-key name="FK_MESSAGE_FOLDER_ID" table="message" schema="" catalog="mailsystemdb" columns="FOLDER_ID" />
     </table>
     <table name="mailbox" schema="" catalog="mailsystemdb" type="TABLE">
-      <column name="id" sqlType="bigint" length="19" precision="0" nullable="false" jdbcType="-5" />
-      <column name="creationDate" sqlType="datetime" length="0" precision="0" nullable="true" jdbcType="93" />
-      <column name="email" sqlType="varchar" length="255" precision="0" nullable="false" jdbcType="12" />
-      <column name="password" sqlType="binary" length="50" precision="0" nullable="true" jdbcType="-2" />
-      <column name="user_id" sqlType="bigint" length="19" precision="0" nullable="true" jdbcType="-5" />
-      <primary-key name="PRIMARY" columns="id" />
-      <foreign-key name="FK94BFA8747903FDE9" columns="user_id" ref-table="user" ref-schema="" ref-catalog="mailsystemdb" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2" />
-      <exported-key name="FK7DC2088EEC37D251" table="folder" schema="" catalog="mailsystemdb" columns="mailBox_id" />
-      <exported-key name="FK9C2397E722E44530" table="message" schema="" catalog="mailsystemdb" columns="sender_id" />
-      <exported-key name="FK9C2397E7A3A6A336" table="message" schema="" catalog="mailsystemdb" columns="receiver_id" />
+      <column name="EMAIL" sqlType="VARCHAR" length="30" precision="0" nullable="false" jdbcType="12" def="Jyc=" />
+      <column name="CREATIONDATE" sqlType="DATETIME" length="19" precision="0" nullable="true" jdbcType="93" />
+      <column name="PASSWORD" sqlType="BINARY" length="60" precision="0" nullable="true" jdbcType="-2" />
+      <column name="USER_ID" sqlType="BIGINT" length="19" precision="0" nullable="true" jdbcType="-5" />
+      <primary-key name="PRIMARY" columns="EMAIL" />
+      <foreign-key name="FK_MAILBOX_USER_ID" columns="USER_ID" ref-table="user" ref-schema="" ref-catalog="mailsystemdb" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2" />
+      <exported-key name="FK_FOLDER_MAILBOX_EMAIL" table="folder" schema="" catalog="mailsystemdb" columns="MAILBOX_EMAIL" />
+      <exported-key name="FK_MESSAGE_RECEIVER_EMAIL" table="message" schema="" catalog="mailsystemdb" columns="RECEIVER_EMAIL" />
+      <exported-key name="FK_MESSAGE_SENDER_EMAIL" table="message" schema="" catalog="mailsystemdb" columns="SENDER_EMAIL" />
     </table>
     <table name="message" schema="" catalog="mailsystemdb" type="TABLE">
-      <column name="id" sqlType="bigint" length="19" precision="0" nullable="false" jdbcType="-5" />
-      <column name="date" sqlType="datetime" length="0" precision="0" nullable="true" jdbcType="93" />
-      <column name="messageBody" sqlType="text" length="65535" precision="0" nullable="true" jdbcType="-1" />
-      <column name="theme" sqlType="varchar" length="255" precision="0" nullable="true" jdbcType="12" />
-      <column name="receiver_id" sqlType="bigint" length="19" precision="0" nullable="true" jdbcType="-5" />
-      <column name="sender_id" sqlType="bigint" length="19" precision="0" nullable="true" jdbcType="-5" />
-      <column name="folder_id" sqlType="bigint" length="19" precision="0" nullable="true" jdbcType="-5" />
-      <primary-key name="PRIMARY" columns="id" />
-      <foreign-key name="FK9C2397E79E4EEDC9" columns="folder_id" ref-table="folder" ref-schema="" ref-catalog="mailsystemdb" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2" />
-      <foreign-key name="FK9C2397E722E44530" columns="sender_id" ref-table="mailbox" ref-schema="" ref-catalog="mailsystemdb" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2" />
-      <foreign-key name="FK9C2397E7A3A6A336" columns="receiver_id" ref-table="mailbox" ref-schema="" ref-catalog="mailsystemdb" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2" />
+      <column name="ID" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5" autoIncrement="true" />
+      <column name="DATE" sqlType="DATETIME" length="19" precision="0" nullable="true" jdbcType="93" />
+      <column name="MESSAGEBODY" sqlType="TEXT" length="65535" precision="0" nullable="true" jdbcType="-1" />
+      <column name="MESSAGEREADFLAG" sqlType="TINYINT" length="3" precision="0" nullable="true" jdbcType="-6" />
+      <column name="THEME" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12" />
+      <column name="FOLDER_ID" sqlType="BIGINT" length="19" precision="0" nullable="true" jdbcType="-5" />
+      <column name="RECEIVER_EMAIL" sqlType="VARCHAR" length="30" precision="0" nullable="true" jdbcType="12" />
+      <column name="SENDER_EMAIL" sqlType="VARCHAR" length="30" precision="0" nullable="true" jdbcType="12" />
+      <primary-key name="PRIMARY" columns="ID" />
+      <foreign-key name="FK_MESSAGE_RECEIVER_EMAIL" columns="RECEIVER_EMAIL" ref-table="mailbox" ref-schema="" ref-catalog="mailsystemdb" ref-columns="EMAIL" update-rule="3" delete-rule="3" deferrability="2" />
+      <foreign-key name="FK_MESSAGE_FOLDER_ID" columns="FOLDER_ID" ref-table="folder" ref-schema="" ref-catalog="mailsystemdb" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2" />
+      <foreign-key name="FK_MESSAGE_SENDER_EMAIL" columns="SENDER_EMAIL" ref-table="mailbox" ref-schema="" ref-catalog="mailsystemdb" ref-columns="EMAIL" update-rule="3" delete-rule="3" deferrability="2" />
     </table>
     <table name="user" schema="" catalog="mailsystemdb" type="TABLE">
-      <column name="id" sqlType="bigint" length="19" precision="0" nullable="false" jdbcType="-5" />
-      <column name="dateOfBirth" sqlType="date" length="0" precision="0" nullable="true" jdbcType="91" />
-      <column name="firstName" sqlType="varchar" length="255" precision="0" nullable="true" jdbcType="12" />
-      <column name="lastName" sqlType="varchar" length="255" precision="0" nullable="true" jdbcType="12" />
-      <column name="phoneNumber" sqlType="varchar" length="255" precision="0" nullable="true" jdbcType="12" />
-      <primary-key name="PRIMARY" columns="id" />
-      <exported-key name="FK94BFA8747903FDE9" table="mailbox" schema="" catalog="mailsystemdb" columns="user_id" />
+      <column name="ID" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5" autoIncrement="true" />
+      <column name="DATEOFBIRTH" sqlType="DATE" length="10" precision="0" nullable="true" jdbcType="91" />
+      <column name="FIRSTNAME" sqlType="VARCHAR" length="30" precision="0" nullable="true" jdbcType="12" />
+      <column name="LASTNAME" sqlType="VARCHAR" length="30" precision="0" nullable="true" jdbcType="12" />
+      <column name="PHONENUMBER" sqlType="VARCHAR" length="30" precision="0" nullable="true" jdbcType="12" />
+      <primary-key name="PRIMARY" columns="ID" />
+      <exported-key name="FK_MAILBOX_USER_ID" table="mailbox" schema="" catalog="mailsystemdb" columns="USER_ID" />
     </table>
     <table name="columns_priv" schema="" catalog="mysql" type="TABLE">
       <column name="Host" sqlType="char" length="60" precision="0" nullable="false" jdbcType="1" def="Jyc=" />

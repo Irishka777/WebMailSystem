@@ -29,6 +29,12 @@
 			<version>1.0</version>
 			<type>ejb</type>
 		</dependency>
+		<dependency>
+			<groupId>WebMailSystem</groupId>
+			<artifactId>Common</artifactId>
+			<version>1.0</version>
+			<type>jar</type>
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>WebMailSystem</finalName>
@@ -50,6 +56,10 @@
 							<artifactId>WebMailSystem-web</artifactId>
 							<contextRoot>/</contextRoot>
 						</webModule>
+						<jarModule>
+							<groupId>WebMailSystem</groupId>
+							<artifactId>Common</artifactId>
+						</jarModule>
 					</modules>
 				</configuration>
 			</plugin>

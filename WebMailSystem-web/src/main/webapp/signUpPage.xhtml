@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+		PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" lang="en"
+	  xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:p="http://primefaces.org/ui"
+	  xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<h:outputStylesheet library="css" name="style.css"/>
+	<title>Sign up</title>
+</h:head>
+<h:body>
+	<p:layout fullPage="true">
+		<p:layoutUnit position="north" header="Sign Up"/>
+		<p:layoutUnit position="center">
+			<h:form>
+				<h:panelGrid columns="3">
+
+					<p:outputLabel for="email" value="Email: *"/>
+					<p:inputText id="email" value="#{signUpBean.email}"/>
+					<p:message for="email" display="text"/>
+
+					<p:outputLabel for="password1" value="Password 1: *"/>
+					<p:password id="password1"
+								value="#{signUpBean.password}"
+								label="Password1"
+								match="password2"/>
+					<p:message for="password1" display="text"/>
+
+					<p:outputLabel for="password2" value="Password 2: *"/>
+					<p:password id="password2"
+								value="#{signUpBean.password}"
+								label="password2"/>
+					<p:message for="password2" display="text"/>
+
+					<p:outputLabel for="firstname" value="First name: *"/>
+					<p:inputText id="firstname" value="#{signUpBean.firstName}"/>
+					<p:message for="firstname" display="text"/>
+
+					<p:outputLabel for="lastname" value="Last name: *"/>
+					<p:inputText id="lastname" value="#{signUpBean.lastName}"/>
+					<p:message for="lastname" display="text"/>
+
+					<p:outputLabel for="dateofbirth" value="Date of birth: "/>
+					<p:inputText id="dateofbirth" value="#{signUpBean.dateOfBirth}"/>
+					<p:message for="dateofbirth" display="text"/>
+
+					<p:outputLabel for="phonenumber" value="Phone number: "/>
+					<p:inputText id="phonenumber" value="#{signUpBean.phoneNumber}"/>
+					<p:message for="phonenumber" display="text"/>
+
+					<f:facet name="footer">
+						<p:commandButton ajax="false" value="Sign up" action="#{signUpBean.signUp}"/>
+						<p:button value="Back" outcome="logInPage"/>
+					</f:facet>
+				</h:panelGrid>
+			</h:form>
+		</p:layoutUnit>
+	</p:layout>
+</h:body>
+</html>

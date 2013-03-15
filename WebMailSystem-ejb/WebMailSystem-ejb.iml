@@ -47,6 +47,7 @@
     <orderEntry type="library" name="Maven: org.hibernate.common:hibernate-commons-annotations:4.0.1.Final" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: javax:javaee-api:6.0" level="project" />
     <orderEntry type="library" name="Maven: mysql:mysql-connector-java:5.1.23" level="project" />
+    <orderEntry type="module" module-name="Common" />
   </component>
 </module>
 
