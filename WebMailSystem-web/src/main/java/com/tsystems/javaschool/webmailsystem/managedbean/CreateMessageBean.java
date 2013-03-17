@@ -49,7 +49,7 @@ public class CreateMessageBean {
 	public String saveMessage() {
 		try {
 			messageService.saveMessage(new MessageDTO(sender, receiver, theme, messageBody));
-			return "messageSuccessfullySentPage";
+			return "messageSuccessfullySavedPage";
 		} catch (DataProcessingException e) {
 			return e.getExceptionPage();
 		}

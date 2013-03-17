@@ -9,7 +9,6 @@
 	  xmlns:h="http://java.sun.com/jsf/html"
 	  xmlns:p="http://primefaces.org/ui">
 <h:head>
-	<h:outputStylesheet library="css" name="style.css"/>
 	<title>Create a message</title>
 </h:head>
 <h:body>
@@ -31,9 +30,11 @@
 					<p:inputTextarea id="messagebody" value="#{createMessageBean.messageBody}"/>
 
 					<f:facet name="footer">
-						<p:commandButton ajax="false" value="Send" action="#{createMessageBean.sendMessage}"/>
-						<p:commandButton ajax="false" value="Save" action="#{createMessageBean.saveMessage}"/>
-						<p:button value="Back" outcome="messagesPage"/>
+						<h:panelGrid style="margin: auto" columns="3">
+							<p:commandButton ajax="false" value="Send" action="#{createMessageBean.sendMessage}"/>
+							<p:commandButton ajax="false" value="Save" action="#{createMessageBean.saveMessage}"/>
+							<p:button value="Back" outcome="messagesPage"/>
+						</h:panelGrid>
 					</f:facet>
 				</h:panelGrid>
 			</h:form>

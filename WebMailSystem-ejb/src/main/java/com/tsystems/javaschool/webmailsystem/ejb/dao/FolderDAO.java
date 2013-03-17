@@ -16,19 +16,18 @@ public class FolderDAO {
 	@PersistenceContext(unitName = "webMailSystem")
 	private EntityManager entityManager;
 
-	public boolean create(Folder folder) {
+	public Folder create(Folder folder) {
 		entityManager.persist(folder);
-		return true;
+		return getFolder(folder.getId());
 	}
 	
-	public boolean delete(Folder folder) {
+	public void delete(Folder folder) {
 		entityManager.remove(folder);
-		return true;
 	}
 	
-	public boolean update(Folder folder) {
+	public Folder update(Folder folder) {
 		entityManager.merge(folder);
-		return true;
+		return getFolder(folder.getId());
 	}
 	
 	public Folder getFolder(Folder folder) {

@@ -1,6 +1,7 @@
 package com.tsystems.javaschool.webmailsystem.dto;
 
 import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 
 /**
@@ -13,10 +14,11 @@ public class UserDTO {
 	private Calendar dateOfBirth;
 	private String phoneNumber;
 
-	public UserDTO(String firstName, String lastName, String dateOfBirth, String phoneNumber) {
+	public UserDTO(String firstName, String lastName, Date dateOfBirth, String phoneNumber) {
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.dateOfBirth = stringToDate(dateOfBirth);
+		this.dateOfBirth.setTime(dateOfBirth);
+//		this.dateOfBirth = stringToDate(dateOfBirth);
 		this.phoneNumber = phoneNumber;
 	}
 

@@ -15,11 +15,10 @@
 	<ui:composition>
 		<p:dataTable id="messages"
 					 var="message"
-					 value="#{messagesBean.listOfMessages}"
-					 selectionMode="single"
-					 selection="#{messagesBean.selectedMessage}"
+					 binding="#{messagesBean.listOfMessages}"
 					 sortBy="#{message.date}">
 			<f:facet name="header">Messages:</f:facet>
+			<p:column selectionMode="multiple"/>
 			<p:column>
 				<f:facet name="header">sender</f:facet>
 				#{message.sender}

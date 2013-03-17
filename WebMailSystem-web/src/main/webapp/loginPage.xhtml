@@ -9,15 +9,15 @@
 	  xmlns:f="http://java.sun.com/jsf/core">
 
 <h:head>
-	<h:outputStylesheet library="css" name="style.css"/>
 	<title>Log In</title>
 </h:head>
 <h:body>
-	<p:layout fullPage="true">
+
+	<p:layout fullPage="true" >
 		<p:layoutUnit position="north" header="Log In"/>
 		<p:layoutUnit position="center">
 			<h:form>
-				<h:panelGrid columns="3">
+				<h:panelGrid style="margin: auto" columns="3">
 
 					<p:outputLabel for="email" value="Email:"/>
 					<p:inputText id="email" value="#{loginBean.email}"/>
@@ -27,9 +27,12 @@
 					<p:password id="password" value="#{loginBean.password}"/>
 					<p:message for="password" display="text"/>
 
-					<f:facet name="footer">
-						<p:commandButton ajax="false" value="Log in" action="#{loginBean.login}"/>
-						<p:button value="Sign up" outcome="signUpPage"/>
+
+					<f:facet name="footer" >
+						<h:panelGrid style="margin: auto" columns="2">
+							<p:commandButton ajax="false" value="Log in" action="#{loginBean.login}"/>
+							<p:button value="Sign up" outcome="signUpPage"/>
+						</h:panelGrid>
 					</f:facet>
 
 				</h:panelGrid>

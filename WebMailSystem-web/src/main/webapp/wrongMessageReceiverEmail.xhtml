@@ -9,10 +9,14 @@
 	  xmlns:h="http://java.sun.com/jsf/html"
 	  xmlns:p="http://primefaces.org/ui">
 <h:head>
-	<title></title>
+	<title>Error</title>
 </h:head>
 <h:body>
 	<ui:composition template="foldersAndMessagesTemplate.xhtml">
+		<ui:define name="content">
+			<h:outputText>Receiver with such email does not exist.
+				Message have been saved in draft messages</h:outputText>
+		</ui:define>
 	</ui:composition>
 </h:body>
 </html>

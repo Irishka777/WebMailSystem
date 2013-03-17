@@ -4,6 +4,7 @@ import com.tsystems.javaschool.webmailsystem.dto.FolderDTO;
 import com.tsystems.javaschool.webmailsystem.dto.MailBoxDTO;
 import com.tsystems.javaschool.webmailsystem.dto.MessageDTO;
 import com.tsystems.javaschool.webmailsystem.ejb.dao.FolderDAO;
+import com.tsystems.javaschool.webmailsystem.ejb.dao.MailBoxDAO;
 import com.tsystems.javaschool.webmailsystem.entity.Folder;
 import com.tsystems.javaschool.webmailsystem.entity.MailBox;
 import com.tsystems.javaschool.webmailsystem.entity.Message;
@@ -23,38 +24,45 @@ public class FolderService {
 	@EJB
 	private FolderDAO folderDAO;
 
+	@EJB
+	private MailBoxDAO mailBoxDAO;
+
 	private Logger logger = Logger.getLogger(FolderService.class);
-	
-	public boolean createFolder(Object folder) throws DataProcessingException {
+
+	public FolderDTO createFolder(FolderDTO folderDTO, MailBoxDTO mailBoxDTO) throws DataProcessingException {
 		try {
-			folderDAO.create((Folder) folder);
-			logger.info("Folder " + ((Folder) folder).getFolderName() + " successfully created");
-			return true;
+			MailBox mailBox = mailBoxDAO.find(mailBoxDTO.getEmail());
+			folderDTO = folderDAO.create(new Folder(folderDTO.getFolderName(), mailBox)).getFolderDTO();
+//			folderDTO = folderDAO.findFolderByFolderNameAndEmail(folderDTO.getFolderName(),mailBox).getFolderDTO();
+			logger.info("Folder " + folderDTO.getFolderName() + " successfully created");
+			return folderDTO;
 		} catch (Exception e) {
 			logger.error(e.getMessage(), e);
-			throw new DataProcessingException(ExceptionType.UnexpectedException,e.getCause());
+			throw new DataProcessingException(ExceptionType.unexpectedException,e.getCause());
 		}
 	}
 	
-	public boolean deleteFolder(Object folder) throws DataProcessingException {
+	public void deleteFolder(FolderDTO folderDTO) throws DataProcessingException {
 		try {
-			folderDAO.delete((Folder) folder);
-			logger.info("Folder " + ((Folder) folder).getFolderName() + " successfully deleted");
-			return true;
+			Folder folder = folderDAO.getFolder(folderDTO.getId());
+			folderDAO.delete(folder);
+			logger.info("Folder " + folderDTO.getFolderName() + " successfully deletes");
 		} catch (Exception e) {
 			logger.error(e.getMessage(), e);
-			throw new DataProcessingException(ExceptionType.UnexpectedException,e.getCause());
+			throw new DataProcessingException(ExceptionType.unexpectedException,e.getCause());
 		}
 	}
 	
-	public boolean renameFolder(Object folder) throws DataProcessingException {
+	public FolderDTO renameFolder(FolderDTO folderDTO) throws DataProcessingException {
 		try {
-			folderDAO.update((Folder) folder);
-			logger.info("Folder " + ((Folder) folder).getFolderName() + " successfully renamed");
-			return true;
+			Folder folder = folderDAO.getFolder(folderDTO.getId());
+			folder.setFolderName(folderDTO.getFolderName());
+			folderDTO = folderDAO.update(folder).getFolderDTO();
+			logger.info("Folder " + folderDTO.getFolderName() + " successfully renamed");
+			return folderDTO;
 		} catch (Exception e) {
 			logger.error(e.getMessage(), e);
-			throw new DataProcessingException(ExceptionType.UnexpectedException,e.getCause());
+			throw new DataProcessingException(ExceptionType.unexpectedException,e.getCause());
 		}
 	}
 	
@@ -65,7 +73,7 @@ public class FolderService {
 			return true;
 		} catch (Exception e) {
 			logger.error(e.getMessage(), e);
-			throw new DataProcessingException(ExceptionType.UnexpectedException,e.getCause());
+			throw new DataProcessingException(ExceptionType.unexpectedException,e.getCause());
 		}
 	}
 	
@@ -77,7 +85,7 @@ public class FolderService {
 			throw new DataProcessingException(ExceptionType.NoSuchFolderException);
 		} catch (Exception e) {
 			logger.error(e.getMessage(), e);
-			throw new DataProcessingException(ExceptionType.UnexpectedException,e.getCause());
+			throw new DataProcessingException(ExceptionType.unexpectedException,e.getCause());
 		}
 	}
 	
@@ -94,7 +102,7 @@ public class FolderService {
 			throw new DataProcessingException(ExceptionType.NoSuchFolderException);
 		} catch (Exception e) {
 			logger.error(e.getMessage(), e);
-			throw new DataProcessingException(ExceptionType.UnexpectedException,e.getCause());
+			throw new DataProcessingException(ExceptionType.unexpectedException,e.getCause());
 		}
 	}
 
@@ -113,7 +121,7 @@ public class FolderService {
 			throw new DataProcessingException(ExceptionType.NoSuchFolderException);
 		} catch (Exception e) {
 			logger.error(e.getMessage(), e);
-			throw new DataProcessingException(ExceptionType.UnexpectedException,e.getCause());
+			throw new DataProcessingException(ExceptionType.unexpectedException,e.getCause());
 		}
 	}
 }

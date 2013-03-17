@@ -8,15 +8,18 @@
 	  xmlns:f="http://java.sun.com/jsf/core"
 	  xmlns:h="http://java.sun.com/jsf/html"
 	  xmlns:p="http://primefaces.org/ui">
-
 <h:head>
-	<title>Message sent</title>
+	<title></title>
 </h:head>
 <h:body>
 	<ui:composition template="foldersAndMessagesTemplate.xhtml">
+		<ui:define name="top">
+		</ui:define>
+		<ui:define name="left">
+			<h:outputText>Mailbox with such a name already exists, try to use another email</h:outputText>
+		</ui:define>
 		<ui:define name="content">
-			<h:outputText>Your message successfully sent!</h:outputText>
-			<h:outputText>Receivers: #{createMessageBean.receiver}</h:outputText>
+			<ui:include src="signUpPage.xhtml"/>
 		</ui:define>
 	</ui:composition>
 </h:body>

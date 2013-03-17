@@ -54,10 +54,10 @@ public class Folder implements Serializable{
 		return folderName;
 	}
 	
-	public void setEmailAddress(MailBox emailAddress) {
-		this.mailBox = emailAddress;
+	public void setMailBox(MailBox mailBox) {
+		this.mailBox = mailBox;
 	}
-	public MailBox getEmailAddress() {
+	public MailBox getMailBox() {
 		return mailBox;
 	}
 	

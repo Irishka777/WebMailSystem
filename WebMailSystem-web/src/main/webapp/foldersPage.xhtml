@@ -14,18 +14,51 @@
 </h:head>
 <h:body>
 	<ui:composition>
-		<p:tree id="folders"
-				value="#{foldersBean.root}"
-				selectionMode="single"
-				selection="#{foldersBean.selectedFolder}"
-				dynamic="true"
-				var="folder">
-			<p:ajax event="select" listener="#{messagesBean.onFolderSelect}" />
-			<p:treeNode>
-				<!--	icon="ui-icon ui-icon-folder-collapsed"-->
-				<h:outputText value="#{folder}"/>
-			</p:treeNode>
-		</p:tree>
+		<h:form id="form">
+			<p:tree style="width: 300px" id="folders"
+					binding="#{foldersBean.tree}"
+					selectionMode="single"
+					selection="#{foldersBean.selectedFolder}"
+					dynamic="true"
+					var="folder">
+				<p:ajax event="select" listener="#{messagesBean.onFolderSelect}" />
+				<p:treeNode>
+					<!--	icon="ui-icon ui-icon-folder-collapsed"-->
+					<h:outputText value="#{folder}"/>
+				</p:treeNode>
+			</p:tree>
+
+			<h:panelGrid style="margin: auto" columns="1">
+				<p:commandButton value="Create folder"
+								 type="button" onclick="dlg.show();"/>
+
+				<p:commandButton ajax="false" value="Delete folder" action="#{foldersBean.deleteFolder}"
+								 update=":folders"/>
+				<p:commandButton ajax="false" value="Rename folder" action="#{foldersBean.renameFolder}"
+								 update=":folders"/>
+			</h:panelGrid>
+
+			<p:dialog closable="false" draggable="false"
+					  id="modalDialog" header="Create folder"
+					  widgetVar="dlg">
+				<h:panelGrid columns="3">
+					<p:outputLabel for="foldername" value="Folder name:"/>
+					<p:inputText id="foldername" value="#{foldersBean.newFolderName}"/>
+					<p:message for="foldername" display="text"/>
+
+					<f:facet name="footer">
+						<h:panelGrid style="margin: auto" columns="2">
+							<p:commandButton value="Create"
+											 update=":folders"
+											 ajax="false"
+											 action="#{foldersBean.createFolder}"/>
+							<p:button value="Cancel" onclick="null"/>
+						</h:panelGrid>
+					</f:facet>
+				</h:panelGrid>
+
+			</p:dialog>
+		</h:form>
 	</ui:composition>
 </h:body>
 </html>

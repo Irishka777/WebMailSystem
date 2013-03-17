@@ -20,12 +20,14 @@ public class DataProcessingException extends Exception {
 		switch (exceptionType) {
 			case NoSuchAlgorithmException:
 				return "noSuchAlgorithmException";
-			case MailBoxWithSuchANameAlreadyExistsException:
-			case WrongPasswordException:
-			case NoSuchMailBoxException:
-				return "loginException";
+			case mailBoxWithSuchANameAlreadyExists:
+				return "mailBoxWithSuchANameAlreadyExists";
+			case wrongEmailOrPassword:
+				return "wrongEmailOrPassword";
+			case wrongMessageReceiverEmail:
+				return "wrongMessageReceiverEmail";
 			case NoSuchFolderException:
-			case UnexpectedException:
+			case unexpectedException:
 				default:
 				return "unexpectedException";
 		}

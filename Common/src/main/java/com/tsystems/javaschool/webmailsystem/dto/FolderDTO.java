@@ -12,6 +12,10 @@ public class FolderDTO {
 		this.folderName = folderName;
 	}
 
+	public FolderDTO(String folderName) {
+		this.folderName = folderName;
+	}
+
 	public long getId() {
 		return id;
 	}

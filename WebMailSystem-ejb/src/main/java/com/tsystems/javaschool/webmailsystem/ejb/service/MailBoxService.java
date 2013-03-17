@@ -27,16 +27,16 @@ public class MailBoxService {
 			byte[] encodedPassword = MailBox.convertPasswordStringIntoBytesArrayUsingMD5AndSalt(password);
 			if (!MailBox.comparePasswords(encodedPassword,mailBox.getPassword())) {
 				logger.info("Entered password for mailbox with email" + email + " is wrong");
-				throw new DataProcessingException(ExceptionType.WrongPasswordException);
+				throw new DataProcessingException(ExceptionType.wrongEmailOrPassword);
 			}
 			logger.info("Successful login into mailbox " + mailBox.getEmail());
 			return mailBox.getMailBoxDTO();
 		} catch (NoResultException e) {
 			logger.warn("Mailbox with email " + email + " does not exist", e);
-			throw new DataProcessingException(ExceptionType.NoSuchMailBoxException);
+			throw new DataProcessingException(ExceptionType.wrongEmailOrPassword);
 		} catch (Exception e) {
 			logger.error(e.getMessage(), e);
-			throw new DataProcessingException(ExceptionType.UnexpectedException,e.getCause());
+			throw new DataProcessingException(ExceptionType.unexpectedException,e.getCause());
 		}
 	}
 	
@@ -46,10 +46,10 @@ public class MailBoxService {
 			logger.info("Mailbox with email " + email + " successfully created");
 		} catch (PersistenceException e) {
 			logger.warn("Mailbox with email " + email + " already exists", e);
-			throw new DataProcessingException(ExceptionType.MailBoxWithSuchANameAlreadyExistsException);
+			throw new DataProcessingException(ExceptionType.mailBoxWithSuchANameAlreadyExists);
 		} catch (Exception e) {
 			logger.error(e.getMessage(), e);
-			throw new DataProcessingException(ExceptionType.UnexpectedException,e.getCause());
+			throw new DataProcessingException(ExceptionType.unexpectedException,e.getCause());
 		}
 	}
 	

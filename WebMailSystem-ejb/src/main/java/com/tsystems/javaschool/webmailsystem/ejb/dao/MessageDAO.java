@@ -30,17 +30,6 @@ public class MessageDAO {
 		entityManager.merge(senderFolder);
 		entityManager.merge(receiverFolder);
 	}
-
-//	public void send(Message message) {
-//		Folder senderFolder = folderDAO.findFolderByFolderNameAndEmail("Outbox", message.getSender());
-//		senderFolder.getListOfMessages().add(message);
-//
-//		Folder receiverFolder = folderDAO.findFolderByFolderNameAndEmail("Inbox", message.getReceiver());
-//		receiverFolder.getListOfMessages().add(new Message(message));
-//
-//		entityManager.merge(senderFolder);
-//		entityManager.merge(receiverFolder);
-//	}
 	
 	public void save(Message message) {
 		Folder senderFolder = folderDAO.findFolderByFolderNameAndEmail("Draft", message.getSender());
@@ -50,9 +39,17 @@ public class MessageDAO {
 		entityManager.merge(senderFolder);
 	}
 	
-	public boolean delete(Message message) {
+	public void delete(Message message) {
 		entityManager.remove(entityManager.merge(message));
-		return true;
+	}
+
+	public void delete(long id) {
+		Message message = entityManager.find(Message.class, id);
+		entityManager.remove(entityManager.merge(message));
+	}
+
+	public Message findMessage(long id) {
+		return entityManager.find(Message.class, id);
 	}
 
 	public List<Message> getMessagesFromFolder(long folderId) {
