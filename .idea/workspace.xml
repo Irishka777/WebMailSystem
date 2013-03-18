@@ -2,38 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="96dbb7a3-680e-4f09-afdb-4c2671af77bf" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebMailSystem-web/src/main/webapp/foldersAndMessagesPage.xhtml" />
-      <change type="DELETED" beforePath="D:\WebMailSystem\.idea\ant.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\WebMailSystem\.idea\libraries\Maven__antlr_antlr_2_7_7.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\WebMailSystem\.idea\libraries\Maven__dom4j_dom4j_1_6_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\WebMailSystem\.idea\libraries\Maven__org_hibernate_common_hibernate_commons_annotations_4_0_1_Final.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\WebMailSystem\.idea\libraries\Maven__org_hibernate_hibernate_core_4_1_9_Final.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\WebMailSystem\.idea\libraries\Maven__org_hibernate_hibernate_entitymanager_4_1_9_Final.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\WebMailSystem\.idea\libraries\Maven__org_hibernate_javax_persistence_hibernate_jpa_2_0_api_1_0_1_Final.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\WebMailSystem\.idea\libraries\Maven__org_javassist_javassist_3_17_1_GA.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\WebMailSystem\.idea\libraries\Maven__org_jboss_logging_jboss_logging_3_1_0_GA.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\WebMailSystem\.idea\libraries\Maven__org_jboss_spec_javax_transaction_jboss_transaction_api_1_1_spec_1_0_0_Final.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\WebMailSystem\.idea\webContexts.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/dao/FolderDAO.java" afterPath="$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/dao/FolderDAO.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/service/FolderService.java" afterPath="$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/service/FolderService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/FoldersBean.java" afterPath="$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/FoldersBean.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/LoginBean.java" afterPath="$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/LoginBean.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/MessagesBean.java" afterPath="$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/MessagesBean.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebMailSystem-ear/WebMailSystem-ear.iml" afterPath="$PROJECT_DIR$/WebMailSystem-ear/WebMailSystem-ear.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebMailSystem-ejb/WebMailSystem-ejb.iml" afterPath="$PROJECT_DIR$/WebMailSystem-ejb/WebMailSystem-ejb.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebMailSystem-web/WebMailSystem-web.iml" afterPath="$PROJECT_DIR$/WebMailSystem-web/WebMailSystem-web.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebMailSystem.iml" afterPath="$PROJECT_DIR$/WebMailSystem.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/WebMailSystem_ear_ear_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/WebMailSystem_ear_ear_exploded.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebMailSystem-web/src/main/webapp/createMessagePage.xhtml" afterPath="$PROJECT_DIR$/WebMailSystem-web/src/main/webapp/createMessagePage.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebMailSystem-web/src/main/webapp/foldersAndMessagesTemplate.xhtml" afterPath="$PROJECT_DIR$/WebMailSystem-web/src/main/webapp/foldersAndMessagesTemplate.xhtml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebMailSystem-web/src/main/webapp/foldersPage.xhtml" afterPath="$PROJECT_DIR$/WebMailSystem-web/src/main/webapp/foldersPage.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebMailSystem-web/src/main/webapp/logOutPage.xhtml" afterPath="$PROJECT_DIR$/WebMailSystem-web/src/main/webapp/logOutPage.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebMailSystem-web/src/main/webapp/messageSuccessfullySentPage.xhtml" afterPath="$PROJECT_DIR$/WebMailSystem-web/src/main/webapp/messageSuccessfullySentPage.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebMailSystem-web/src/main/webapp/messagesPage.xhtml" afterPath="$PROJECT_DIR$/WebMailSystem-web/src/main/webapp/messagesPage.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebMailSystem-ejb/pom.xml" afterPath="$PROJECT_DIR$/WebMailSystem-ejb/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="WebMailSystem.iws" />
@@ -42,11 +15,12 @@
     <file path="/Dummy.txt" changelist="96dbb7a3-680e-4f09-afdb-4c2671af77bf" time="1363600635792" ignored="false" />
     <file path="/messagesPage.xhtml" changelist="96dbb7a3-680e-4f09-afdb-4c2671af77bf" time="1363601753901" ignored="false" />
     <file path="/MessageDTO.java" changelist="96dbb7a3-680e-4f09-afdb-4c2671af77bf" time="1363601992104" ignored="false" />
-    <file path="/foldersPage.xhtml" changelist="96dbb7a3-680e-4f09-afdb-4c2671af77bf" time="1363604863308" ignored="false" />
-    <file path="/FoldersBean.java" changelist="96dbb7a3-680e-4f09-afdb-4c2671af77bf" time="1363605506659" ignored="false" />
+    <file path="/foldersPage.xhtml" changelist="96dbb7a3-680e-4f09-afdb-4c2671af77bf" time="1363629377272" ignored="false" />
+    <file path="/FoldersBean.java" changelist="96dbb7a3-680e-4f09-afdb-4c2671af77bf" time="1363627002606" ignored="false" />
     <file path="$PROJECT_DIR$/WebMailSystem-web/src/main/webapp/foldersAndMessages.html" changelist="96dbb7a3-680e-4f09-afdb-4c2671af77bf" time="1363603065427" ignored="false" />
     <file path="/foldersAndMessagesPage.xhtml" changelist="96dbb7a3-680e-4f09-afdb-4c2671af77bf" time="1363603143297" ignored="false" />
-    <file path="/MessagesBean.java" changelist="96dbb7a3-680e-4f09-afdb-4c2671af77bf" time="1363606534037" ignored="false" />
+    <file path="/MessagesBean.java" changelist="96dbb7a3-680e-4f09-afdb-4c2671af77bf" time="1363616219529" ignored="false" />
+    <file path="/FolderService.java" changelist="96dbb7a3-680e-4f09-afdb-4c2671af77bf" time="1363613204060" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +76,7 @@
       </breakpoint>
     </breakpoint_any>
     <line_breakpoints>
-      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/FoldersBean.java" line="68" class="com.tsystems.javaschool.webmailsystem.managedbean.FoldersBean" package="com.tsystems.javaschool.webmailsystem.managedbean">
+      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/FoldersBean.java" line="104" class="com.tsystems.javaschool.webmailsystem.managedbean.FoldersBean" package="com.tsystems.javaschool.webmailsystem.managedbean">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -116,7 +90,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/FoldersBean.java" line="69" class="com.tsystems.javaschool.webmailsystem.managedbean.FoldersBean" package="com.tsystems.javaschool.webmailsystem.managedbean">
+      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/FoldersBean.java" line="105" class="com.tsystems.javaschool.webmailsystem.managedbean.FoldersBean" package="com.tsystems.javaschool.webmailsystem.managedbean">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -130,7 +104,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/FoldersBean.java" line="71" class="com.tsystems.javaschool.webmailsystem.managedbean.FoldersBean" package="com.tsystems.javaschool.webmailsystem.managedbean">
+      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/FoldersBean.java" line="107" class="com.tsystems.javaschool.webmailsystem.managedbean.FoldersBean" package="com.tsystems.javaschool.webmailsystem.managedbean">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -144,7 +118,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/FoldersBean.java" line="73" class="com.tsystems.javaschool.webmailsystem.managedbean.FoldersBean" package="com.tsystems.javaschool.webmailsystem.managedbean">
+      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/FoldersBean.java" line="109" class="com.tsystems.javaschool.webmailsystem.managedbean.FoldersBean" package="com.tsystems.javaschool.webmailsystem.managedbean">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -158,7 +132,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/service/FolderService.java" line="33" class="com.tsystems.javaschool.webmailsystem.ejb.service.FolderService" package="com.tsystems.javaschool.webmailsystem.ejb.service">
+      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/FoldersBean.java" line="114" class="com.tsystems.javaschool.webmailsystem.managedbean.FoldersBean" package="com.tsystems.javaschool.webmailsystem.managedbean">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -172,7 +146,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/service/FolderService.java" line="34" class="com.tsystems.javaschool.webmailsystem.ejb.service.FolderService" package="com.tsystems.javaschool.webmailsystem.ejb.service">
+      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/FoldersBean.java" line="115" class="com.tsystems.javaschool.webmailsystem.managedbean.FoldersBean" package="com.tsystems.javaschool.webmailsystem.managedbean">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -186,7 +160,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/service/FolderService.java" line="35" class="com.tsystems.javaschool.webmailsystem.ejb.service.FolderService" package="com.tsystems.javaschool.webmailsystem.ejb.service">
+      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/FoldersBean.java" line="118" class="com.tsystems.javaschool.webmailsystem.managedbean.FoldersBean" package="com.tsystems.javaschool.webmailsystem.managedbean">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -200,7 +174,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/service/FolderService.java" line="36" class="com.tsystems.javaschool.webmailsystem.ejb.service.FolderService" package="com.tsystems.javaschool.webmailsystem.ejb.service">
+      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/FoldersBean.java" line="119" class="com.tsystems.javaschool.webmailsystem.managedbean.FoldersBean" package="com.tsystems.javaschool.webmailsystem.managedbean">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -214,7 +188,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/service/FolderService.java" line="37" class="com.tsystems.javaschool.webmailsystem.ejb.service.FolderService" package="com.tsystems.javaschool.webmailsystem.ejb.service">
+      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/FoldersBean.java" line="120" class="com.tsystems.javaschool.webmailsystem.managedbean.FoldersBean" package="com.tsystems.javaschool.webmailsystem.managedbean">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -228,7 +202,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/service/FolderService.java" line="39" class="com.tsystems.javaschool.webmailsystem.ejb.service.FolderService" package="com.tsystems.javaschool.webmailsystem.ejb.service">
+      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/FoldersBean.java" line="122" class="com.tsystems.javaschool.webmailsystem.managedbean.FoldersBean" package="com.tsystems.javaschool.webmailsystem.managedbean">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -242,7 +216,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/service/FolderService.java" line="40" class="com.tsystems.javaschool.webmailsystem.ejb.service.FolderService" package="com.tsystems.javaschool.webmailsystem.ejb.service">
+      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/FoldersBean.java" line="94" class="com.tsystems.javaschool.webmailsystem.managedbean.FoldersBean" package="com.tsystems.javaschool.webmailsystem.managedbean">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -256,7 +230,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/LoginBean.java" line="37" class="com.tsystems.javaschool.webmailsystem.managedbean.LoginBean" package="com.tsystems.javaschool.webmailsystem.managedbean">
+      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/FoldersBean.java" line="93" class="com.tsystems.javaschool.webmailsystem.managedbean.FoldersBean" package="com.tsystems.javaschool.webmailsystem.managedbean">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -270,7 +244,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/FoldersBean.java" line="78" class="com.tsystems.javaschool.webmailsystem.managedbean.FoldersBean" package="com.tsystems.javaschool.webmailsystem.managedbean">
+      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/FoldersBean.java" line="127" class="com.tsystems.javaschool.webmailsystem.managedbean.FoldersBean" package="com.tsystems.javaschool.webmailsystem.managedbean">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -284,7 +258,119 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/FoldersBean.java" line="79" class="com.tsystems.javaschool.webmailsystem.managedbean.FoldersBean" package="com.tsystems.javaschool.webmailsystem.managedbean">
+      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/FoldersBean.java" line="128" class="com.tsystems.javaschool.webmailsystem.managedbean.FoldersBean" package="com.tsystems.javaschool.webmailsystem.managedbean">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/FoldersBean.java" line="129" class="com.tsystems.javaschool.webmailsystem.managedbean.FoldersBean" package="com.tsystems.javaschool.webmailsystem.managedbean">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/FoldersBean.java" line="143" class="com.tsystems.javaschool.webmailsystem.managedbean.FoldersBean" package="com.tsystems.javaschool.webmailsystem.managedbean">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/FoldersBean.java" line="146" class="com.tsystems.javaschool.webmailsystem.managedbean.FoldersBean" package="com.tsystems.javaschool.webmailsystem.managedbean">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/FoldersBean.java" line="147" class="com.tsystems.javaschool.webmailsystem.managedbean.FoldersBean" package="com.tsystems.javaschool.webmailsystem.managedbean">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/FoldersBean.java" line="149" class="com.tsystems.javaschool.webmailsystem.managedbean.FoldersBean" package="com.tsystems.javaschool.webmailsystem.managedbean">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/FoldersBean.java" line="150" class="com.tsystems.javaschool.webmailsystem.managedbean.FoldersBean" package="com.tsystems.javaschool.webmailsystem.managedbean">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/FoldersBean.java" line="151" class="com.tsystems.javaschool.webmailsystem.managedbean.FoldersBean" package="com.tsystems.javaschool.webmailsystem.managedbean">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/FoldersBean.java" line="89" class="com.tsystems.javaschool.webmailsystem.managedbean.FoldersBean" package="com.tsystems.javaschool.webmailsystem.managedbean">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -340,6 +426,20 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/FoldersBean.java" line="85" class="com.tsystems.javaschool.webmailsystem.managedbean.FoldersBean" package="com.tsystems.javaschool.webmailsystem.managedbean">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
       <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/FoldersBean.java" line="86" class="com.tsystems.javaschool.webmailsystem.managedbean.FoldersBean" package="com.tsystems.javaschool.webmailsystem.managedbean">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
@@ -354,7 +454,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/MessagesBean.java" line="72" class="com.tsystems.javaschool.webmailsystem.managedbean.MessagesBean" package="com.tsystems.javaschool.webmailsystem.managedbean">
+      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/FoldersBean.java" line="87" class="com.tsystems.javaschool.webmailsystem.managedbean.FoldersBean" package="com.tsystems.javaschool.webmailsystem.managedbean">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -368,7 +468,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/MessagesBean.java" line="73" class="com.tsystems.javaschool.webmailsystem.managedbean.MessagesBean" package="com.tsystems.javaschool.webmailsystem.managedbean">
+      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/FoldersBean.java" line="88" class="com.tsystems.javaschool.webmailsystem.managedbean.FoldersBean" package="com.tsystems.javaschool.webmailsystem.managedbean">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -382,7 +482,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/MessagesBean.java" line="78" class="com.tsystems.javaschool.webmailsystem.managedbean.MessagesBean" package="com.tsystems.javaschool.webmailsystem.managedbean">
+      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/FoldersBean.java" line="96" class="com.tsystems.javaschool.webmailsystem.managedbean.FoldersBean" package="com.tsystems.javaschool.webmailsystem.managedbean">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -396,7 +496,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/MessagesBean.java" line="71" class="com.tsystems.javaschool.webmailsystem.managedbean.MessagesBean" package="com.tsystems.javaschool.webmailsystem.managedbean">
+      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/FoldersBean.java" line="97" class="com.tsystems.javaschool.webmailsystem.managedbean.FoldersBean" package="com.tsystems.javaschool.webmailsystem.managedbean">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -410,7 +510,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/FoldersBean.java" line="66" class="com.tsystems.javaschool.webmailsystem.managedbean.FoldersBean" package="com.tsystems.javaschool.webmailsystem.managedbean">
+      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/FoldersBean.java" line="98" class="com.tsystems.javaschool.webmailsystem.managedbean.FoldersBean" package="com.tsystems.javaschool.webmailsystem.managedbean">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -424,7 +524,259 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/FoldersBean.java" line="65" class="com.tsystems.javaschool.webmailsystem.managedbean.FoldersBean" package="com.tsystems.javaschool.webmailsystem.managedbean">
+      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/FoldersBean.java" line="99" class="com.tsystems.javaschool.webmailsystem.managedbean.FoldersBean" package="com.tsystems.javaschool.webmailsystem.managedbean">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/FoldersBean.java" line="100" class="com.tsystems.javaschool.webmailsystem.managedbean.FoldersBean" package="com.tsystems.javaschool.webmailsystem.managedbean">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/FoldersBean.java" line="101" class="com.tsystems.javaschool.webmailsystem.managedbean.FoldersBean" package="com.tsystems.javaschool.webmailsystem.managedbean">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/FoldersBean.java" line="102" class="com.tsystems.javaschool.webmailsystem.managedbean.FoldersBean" package="com.tsystems.javaschool.webmailsystem.managedbean">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/FoldersBean.java" line="144" class="com.tsystems.javaschool.webmailsystem.managedbean.FoldersBean" package="com.tsystems.javaschool.webmailsystem.managedbean">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/FoldersBean.java" line="145" class="com.tsystems.javaschool.webmailsystem.managedbean.FoldersBean" package="com.tsystems.javaschool.webmailsystem.managedbean">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/service/FolderService.java" line="74" class="com.tsystems.javaschool.webmailsystem.ejb.service.FolderService" package="com.tsystems.javaschool.webmailsystem.ejb.service">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/service/FolderService.java" line="76" class="com.tsystems.javaschool.webmailsystem.ejb.service.FolderService" package="com.tsystems.javaschool.webmailsystem.ejb.service">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/service/FolderService.java" line="75" class="com.tsystems.javaschool.webmailsystem.ejb.service.FolderService" package="com.tsystems.javaschool.webmailsystem.ejb.service">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/service/FolderService.java" line="77" class="com.tsystems.javaschool.webmailsystem.ejb.service.FolderService" package="com.tsystems.javaschool.webmailsystem.ejb.service">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/service/FolderService.java" line="78" class="com.tsystems.javaschool.webmailsystem.ejb.service.FolderService" package="com.tsystems.javaschool.webmailsystem.ejb.service">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/service/FolderService.java" line="79" class="com.tsystems.javaschool.webmailsystem.ejb.service.FolderService" package="com.tsystems.javaschool.webmailsystem.ejb.service">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/service/FolderService.java" line="81" class="com.tsystems.javaschool.webmailsystem.ejb.service.FolderService" package="com.tsystems.javaschool.webmailsystem.ejb.service">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/service/FolderService.java" line="82" class="com.tsystems.javaschool.webmailsystem.ejb.service.FolderService" package="com.tsystems.javaschool.webmailsystem.ejb.service">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/service/FolderService.java" line="63" class="com.tsystems.javaschool.webmailsystem.ejb.service.FolderService" package="com.tsystems.javaschool.webmailsystem.ejb.service">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/service/FolderService.java" line="64" class="com.tsystems.javaschool.webmailsystem.ejb.service.FolderService" package="com.tsystems.javaschool.webmailsystem.ejb.service">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/service/FolderService.java" line="65" class="com.tsystems.javaschool.webmailsystem.ejb.service.FolderService" package="com.tsystems.javaschool.webmailsystem.ejb.service">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/service/FolderService.java" line="67" class="com.tsystems.javaschool.webmailsystem.ejb.service.FolderService" package="com.tsystems.javaschool.webmailsystem.ejb.service">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/service/FolderService.java" line="68" class="com.tsystems.javaschool.webmailsystem.ejb.service.FolderService" package="com.tsystems.javaschool.webmailsystem.ejb.service">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -448,22 +800,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="foldersAndMessagesTemplate.xhtml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebMailSystem-web/src/main/webapp/foldersAndMessagesTemplate.xhtml">
+      <file leaf-file-name="FoldersBean.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/FoldersBean.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="22" selection-start="685" selection-end="685" vertical-scroll-proportion="-3.9230769">
-              <folding />
+            <state line="89" column="0" selection-start="3086" selection-end="3086" vertical-scroll-proportion="0.4398907">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="createMessagePage.xhtml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebMailSystem-web/src/main/webapp/createMessagePage.xhtml">
+      <file leaf-file-name="FolderService.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/service/FolderService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="41" selection-start="404" selection-end="404" vertical-scroll-proportion="-5.8846154">
+            <state line="65" column="0" selection-start="2590" selection-end="2590" vertical-scroll-proportion="0.0">
               <folding>
-                <marker date="1363598436180" expanded="true" signature="593:605" placeholder="{...}" />
-                <marker date="1363598436180" expanded="true" signature="1131:1143" placeholder="{...}" />
+                <element signature="e#1306#1318#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -478,33 +831,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FoldersBean.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/FoldersBean.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="84" column="0" selection-start="2663" selection-end="2663" vertical-scroll-proportion="3.3344827">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="foldersPage.xhtml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebMailSystem-web/src/main/webapp/foldersPage.xhtml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="53" column="69" selection-start="1846" selection-end="1846" vertical-scroll-proportion="-4.0">
-              <folding>
-                <marker date="1363605756143" expanded="true" signature="192:204" placeholder="{...}" />
-                <marker date="1363605756143" expanded="true" signature="508:520" placeholder="{...}" />
-                <marker date="1363605756143" expanded="true" signature="920:932" placeholder="{...}" />
-                <marker date="1363605756143" expanded="true" signature="1689:1701" placeholder="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="MessagesBean.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/MessagesBean.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="71" column="0" selection-start="2127" selection-end="2127" vertical-scroll-proportion="0.0">
+            <state line="36" column="39" selection-start="1173" selection-end="1173" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -512,41 +842,30 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="messagesPage.xhtml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebMailSystem-web/src/main/webapp/messagesPage.xhtml">
+      <file leaf-file-name="MessageService.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/service/MessageService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="52" selection-start="553" selection-end="553" vertical-scroll-proportion="-3.0384614">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FolderService.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/service/FolderService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="0" selection-start="1498" selection-end="1498" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="logInPage.xhtml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebMailSystem-web/src/main/webapp/logInPage.xhtml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="94" selection-start="1067" selection-end="1067" vertical-scroll-proportion="-5.230769">
+            <state line="31" column="59" selection-start="1104" selection-end="1104" vertical-scroll-proportion="0.0">
               <folding>
-                <marker date="1363531328553" expanded="true" signature="562:574" placeholder="{...}" />
-                <marker date="1363531328553" expanded="true" signature="967:979" placeholder="{...}" />
+                <element signature="e#1190#1202#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="foldersAndMessagesPage.xhtml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebMailSystem-web/src/main/webapp/foldersAndMessagesPage.xhtml">
+      <file leaf-file-name="foldersPage.xhtml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebMailSystem-web/src/main/webapp/foldersPage.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="53" selection-start="500" selection-end="500" vertical-scroll-proportion="-5.6538463">
-              <folding />
+            <state line="16" column="48" selection-start="511" selection-end="511" vertical-scroll-proportion="-8.5">
+              <folding>
+                <marker date="1363629493448" expanded="true" signature="192:204" placeholder="{...}" />
+                <marker date="1363629493448" expanded="true" signature="81:93" placeholder="{...}" />
+                <marker date="1363629493448" expanded="true" signature="486:513" placeholder="{...}" />
+                <marker date="1363629493448" expanded="true" signature="896:928" placeholder="{...}" />
+                <marker date="1363629493448" expanded="true" signature="1667:1679" placeholder="{...}" />
+                <marker date="1363629493448" expanded="true" signature="2473:2485" placeholder="{...}" />
+                <marker date="1363629493448" expanded="true" signature="3118:3130" placeholder="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -575,10 +894,12 @@
         <option value="$PROJECT_DIR$/WebMailSystem-web/src/main/webapp/foldersAndMessages.html" />
         <option value="$PROJECT_DIR$/WebMailSystem-web/src/main/webapp/foldersAndMessagesPage.xhtml" />
         <option value="$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/LoginBean.java" />
-        <option value="$PROJECT_DIR$/WebMailSystem-web/src/main/webapp/foldersPage.xhtml" />
-        <option value="$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/FoldersBean.java" />
         <option value="$PROJECT_DIR$/WebMailSystem-web/src/main/webapp/messagesPage.xhtml" />
+        <option value="$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/dao/FolderDAO.java" />
+        <option value="$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/service/FolderService.java" />
         <option value="$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/MessagesBean.java" />
+        <option value="$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/FoldersBean.java" />
+        <option value="$PROJECT_DIR$/WebMailSystem-web/src/main/webapp/foldersPage.xhtml" />
       </list>
     </option>
   </component>
@@ -618,6 +939,28 @@
     <option name="y" value="-8" />
     <option name="width" value="1382" />
     <option name="height" value="744" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>GeneralJavaScript</id>
+          </State>
+          <State>
+            <id>JavaScript</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>JSUnresolvedVariable</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -843,6 +1186,94 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webmailsystem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="entity" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebMailSystem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebMailSystem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebMailSystem-ejb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webmailsystem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ejb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebMailSystem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebMailSystem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebMailSystem-ejb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webmailsystem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ejb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dao" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1121,7 +1552,7 @@
     </configuration>
     <configuration default="false" name="Glassfish 3.1.2.2" type="GlassfishConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="Glassfish 3.1.2.2">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/logInPage.jsf" />
-      <option name="UPDATING_POLICY" value="restart-server" />
+      <option name="UPDATING_POLICY" value="redeploy-artifacts" />
       <deployment>
         <artifact name="WebMailSystem-ear:ear">
           <settings />
@@ -1220,9 +1651,10 @@
       <window_info id="JavaEE:App" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991454" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18409091" sideWeight="0.5931624" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4068376" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3880342" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
@@ -1233,14 +1665,13 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="EJB" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1969697" sideWeight="0.6700855" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.09090909" sideWeight="0.6700855" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991454" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27348486" sideWeight="0.6700855" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18181819" sideWeight="0.5675214" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32991454" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
@@ -1301,54 +1732,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/WebMailSystem-ejb/src/main/resources/META-INF/persistence.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="63" selection-start="943" selection-end="978" vertical-scroll-proportion="0.41463414">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/dao/MailBoxDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="19" selection-start="891" selection-end="891" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebMailSystem-web/src/main/webapp/signUpPage.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="24" selection-start="1658" selection-end="1699" vertical-scroll-proportion="-7.1923075">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Common/src/main/java/com/tsystems/javaschool/webmailsystem/dto/MessageDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="34" selection-start="706" selection-end="706" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/b2563434/e580267e-7c07-4eb1-94aa-c0954284ddd3/mailsystemdb..folder">
-      <provider selected="true" editor-type-id="com.intellij.persistence.database.editor.DatabaseTableFileEditorProvider">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebMailSystem-web/src/main/webapp/logInPage.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="94" selection-start="1067" selection-end="1067" vertical-scroll-proportion="-5.230769">
-          <folding>
-            <marker date="1363531328553" expanded="true" signature="562:574" placeholder="{...}" />
-            <marker date="1363531328553" expanded="true" signature="967:979" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/primefaces/primefaces/3.5/primefaces-3.5.jar!/org/primefaces/component/datatable/feature/SelectionFeature.class">
       <provider selected="true" editor-type-id="text-editor">
         <state line="20" column="0" selection-start="1321" selection-end="1321" vertical-scroll-proportion="0.70610684">
@@ -1363,18 +1746,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebMailSystem-web/src/main/webapp/foldersPage.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="69" selection-start="1846" selection-end="1846" vertical-scroll-proportion="-4.0">
-          <folding>
-            <marker date="1363605756143" expanded="true" signature="192:204" placeholder="{...}" />
-            <marker date="1363605756143" expanded="true" signature="508:520" placeholder="{...}" />
-            <marker date="1363605756143" expanded="true" signature="920:932" placeholder="{...}" />
-            <marker date="1363605756143" expanded="true" signature="1689:1701" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WebMailSystem-web/src/main/webapp/foldersAndMessagesPage.xhtml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="53" selection-start="500" selection-end="500" vertical-scroll-proportion="-5.6538463">
@@ -1382,19 +1753,81 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/primefaces/primefaces/3.5/primefaces-3.5.jar!/META-INF/resources/primefaces/primefaces.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="2582" selection-start="75003" selection-end="75003" vertical-scroll-proportion="0.33147633">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/entity/Message.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="13" selection-start="223" selection-end="223" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/entity/Folder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="13" selection-start="568" selection-end="568" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/WebMailSystem-web/src/main/webapp/foldersAndMessagesTemplate.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="22" selection-start="685" selection-end="685" vertical-scroll-proportion="-3.9230769">
+        <state line="21" column="22" selection-start="685" selection-end="685" vertical-scroll-proportion="0.5895954">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/dao/MessageDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="0" selection-start="1523" selection-end="1523" vertical-scroll-proportion="0.26881722">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/dao/FolderDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="24" selection-start="1293" selection-end="1293" vertical-scroll-proportion="0.3942029">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/service/MessageService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="59" selection-start="1104" selection-end="1104" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#1190#1202#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/MessagesBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="39" selection-start="1173" selection-end="1173" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebMailSystem-web/src/main/webapp/createMessagePage.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="41" selection-start="404" selection-end="404" vertical-scroll-proportion="-5.8846154">
+        <state line="10" column="8" selection-start="413" selection-end="413" vertical-scroll-proportion="-0.32818532">
           <folding>
-            <marker date="1363598436180" expanded="true" signature="593:605" placeholder="{...}" />
-            <marker date="1363598436180" expanded="true" signature="1131:1143" placeholder="{...}" />
+            <marker date="1363598436180" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1363598436180" expanded="true" signature="-1:-1" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/service/FolderService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="65" column="0" selection-start="2590" selection-end="2590" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#1306#1318#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1406,26 +1839,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/service/FolderService.java">
+    <entry file="file://$PROJECT_DIR$/WebMailSystem-web/src/main/webapp/foldersPage.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="0" selection-start="1498" selection-end="1498" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/MessagesBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="0" selection-start="2127" selection-end="2127" vertical-scroll-proportion="0.0">
+        <state line="16" column="48" selection-start="511" selection-end="511" vertical-scroll-proportion="-8.5">
           <folding>
-            <element signature="imports" expanded="true" />
+            <marker date="1363629493448" expanded="true" signature="192:204" placeholder="{...}" />
+            <marker date="1363629493448" expanded="true" signature="81:93" placeholder="{...}" />
+            <marker date="1363629493448" expanded="true" signature="486:513" placeholder="{...}" />
+            <marker date="1363629493448" expanded="true" signature="896:928" placeholder="{...}" />
+            <marker date="1363629493448" expanded="true" signature="1667:1679" placeholder="{...}" />
+            <marker date="1363629493448" expanded="true" signature="2473:2485" placeholder="{...}" />
+            <marker date="1363629493448" expanded="true" signature="3118:3130" placeholder="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/FoldersBean.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="84" column="0" selection-start="2663" selection-end="2663" vertical-scroll-proportion="3.3344827">
-          <folding />
+        <state line="89" column="0" selection-start="3086" selection-end="3086" vertical-scroll-proportion="0.4398907">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

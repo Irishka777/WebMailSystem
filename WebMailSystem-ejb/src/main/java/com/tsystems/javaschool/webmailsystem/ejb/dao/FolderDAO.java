@@ -39,6 +39,11 @@ public class FolderDAO {
 	public Folder getFolder(long folderId) {
 		return entityManager.find(Folder.class, folderId);
 	}
+
+	public List<Message> getMessagesFromFolder(long folderId) {
+		Folder folder = getFolder(folderId);
+		return folder.getListOfMessages();
+	}
 	
 	public List<Folder> getFoldersForMailBox(String email) {
 		MailBox mailBox = entityManager.find(MailBox.class,email);

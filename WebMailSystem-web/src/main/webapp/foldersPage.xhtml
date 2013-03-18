@@ -14,51 +14,87 @@
 </h:head>
 <h:body>
 	<ui:composition>
-		<h:form id="form">
-			<p:tree style="width: 290px" id="folders"
-					binding="#{foldersBean.tree}"
-					selectionMode="single"
-					selection="#{foldersBean.selectedFolder}"
-					dynamic="true"
-					var="folder">
-				<p:ajax event="select" listener="#{messagesBean.onFolderSelect}" />
-				<p:treeNode>
-					<!--	icon="ui-icon ui-icon-folder-collapsed"-->
-					<h:outputText value="#{folder}"/>
-				</p:treeNode>
-			</p:tree>
+		<p:tree style="width: 290px; height: 350px" id="folders"
+				binding="#{foldersBean.tree}"
+				selectionMode="single"
+				dynamic="true"
+				var="folder">
+			<p:ajax event="select" listener="#{foldersBean.onFolderSelect}" update=":renameFolderForm:renameFolderName, :deletefoldertext"/>
+			<p:treeNode icon="ui-icon-folder-collapsed">
+				<h:outputText value="#{folder}"/>
+			</p:treeNode>
+		</p:tree>
 
-			<h:panelGrid style="margin: auto" columns="1">
-				<p:commandButton value="Create folder"
-								 type="button" onclick="dlg.show();"/>
+		<h:panelGrid style="margin: auto; text-align: center" columns="1">
+			<p:commandButton value="Create folder"
+							 type="button" onclick="createdlg.show();"/>
+			<p:commandButton value="Delete folder"
+							 type="button" onclick="deletedlg.show();"/>
+			<p:commandButton value="Rename folder"
+							 type="button" onclick="renamedlg.show();"/>
+		</h:panelGrid>
 
-				<p:commandButton ajax="false" value="Delete folder" action="#{foldersBean.deleteFolder}"
-								 update=":folders"/>
-				<p:commandButton ajax="false" value="Rename folder" action="#{foldersBean.renameFolder}"
-								 update=":folders"/>
-			</h:panelGrid>
-
-			<p:dialog closable="false" draggable="false"
-					  id="modalDialog" header="Create folder"
-					  widgetVar="dlg">
-				<h:panelGrid columns="3">
-					<p:outputLabel for="foldername" value="Folder name:"/>
-					<p:inputText id="foldername" value="#{foldersBean.newFolderName}"/>
-					<p:message for="foldername" display="text"/>
+		<p:growl id="growl"/>
+		<p:dialog closable="false" draggable="false" resizable="false"
+				  id="createFolderDialog" header="Create folder"
+				  widgetVar="createdlg">
+			<h:form id="form">
+				<h:panelGrid columns="2">
+					<p:outputLabel for="createfoldername" value="Folder name:"/>
+					<p:inputText id="createfoldername" value="#{foldersBean.newFolderName}"/>
 
 					<f:facet name="footer">
 						<h:panelGrid style="margin: auto" columns="2">
 							<p:commandButton value="Create"
-											 update=":folders"
-											 ajax="false"
-											 action="#{foldersBean.createFolder}"/>
-							<p:button value="Cancel" onclick="null"/>
+											 update=":folders, :growl" onsuccess="createdlg.hide();"
+											 action="#{foldersBean.createFolder}">
+							</p:commandButton>
+							<p:commandButton value="Cancel"
+											 type="button" onclick="createdlg.hide();"/>
 						</h:panelGrid>
 					</f:facet>
 				</h:panelGrid>
+			</h:form>
+		</p:dialog>
 
-			</p:dialog>
-		</h:form>
+		<p:dialog closable="false" draggable="false" resizable="false"
+				  id="renameFolderDialog" header="Rename folder"
+				  widgetVar="renamedlg">
+			<h:form id="renameFolderForm">
+				<h:panelGrid columns="2">
+					<p:outputLabel for="renameFolderName" value="Folder name:"/>
+					<p:inputText id="renameFolderName" value="#{foldersBean.selectedFolderName}"/>
+
+					<f:facet name="footer">
+						<h:panelGrid style="margin: auto" columns="2">
+							<p:commandButton value="Rename"
+											 update=":folders, :growl"
+											 action="#{foldersBean.renameFolder}">
+							</p:commandButton>
+							<p:commandButton value="Cancel"
+											 type="button" onclick="renamedlg.hide();"/>
+						</h:panelGrid>
+					</f:facet>
+				</h:panelGrid>
+			</h:form>
+		</p:dialog>
+
+
+		<p:dialog closable="false" draggable="false" resizable="false"
+				  header="Delete folder"
+				  widgetVar="deletedlg">
+			<p:outputLabel id="deletefoldertext">
+				Are you sure you want to delete #{foldersBean.selectedFolderName} folder?
+			</p:outputLabel>
+			<h:panelGrid style="margin: auto" columns="2">
+				<p:commandButton value="Yes"
+								 update=":folders, :growl"
+								 action="#{foldersBean.deleteFolder}">
+				</p:commandButton>
+				<p:commandButton value="No"
+								 type="button" onclick="deletedlg.hide();"/>
+			</h:panelGrid>
+		</p:dialog>
 	</ui:composition>
 </h:body>
 </html>

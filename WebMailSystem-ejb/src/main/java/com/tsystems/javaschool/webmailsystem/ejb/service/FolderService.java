@@ -29,6 +29,23 @@ public class FolderService {
 
 	private Logger logger = Logger.getLogger(FolderService.class);
 
+	public List<MessageDTO> getMessagesFromFolder(FolderDTO folder) throws DataProcessingException {
+		try {
+			List<Message> listOfMessages = folderDAO.getMessagesFromFolder(folder.getId());
+			List<MessageDTO> listOfMessagesDTO = new ArrayList<MessageDTO>();
+			for (Message message : listOfMessages) {
+				listOfMessagesDTO.add(message.getMessageDTO());
+			}
+			return listOfMessagesDTO;
+		} catch (NoResultException e) {
+			logger.warn("Folder with name " + folder.getFolderName() + " does not exist", e);
+			throw new DataProcessingException(ExceptionType.NoSuchFolderException);
+		} catch (Exception e) {
+			logger.error(e.getMessage(), e);
+			throw new DataProcessingException(ExceptionType.unexpectedException,e.getCause());
+		}
+	}
+
 	public FolderDTO createFolder(FolderDTO folderDTO, MailBoxDTO mailBoxDTO) throws DataProcessingException {
 		try {
 			MailBox mailBox = mailBoxDAO.find(mailBoxDTO.getEmail());
