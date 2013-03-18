@@ -35,7 +35,7 @@ public class LoginBean {
 		try {
 			MailBoxDTO mailBox = mailBoxService.login(email,password);
 			getCurrentInstance().getExternalContext().getSessionMap().put("mailBox",mailBox);
-			return "foldersAndMessages";
+			return "foldersAndMessagesPage";
 		} catch (DataProcessingException e) {
 			return e.getExceptionPage();
 		}

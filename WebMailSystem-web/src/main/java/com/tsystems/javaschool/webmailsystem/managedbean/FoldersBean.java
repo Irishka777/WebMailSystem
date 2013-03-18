@@ -51,7 +51,10 @@ public class FoldersBean {
 			tree.setValue(root);
 			List<FolderDTO> folders = folderService.getFoldersForMailBox(mailBox);
 			for (FolderDTO folder : folders) {
-				new DefaultTreeNode(folder, root);
+				TreeNode node = new DefaultTreeNode(folder, root);
+//				if (folder.getFolderName() == "Inbox") {
+//					node.setSelected(true);
+//				}
 			}
 		} catch (DataProcessingException e) {
 			e.getExceptionPage();
@@ -60,6 +63,9 @@ public class FoldersBean {
 
 	public String createFolder() {
 		try {
+			if (newFolderName == null) {
+				return null;
+			}
 			FolderDTO folder = folderService.createFolder(new FolderDTO(newFolderName), mailBox);
 			new DefaultTreeNode(folder, root);
 //			folders.add(folderService.createFolder(new FolderDTO(newFolderName), mailBox));

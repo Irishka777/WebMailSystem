@@ -14,17 +14,17 @@
 </h:head>
 <h:body>
 	<p:layout fullPage="true">
-		<p:layoutUnit position="north" visible="true">
+		<p:layoutUnit position="north">
 			<ui:insert name="top" >
 				<ui:include src="logOutPage.xhtml" />
 			</ui:insert>
 		</p:layoutUnit>
-		<p:layoutUnit id="center" position="center">
+		<p:layoutUnit position="center">
 			<ui:insert name="content" >
 				<ui:include src="messagesPage.xhtml" />
 			</ui:insert>
 		</p:layoutUnit>
-		<p:layoutUnit id="west" position="west">
+		<p:layoutUnit position="west">
 			<ui:insert name="left" >
 				<ui:include src="foldersPage.xhtml" />
 			</ui:insert>

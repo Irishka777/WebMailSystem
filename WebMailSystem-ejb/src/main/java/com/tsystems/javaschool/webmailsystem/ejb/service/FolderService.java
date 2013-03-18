@@ -32,8 +32,8 @@ public class FolderService {
 	public FolderDTO createFolder(FolderDTO folderDTO, MailBoxDTO mailBoxDTO) throws DataProcessingException {
 		try {
 			MailBox mailBox = mailBoxDAO.find(mailBoxDTO.getEmail());
-			folderDTO = folderDAO.create(new Folder(folderDTO.getFolderName(), mailBox)).getFolderDTO();
-//			folderDTO = folderDAO.findFolderByFolderNameAndEmail(folderDTO.getFolderName(),mailBox).getFolderDTO();
+			folderDAO.create(new Folder(folderDTO.getFolderName(), mailBox));
+			folderDTO = folderDAO.findFolderByFolderNameAndEmail(folderDTO.getFolderName(),mailBox).getFolderDTO();
 			logger.info("Folder " + folderDTO.getFolderName() + " successfully created");
 			return folderDTO;
 		} catch (Exception e) {
@@ -57,7 +57,8 @@ public class FolderService {
 		try {
 			Folder folder = folderDAO.getFolder(folderDTO.getId());
 			folder.setFolderName(folderDTO.getFolderName());
-			folderDTO = folderDAO.update(folder).getFolderDTO();
+			folderDAO.update(folder);
+			folderDTO = folderDAO.getFolder(folderDTO.getId()).getFolderDTO();
 			logger.info("Folder " + folderDTO.getFolderName() + " successfully renamed");
 			return folderDTO;
 		} catch (Exception e) {

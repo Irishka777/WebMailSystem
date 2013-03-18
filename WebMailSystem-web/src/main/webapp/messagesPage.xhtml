@@ -13,29 +13,28 @@
 </h:head>
 <h:body>
 	<ui:composition>
-		<p:dataTable id="messages"
-					 var="message"
-					 binding="#{messagesBean.listOfMessages}"
-					 sortBy="#{message.date}">
-			<f:facet name="header">Messages:</f:facet>
-			<p:column selectionMode="multiple"/>
-			<p:column>
-				<f:facet name="header">sender</f:facet>
-				#{message.sender}
-			</p:column>
-			<p:column>
-				<f:facet name="header">receiver</f:facet>
-				#{message.receiver}
-			</p:column>
-			<p:column>
-				<f:facet name="header">theme</f:facet>
-				#{message.theme}
-			</p:column>
-			<p:column>
-				<f:facet name="header">date</f:facet>
-				#{message.date}
-			</p:column>
-		</p:dataTable>
+			<p:dataTable id="messages"
+						 var="message"
+						 value="#{messagesBean.listOfMessages}">
+				<f:facet name="header">Messages:</f:facet>
+				<!--<p:column selectionMode="multiple"/>-->
+				<p:column>
+					<f:facet name="header">sender</f:facet>
+					#{message.sender}
+				</p:column>
+				<p:column>
+					<f:facet name="header">receiver</f:facet>
+					#{message.receiver}
+				</p:column>
+				<p:column>
+					<f:facet name="header">theme</f:facet>
+					#{message.theme}
+				</p:column>
+				<p:column>
+					<f:facet name="header">date</f:facet>
+					#{message.date}
+				</p:column>
+			</p:dataTable>
 	</ui:composition>
 </h:body>
 </html>

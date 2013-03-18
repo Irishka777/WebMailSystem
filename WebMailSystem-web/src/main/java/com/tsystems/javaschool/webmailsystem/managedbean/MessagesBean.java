@@ -22,11 +22,10 @@ import java.util.List;
  *
  */
 @ManagedBean
-@SessionScoped
 public class MessagesBean {
-//	private List<MessageDTO> listOfMessages;
-	private UIData listOfMessages;
-	private UIData selectedMessages;
+	private List<MessageDTO> listOfMessages;
+//	private UIData listOfMessages;
+//	private UIData selectedMessages;
 
 //	private Message selectedMessage;
 
@@ -70,12 +69,13 @@ public class MessagesBean {
 	public void onFolderSelect(NodeSelectEvent event) {
 		FolderDTO folder = (FolderDTO) event.getTreeNode().getData();
 		try {
-			listOfMessages.setValue(messageService.getMessagesFromFolder(folder));
-			listOfMessages.processUpdates(FacesContext.getCurrentInstance());
+			listOfMessages = messageService.getMessagesFromFolder(folder);
+//			listOfMessages.setValue(messageService.getMessagesFromFolder(folder));
+//			return "foldersAndMessagesPage";
 //			FacesContext.getCurrentInstance().renderResponse();
-//			listOfMessages = messageService.getMessagesFromFolder(folder);
 //			return null;
 		} catch (DataProcessingException e) {
+
 			e.getExceptionPage();
 		}
 	}
@@ -101,21 +101,21 @@ public class MessagesBean {
 //		return sdf.format(date);
 //	}
 
-//	public List<MessageDTO> getListOfMessages() {
-//		return listOfMessages;
-//	}
-//
-//	public void setListOfMessages(List<MessageDTO> listOfMessages) {
-//		this.listOfMessages = listOfMessages;
-//	}
-
-	public UIData getListOfMessages() {
+	public List<MessageDTO> getListOfMessages() {
 		return listOfMessages;
 	}
 
-	public void setListOfMessages(UIData listOfMessages) {
+	public void setListOfMessages(List<MessageDTO> listOfMessages) {
 		this.listOfMessages = listOfMessages;
 	}
+
+//	public UIData getListOfMessages() {
+//		return listOfMessages;
+//	}
+//
+//	public void setListOfMessages(UIData listOfMessages) {
+//		this.listOfMessages = listOfMessages;
+//	}
 
 //	public Message getSelectedMessage() {
 //		return selectedMessage;
