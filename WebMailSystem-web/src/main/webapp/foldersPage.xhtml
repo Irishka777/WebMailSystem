@@ -19,7 +19,7 @@
 				selectionMode="single"
 				dynamic="true"
 				var="folder">
-			<p:ajax event="select" listener="#{foldersBean.onFolderSelect}" update=":renameFolderForm:renameFolderName, :deletefoldertext"/>
+			<p:ajax event="select" listener="#{foldersBean.onFolderSelect}" update=":messagesForm:messages, :renameFolderForm:renameFolderName, :deletefoldertext"/>
 			<p:treeNode icon="ui-icon-folder-collapsed">
 				<h:outputText value="#{folder}"/>
 			</p:treeNode>

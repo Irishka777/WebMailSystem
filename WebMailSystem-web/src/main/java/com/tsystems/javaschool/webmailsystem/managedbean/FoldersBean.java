@@ -6,6 +6,7 @@ import com.tsystems.javaschool.webmailsystem.ejb.service.FolderService;
 import com.tsystems.javaschool.webmailsystem.exception.DataProcessingException;
 import org.primefaces.component.api.UITree;
 import org.primefaces.component.tree.Tree;
+import org.primefaces.context.RequestContext;
 import org.primefaces.event.NodeSelectEvent;
 import org.primefaces.model.DefaultTreeNode;
 import org.primefaces.model.TreeNode;

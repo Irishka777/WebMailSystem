@@ -83,11 +83,13 @@ public class MessageService {
 		}
 	}
 	
-	public void deleteMessage(MessageDTO messageDTO) throws DataProcessingException {
+	public void deleteMessage(MessageDTO[] messageDTO) throws DataProcessingException {
 		try {
 //			Message message = messageDAO.findMessage(messageDTO.getId());
 //			messageDAO.delete(message);
-			messageDAO.delete(messageDTO.getId());
+			for (int i = 0; i < messageDTO.length; i++) {
+				messageDAO.delete(messageDTO[i].getId());
+			}
 			logger.info("Message successfully deleted");
 		} catch (Exception e) {
 			logger.error(e.getMessage(), e);

@@ -13,10 +13,54 @@
 </h:head>
 <h:body>
 	<ui:composition>
-		<h:form>
-			<!--<p:commandButton ajax="false" value="Log out" action=""/>-->
-			<p:button ajax="false" value="Create message" outcome="createMessagePage"/>
-		</h:form>
+		<h:panelGrid style="margin: auto; text-align: center" columns="1">
+			<p:commandButton value="Create message"
+							 type="button" onclick="createmessagedlg.show();"/>
+			<!--<p:commandButton value="Delete folder"-->
+			<!--type="button" onclick="deletedlg.show();"/>-->
+			<!--<p:commandButton value="Rename folder"-->
+			<!--type="button" onclick="renamedlg.show();"/>-->
+		</h:panelGrid>
+		<!--<p:commandButton ajax="false" value="Log out" action=""/>-->
+		<!--<p:button ajax="false" value="Create message" outcome="createMessagePage"/>-->
+		<p:growl id="growl1"/>
+		<p:dialog closable="false" draggable="false" resizable="false"
+				  id="createMessageDialog" header="Create message"
+				  widgetVar="createmessagedlg">
+			<h:form id="createMessageForm">
+
+				<h:panelGrid style="margin: auto" columns="2">
+					<f:facet name="header">
+						Create a message
+					</f:facet>
+
+					<p:outputLabel for="receiver" value="Receiver: "/>
+					<p:inputText style="width: 250px" id="receiver" value="#{createMessageBean.receiver}"/>
+
+					<p:outputLabel for="theme" value="Theme: "/>
+					<p:inputText style="width: 250px" id="theme" value="#{createMessageBean.theme}"/>
+
+					<p:outputLabel for="messagebody" value="Message: "/>
+					<p:inputTextarea style="width: 250px; height: 250px" id="messagebody" value="#{createMessageBean.messageBody}"/>
+
+					<f:facet name="footer">
+						<h:panelGrid style="margin: auto" columns="3">
+							<p:commandButton value="Send"
+											 update=":growl1, :growl"
+											 action="#{createMessageBean.sendMessage}"
+											 oncomplete="createmessagedlg.hide();"/>
+							<p:commandButton value="Save"
+											 update=":growl1, :growl"
+											 action="#{createMessageBean.saveMessage}"
+											 oncomplete="createmessagedlg.hide();"/>
+							<p:commandButton value="Cancel"
+											 type="button" onclick="createmessagedlg.hide();"/>
+						</h:panelGrid>
+					</f:facet>
+				</h:panelGrid>
+
+			</h:form>
+		</p:dialog>
 	</ui:composition>
 </h:body>
 </html>

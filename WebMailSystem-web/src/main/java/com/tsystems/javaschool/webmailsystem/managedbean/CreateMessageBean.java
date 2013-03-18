@@ -7,6 +7,7 @@ import com.tsystems.javaschool.webmailsystem.exception.DataProcessingException;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.validation.constraints.NotNull;
@@ -40,18 +41,30 @@ public class CreateMessageBean {
 	public String sendMessage() {
 		try {
 			messageService.sendMessage(new MessageDTO(sender, receiver, theme, messageBody));
-			return "messageSuccessfullySentPage";
+			FacesContext.getCurrentInstance().addMessage(null,
+					new FacesMessage("Message successfully sent"));
+			return null;
+//			return "messageSuccessfullySentPage";
 		} catch (DataProcessingException e) {
-			return e.getExceptionPage();
+			FacesContext.getCurrentInstance().addMessage(null,
+					new FacesMessage("Error in process of sending message"));
+			return null;
+//			return e.getExceptionPage();
 		}
 	}
 
 	public String saveMessage() {
 		try {
 			messageService.saveMessage(new MessageDTO(sender, receiver, theme, messageBody));
-			return "messageSuccessfullySavedPage";
+			FacesContext.getCurrentInstance().addMessage(null,
+					new FacesMessage("Message successfully sent"));
+			return null;
+//			return "messageSuccessfullySavedPage";
 		} catch (DataProcessingException e) {
-			return e.getExceptionPage();
+			FacesContext.getCurrentInstance().addMessage(null,
+					new FacesMessage("Error in process of sending message"));
+			return null;
+//			return e.getExceptionPage();
 		}
 	}
 
