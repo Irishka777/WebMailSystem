@@ -22,15 +22,9 @@ public class MailBoxService {
 	private Logger logger = Logger.getLogger(MailBoxService.class);
 
 	public MailBoxDTO login(String email, String password) throws DataProcessingException {
+		MailBox mailBox = null;
 		try {
-			MailBox mailBox = mailBoxDAO.find(email);
-			byte[] encodedPassword = MailBox.convertPasswordStringIntoBytesArrayUsingMD5AndSalt(password);
-			if (!MailBox.comparePasswords(encodedPassword,mailBox.getPassword())) {
-				logger.info("Entered password for mailbox with email" + email + " is wrong");
-				throw new DataProcessingException(ExceptionType.wrongEmailOrPassword);
-			}
-			logger.info("Successful login into mailbox " + mailBox.getEmail());
-			return mailBox.getMailBoxDTO();
+			mailBox = mailBoxDAO.find(email);
 		} catch (NoResultException e) {
 			logger.warn("Mailbox with email " + email + " does not exist", e);
 			throw new DataProcessingException(ExceptionType.wrongEmailOrPassword);
@@ -38,6 +32,13 @@ public class MailBoxService {
 			logger.error(e.getMessage(), e);
 			throw new DataProcessingException(ExceptionType.unexpectedException,e.getCause());
 		}
+		byte[] encodedPassword = MailBox.convertPasswordStringIntoBytesArrayUsingMD5AndSalt(password);
+		if (!MailBox.comparePasswords(encodedPassword,mailBox.getPassword())) {
+			logger.info("Entered password for mailbox with email" + email + " is wrong");
+			throw new DataProcessingException(ExceptionType.wrongEmailOrPassword);
+		}
+		logger.info("Successful login into mailbox " + mailBox.getEmail());
+		return mailBox.getMailBoxDTO();
 	}
 	
 	public void signUp(String email, String password, UserDTO userDTO) throws DataProcessingException {

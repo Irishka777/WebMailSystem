@@ -2,22 +2,15 @@ package com.tsystems.javaschool.webmailsystem.managedbean;
 
 import com.tsystems.javaschool.webmailsystem.dto.FolderDTO;
 import com.tsystems.javaschool.webmailsystem.dto.MessageDTO;
-import com.tsystems.javaschool.webmailsystem.ejb.service.FolderService;
 import com.tsystems.javaschool.webmailsystem.ejb.service.MessageService;
-import com.tsystems.javaschool.webmailsystem.entity.MailBox;
-import com.tsystems.javaschool.webmailsystem.entity.Message;
 import com.tsystems.javaschool.webmailsystem.exception.DataProcessingException;
-import org.primefaces.component.api.UIData;
-import org.primefaces.event.NodeSelectEvent;
 import org.primefaces.event.SelectEvent;
+import org.primefaces.model.DefaultTreeNode;
 import org.primefaces.model.TreeNode;
 
-import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.faces.bean.ViewScoped;
-import javax.faces.context.FacesContext;
 import javax.faces.event.ValueChangeEvent;
 import java.util.List;
 
@@ -34,10 +27,14 @@ public class MessagesBean {
 	private MessageDTO[] selectedMessage;
 	private String selectedMessageBody;
 
-//	public void messageSelectedWithCheckbox(SelectEvent event) {
-//		selectedMessageBody = ((MessageDTO) event.getObject()).getMessageBody();
-//	}
+	private DefaultTreeNode endFolder;
+//	private TreeNode endFolder;
 
+	private FolderDTO endFolder1;
+
+	public void messageFolderChanged(ValueChangeEvent even) {
+		endFolder1 = (FolderDTO)((TreeNode) even.getNewValue()).getData();
+	}
 	public void messageSelectedWithClick(SelectEvent event) {
 		selectedMessageBody = ((MessageDTO) event.getObject()).getMessageBody();
 	}
@@ -58,19 +55,25 @@ public class MessagesBean {
 			selectedMessageBody = null;
 			return null;
 		} catch (DataProcessingException e) {
-			return e.getExceptionPage();
+			return e.getExceptionMessage();
 		}
 	}
 
-//	private UIData listOfMessages;
-//
-//	public UIData getListOfMessages() {
-//		return listOfMessages;
-//	}
-//
-//	public void setListOfMessages(UIData listOfMessages) {
-//		this.listOfMessages = listOfMessages;
-//	}
+	public String moveMessage() {
+		if (selectedMessage.length == 0) {
+			return null;
+		}
+		try {
+			messageService.moveMessage(selectedMessage,(FolderDTO) endFolder.getData());
+			for (int i = 0; i < selectedMessage.length; i++) {
+				listOfMessages.remove(selectedMessage[i]);
+			}
+			selectedMessageBody = null;
+			return null;
+		} catch (DataProcessingException e) {
+			return e.getExceptionMessage();
+		}
+	}
 
 	public List<MessageDTO> getListOfMessages() {
 		return listOfMessages;
@@ -94,5 +97,13 @@ public class MessagesBean {
 
 	public void setSelectedMessageBody(String selectedMessageBody) {
 		this.selectedMessageBody = selectedMessageBody;
+	}
+
+	public DefaultTreeNode getEndFolder() {
+		return endFolder;
+	}
+
+	public void setEndFolder(DefaultTreeNode endFolder) {
+		this.endFolder = endFolder;
 	}
 }

@@ -6,7 +6,6 @@ import com.tsystems.javaschool.webmailsystem.ejb.service.FolderService;
 import com.tsystems.javaschool.webmailsystem.exception.DataProcessingException;
 import org.primefaces.component.api.UITree;
 import org.primefaces.component.tree.Tree;
-import org.primefaces.context.RequestContext;
 import org.primefaces.event.NodeSelectEvent;
 import org.primefaces.model.DefaultTreeNode;
 import org.primefaces.model.TreeNode;
@@ -17,10 +16,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
-import javax.faces.component.UIComponent;
-import javax.faces.component.UIInput;
 import javax.faces.context.FacesContext;
-import javax.validation.ValidationException;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -43,50 +39,52 @@ public class FoldersBean {
 	}
 
 	private UITree tree;
-	private TreeNode root;
+	private DefaultTreeNode root;
 	private MailBoxDTO mailBox = (MailBoxDTO) FacesContext
 			.getCurrentInstance().getExternalContext().getSessionMap().get("mailBox");
 
-	private TreeNode selectedFolder;
+	private DefaultTreeNode selectedFolder;
 
-	@NotNull(message = "You should specify the folder name")
+	@NotNull(message = "You have not specified the folder name")
 	@Pattern(regexp = "[a-zA-Z][a-zA-Z0-9]*",
 			message = "Folder name should start with a latter and contain just letters and digits")
-	@Size(max = 30, message = "Length of the folder name should be no more then 30 characters")
+	@Size(max = 30, message = "Length of the folder name more then 30 characters")
 	private String newFolderName;
 
-	@NotNull(message = "You should specify the folder name")
+	@NotNull(message = "You have not specified the folder name")
 	@Pattern(regexp = "[a-zA-Z][a-zA-Z0-9]*",
 			message = "Folder name should start with a latter and contain just letters and digits")
-	@Size(max = 30, message = "Length of the folder name should be no more then 30 characters")
+	@Size(max = 30, message = "Length of the folder name more then 30 characters")
 	private String selectedFolderName;
 
 	@PostConstruct
 	public void initialiseFoldersTree() {
 		try {
 			root = new DefaultTreeNode(mailBox,null);
-			tree = new Tree();
-			tree.setValue(root);
+//			tree = new Tree();
+//			tree.setValue(root);
 			List<FolderDTO> folders = folderService.getFoldersForMailBox(mailBox);
 			for (FolderDTO folder : folders) {
-				TreeNode node = new DefaultTreeNode(folder, root);
-//				if (folder.getFolderName() == "Inbox") {
-//					node.setSelected(true);
-//				}
+				DefaultTreeNode node = new DefaultTreeNode(folder, root);
+				if (folder.getFolderName().equals("Inbox")) {
+					node.setSelected(true);
+				}
 			}
 		} catch (DataProcessingException e) {
-			e.getExceptionPage();
+			FacesContext.getCurrentInstance().addMessage(null,
+					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", e.getExceptionMessage()));
 		}
 	}
 
 	public void onFolderSelect(NodeSelectEvent event) {
-		selectedFolder = event.getTreeNode();
+		selectedFolder = (DefaultTreeNode) event.getTreeNode();
 		FolderDTO folder = (FolderDTO) event.getTreeNode().getData();
 		selectedFolderName = folder.getFolderName();
 		try {
 			messagesBean.setListOfMessages(folderService.getMessagesFromFolder(folder));
 		} catch (DataProcessingException e) {
-			e.getExceptionPage();
+			FacesContext.getCurrentInstance().addMessage(null,
+					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", e.getExceptionMessage()));
 		}
 	}
 
@@ -99,87 +97,94 @@ public class FoldersBean {
 			for (int i = 0; i < list.size(); i++) {
 				if (((FolderDTO) list.get(i).getData()).getFolderName().equals(newFolderName)) {
 					FacesContext.getCurrentInstance().addMessage(null,
-							new FacesMessage("Folder with such a name already exists"));
+							new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error",
+									"Folder with such a name already exists"));
 					return null;
 				}
 			}
 			FolderDTO folder = folderService.createFolder(new FolderDTO(newFolderName), mailBox);
 			new DefaultTreeNode(folder, root);
 			newFolderName = null;
+			FacesContext.getCurrentInstance().addMessage(null,
+					new FacesMessage("Folder successfully created"));
 			return null;
 		} catch (DataProcessingException e) {
-			return e.getExceptionPage();
+			FacesContext.getCurrentInstance().addMessage(null,
+					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", e.getExceptionMessage()));
+			return null;
 		}
 	}
 
 	public String deleteFolder() {
 		if (selectedFolder == null) {
+			FacesContext.getCurrentInstance().addMessage(null,
+					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error",
+							"You have not selected a folder for deletion"));
+			return null;
+		}
+		String folderName = ((FolderDTO) selectedFolder.getData()).getFolderName();
+		if (folderName.equals("Inbox") || folderName.equals("Outbox") || folderName.equals("Draft")) {
+			FacesContext.getCurrentInstance().addMessage(null,
+					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "You can not delete system folders"));
 			return null;
 		}
 		try {
 			folderService.deleteFolder((FolderDTO) selectedFolder.getData());
 			root.getChildren().remove(selectedFolder);
+			FacesContext.getCurrentInstance().addMessage(null,
+					new FacesMessage("Folder successfully deleted"));
 			return null;
 		} catch (DataProcessingException e) {
-			return e.getExceptionPage();
+			FacesContext.getCurrentInstance().addMessage(null,
+					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", e.getExceptionMessage()));
+			return null;
 		}
 	}
 
 	public String renameFolder() {
 		if (selectedFolder == null) {
+			FacesContext.getCurrentInstance().addMessage(null,
+					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error",
+							"You have not selected a folder for renaming"));
 			return null;
 		}
-		if (((FolderDTO) selectedFolder.getData()).getFolderName().equals(selectedFolderName)) {
+		FolderDTO folder = (FolderDTO) selectedFolder.getData();
+		if (folder.getFolderName().equals(selectedFolderName)) {
 			FacesContext.getCurrentInstance().addMessage(null,
-					new FacesMessage("You should specify a new name for selected folder"));
+					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error",
+							"You have not specified a new name for folder"));
+			return null;
+		}
+		if (folder.getFolderName().equals("Inbox")
+				|| folder.getFolderName().equals("Outbox")
+				|| folder.getFolderName().equals("Draft")) {
+			FacesContext.getCurrentInstance().addMessage(null,
+					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "You can not rename system folders"));
 			return null;
 		}
 		List<TreeNode> list = root.getChildren();
 		for (int i = 0; i < list.size(); i++) {
 			if (((FolderDTO) list.get(i).getData()).getFolderName().equals(selectedFolderName)) {
 				FacesContext.getCurrentInstance().addMessage(null,
-						new FacesMessage("Folder with such a name already exists"));
+						new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error",
+								"Folder with such a name already exists"));
 				return null;
 			}
 		}
 		try {
-			FolderDTO folder = (FolderDTO) selectedFolder.getData();
 			folder.setFolderName(selectedFolderName);
 			folder = folderService.renameFolder(folder);
 			root.getChildren().remove(selectedFolder);
 			selectedFolder = new DefaultTreeNode(folder, root);
+			FacesContext.getCurrentInstance().addMessage(null,
+					new FacesMessage("Folder successfully renamed"));
 			return null;
 		} catch (DataProcessingException e) {
-			return e.getExceptionPage();
+			FacesContext.getCurrentInstance().addMessage(null,
+					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", e.getExceptionMessage()));
+			return null;
 		}
 	}
-
-
-	public void deleteFolderAction() {
-		if (selectedFolder == null) {
-			return;
-		}
-		try {
-			root.getChildren().remove(selectedFolder);
-			folderService.deleteFolder((FolderDTO) selectedFolder.getData());
-		} catch (DataProcessingException e) {
-			e.getExceptionPage();
-		}
-	}
-
-
-//	public void findFoldersFromMailBox() {
-//		try {
-//			root = new DefaultTreeNode(mailBox,null);
-//			folders = folderService.getFoldersForMailBox(mailBox);
-//			for (FolderDTO folder : folders) {
-//				new DefaultTreeNode(folder, root);
-//			}
-//			return "foldersAndMessages";
-//		} catch (DataProcessingException e) {
-//			e.getExceptionPage();
-//		}
-//	}
 
 	public UITree getTree() {
 		return tree;
@@ -188,7 +193,7 @@ public class FoldersBean {
 	public void setTree(UITree tree) {
 		this.tree = tree;
 	}
-	public TreeNode getRoot() {
+	public DefaultTreeNode getRoot() {
 		return root;
 	}
 
@@ -196,7 +201,7 @@ public class FoldersBean {
 		return selectedFolder;
 	}
 
-	public void setSelectedFolder(TreeNode selectedFolder) {
+	public void setSelectedFolder(DefaultTreeNode selectedFolder) {
 		this.selectedFolder = selectedFolder;
 	}
 

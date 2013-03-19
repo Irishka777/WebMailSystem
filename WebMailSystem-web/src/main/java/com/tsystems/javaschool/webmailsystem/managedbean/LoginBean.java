@@ -5,6 +5,7 @@ import com.tsystems.javaschool.webmailsystem.ejb.service.MailBoxService;
 import com.tsystems.javaschool.webmailsystem.exception.DataProcessingException;
 
 import javax.ejb.EJB;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
@@ -19,6 +20,9 @@ import static javax.faces.context.FacesContext.*;
  */
 @ManagedBean
 public class LoginBean {
+	@EJB
+	private MailBoxService mailBoxService;
+
 	@NotNull(message = "You should specify the email")
 	@Pattern(regexp = "(([\\w[.]]*)@([a-zA-Z]*)\\.([a-zA-Z]*))",
 			message = "The email should look like mail@mail.ru")
@@ -28,21 +32,20 @@ public class LoginBean {
 	@Size(min = 5, message = "Length of the password should be no less then five characters")
 	private String password;
 
-	@EJB
-	private MailBoxService mailBoxService;
-
-	public String login() {
+	public String logIn() {
 		try {
 			MailBoxDTO mailBox = mailBoxService.login(email,password);
 			getCurrentInstance().getExternalContext().getSessionMap().put("mailBox",mailBox);
 			return "foldersAndMessagesPage";
 		} catch (DataProcessingException e) {
-			return e.getExceptionPage();
+			FacesContext.getCurrentInstance().addMessage(null,
+					new FacesMessage(e.getExceptionMessage()));
+			return null;
 		}
 	}
 
 	public String logOut() {
-		HttpSession session = (HttpSession) getCurrentInstance().getExternalContext().getSession(false);
+		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 		session.invalidate();
 		return "logInPage";
 	}

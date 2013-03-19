@@ -16,20 +16,20 @@ public class DataProcessingException extends Exception {
 		this.exceptionType = exceptionType;
 	}
 
-	public String getExceptionPage() {
+	public String getExceptionMessage() {
 		switch (exceptionType) {
 			case NoSuchAlgorithmException:
 				return "noSuchAlgorithmException";
 			case mailBoxWithSuchANameAlreadyExists:
-				return "mailBoxWithSuchANameAlreadyExists";
+				return "Mailbox with such a name already exists; try to use another email";
 			case wrongEmailOrPassword:
-				return "wrongEmailOrPassword";
+				return "Wrong email or password";
 			case wrongMessageReceiverEmail:
-				return "wrongMessageReceiverEmail";
+				return "Receiver with such email does not exist; message saved in draft messages";
 			case NoSuchFolderException:
 			case unexpectedException:
 				default:
-				return "unexpectedException";
+				return "System error; Please try later";
 		}
 	}
 

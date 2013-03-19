@@ -8,11 +8,231 @@
 	  xmlns:f="http://java.sun.com/jsf/core"
 	  xmlns:h="http://java.sun.com/jsf/html"
 	  xmlns:p="http://primefaces.org/ui">
+
 <h:head>
+	<h:outputStylesheet library="css" name="style.css"/>
+	<style type="text/css">
+		.ui-layout-unit .ui-layout-unit-content {
+			height: auto;
+			padding: 0;
+		}
+		/*.ui-layout-unit-content {*/
+			/*height: auto;*/
+			/*padding: 0;*/
+		/*}*/
+		.ui-menu {
+			height: auto;
+			padding: 0;
+		}
+		/*.ui-layout-pane-north {*/
+			/*padding: 0;*/
+			/*height: auto;*/
+		/*}*/
+		.ui-layout-north {
+			padding: 0;
+			height: auto;
+		}
+		.ui-layout-center {
+			padding: 0;
+			height: auto;
+		}
+		.ui-layout-west {
+			padding: 0;
+			height: auto;
+		}
+	</style>
 	<title></title>
 </h:head>
 <h:body>
-	<ui:composition template="foldersAndMessagesTemplate.xhtml">
-	</ui:composition>
+	<p:layout fullPage="true">
+		<p:layoutUnit position="north">
+			<h:form>
+				<p:menubar>
+					<f:facet name="options">
+						<p:commandButton value="Personal data"/>
+						<p:commandButton value="LogOut" icon="ui-icon-extlink"
+										 action="#{loginBean.logOut}"/>
+					</f:facet>
+				</p:menubar>
+			</h:form>
+		</p:layoutUnit>
+		<p:layoutUnit position="west" size="300">
+			<p:layout>
+				<p:layoutUnit position="south" size="170">
+					<h:panelGrid style="margin: auto; text-align: center" columns="1">
+						<p:commandButton style="width: 180px" value="Create folder"
+										 type="button" onclick="createdlg.show();"/>
+						<p:commandButton style="width: 180px" value="Delete folder"
+										 type="button" onclick="deletedlg.show();"/>
+						<p:commandButton style="width: 180px" value="Rename folder"
+										 type="button" onclick="renamedlg.show();"/>
+					</h:panelGrid>
+				</p:layoutUnit>
+				<!--binding="{foldersBean.tree}"-->
+				<p:layoutUnit position="center">
+					<p:tree id="folders" style="width: 97%"
+							value="#{foldersBean.root}"
+							selectionMode="single"
+							dynamic="true"
+							var="folder">
+						<p:ajax event="select" listener="#{foldersBean.onFolderSelect}" update=":messagesForm:messages, :renameFolderForm:renameFolderName, :deletefoldertext"/>
+						<p:treeNode icon="ui-icon-folder-collapsed">
+							<h:outputText value="#{folder}"/>
+						</p:treeNode>
+					</p:tree>
+				</p:layoutUnit>
+			</p:layout>
+		</p:layoutUnit>
+		<p:layoutUnit position="center">
+			<p:layout>
+				<p:layoutUnit position="north">
+					<p:menubar>
+						<!--<p:menuitem outcome="logInPage" value="Logout"/>-->
+						<f:facet name="options">
+							<p:button value="Create message" outcome="createMessagePage"/>
+							<p:commandButton value="Move message"
+											 type="button" onclick="movemessagedlg.show();"/>
+							<p:commandButton value="Delete message"
+											 type="button" onclick="deletemessagedlg.show();"/>
+						</f:facet>
+					</p:menubar>
+				</p:layoutUnit>
+				<p:layoutUnit position="center">
+					<h:form id="messagesForm">
+						<p:dataTable id="messages"
+									 var="message"
+									 rowKey="#{message.id}"
+									 selection="#{messagesBean.selectedMessage}"
+									 value="#{messagesBean.listOfMessages}">
+							<f:facet name="header">Messages:</f:facet>
+							<p:column selectionMode="multiple"/>
+							<p:ajax update=":messageBody" event="rowSelect"
+									listener="#{messagesBean.messageSelectedWithClick}"/>
+							<p:column>
+								<f:facet name="header">sender</f:facet>
+								#{message.sender}
+							</p:column>
+							<p:column>
+								<f:facet name="header">receiver</f:facet>
+								#{message.receiver}
+							</p:column>
+							<p:column>
+								<f:facet name="header">theme</f:facet>
+								#{message.theme}
+							</p:column>
+							<p:column>
+								<f:facet name="header">date</f:facet>
+								#{message.date}
+							</p:column>
+						</p:dataTable>
+					</h:form>
+				</p:layoutUnit>
+				<p:layoutUnit position="south" size="200">
+					<p:inputTextarea style="width: 97%;height: 170px" autoResize="false" readonly="true"
+									 id="messageBody" value="#{messagesBean.selectedMessageBody}"/>
+				</p:layoutUnit>
+			</p:layout>
+		</p:layoutUnit>
+	</p:layout>
+
+	<p:growl id="growl" showDetail="true"/>
+
+	<p:dialog closable="false" draggable="false" resizable="false"
+			  id="createFolderDialog" header="Create folder"
+			  widgetVar="createdlg">
+		<h:form id="form">
+			<h:panelGrid columns="2">
+				<p:outputLabel for="createfoldername" value="Folder name:"/>
+				<p:inputText id="createfoldername" value="#{foldersBean.newFolderName}"/>
+
+				<f:facet name="footer">
+					<h:panelGrid style="margin: auto" columns="2">
+						<p:commandButton value="Create"
+										 update=":folders, :growl" onsuccess="createdlg.hide();"
+										 action="#{foldersBean.createFolder}">
+						</p:commandButton>
+						<p:commandButton value="Cancel"
+										 type="button" onclick="createdlg.hide();"/>
+					</h:panelGrid>
+				</f:facet>
+			</h:panelGrid>
+		</h:form>
+	</p:dialog>
+
+	<p:dialog closable="false" draggable="false" resizable="false"
+			  id="renameFolderDialog" header="Rename folder"
+			  widgetVar="renamedlg">
+		<h:form id="renameFolderForm">
+			<h:panelGrid columns="2">
+				<p:outputLabel for="renameFolderName" value="Folder name:"/>
+				<p:inputText id="renameFolderName" value="#{foldersBean.selectedFolderName}"/>
+
+				<f:facet name="footer">
+					<h:panelGrid style="margin: auto" columns="2">
+						<p:commandButton value="Rename"
+										 update=":folders, :growl"
+										 action="#{foldersBean.renameFolder}" oncomplete="renamedlg.hide();">
+						</p:commandButton>
+						<p:commandButton value="Cancel"
+										 type="button" onclick="renamedlg.hide();"/>
+					</h:panelGrid>
+				</f:facet>
+			</h:panelGrid>
+		</h:form>
+	</p:dialog>
+
+	<p:dialog closable="false" draggable="false" resizable="false"
+			  header="Delete folder"
+			  widgetVar="deletedlg">
+		<p:outputLabel id="deletefoldertext">
+			Are you sure you want to delete #{foldersBean.selectedFolderName} folder?
+		</p:outputLabel>
+		<h:panelGrid style="margin: auto" columns="2">
+			<p:commandButton value="Yes"
+							 update=":folders, :growl"
+							 action="#{foldersBean.deleteFolder}" onsuccess="deletedlg.hide();">
+			</p:commandButton>
+			<p:commandButton value="No"
+							 type="button" onclick="deletedlg.hide();"/>
+		</h:panelGrid>
+	</p:dialog>
+
+
+
+	<p:dialog closable="false" draggable="false" resizable="false"
+			  header="Delete message"
+			  widgetVar="deletemessagedlg">
+		Are you sure you want to delete selected messages?
+		<h:panelGrid style="margin: auto" columns="2">
+			<p:commandButton value="Yes"
+							 update=":messagesForm:messages, :messageBody"
+							 action="#{messagesBean.deleteMessage}"
+							 oncomplete="deletemessagedlg.hide();">
+			</p:commandButton>
+			<p:commandButton value="No"
+							 type="button" onclick="deletemessagedlg.hide();"/>
+		</h:panelGrid>
+	</p:dialog>
+
+	<p:dialog closable="false" draggable="false" resizable="false"
+			  header="Move message"
+			  widgetVar="movemessagedlg">
+		Chose a folder for selected messages:
+		<h:form>
+			<p:selectOneMenu valueChangeListener="#{messagesBean.messageFolderChanged}"
+							 value="#{messagesBean.endFolder}">
+				<f:selectItems value="#{foldersBean.root.children}" var="movefolder" itemLabel="#{movefolder.data}" itemValue="#{movefolder}"/>
+			</p:selectOneMenu>
+		</h:form>
+		<h:panelGrid style="margin: auto" columns="2">
+			<p:commandButton value="Yes"
+							 update=":messagesForm:messages, :messageBody"
+							 action="#{messagesBean.moveMessage}">
+				<!--oncomplete="movemessagedlg.hide();">-->
+			</p:commandButton>
+			<p:commandButton value="No"
+							 type="button" onclick="movemessagedlg.hide();"/>
+		</h:panelGrid>
+	</p:dialog>
 </h:body>
 </html>

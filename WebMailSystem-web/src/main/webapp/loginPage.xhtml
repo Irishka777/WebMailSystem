@@ -9,28 +9,26 @@
 	  xmlns:f="http://java.sun.com/jsf/core">
 
 <h:head>
+	<h:outputStylesheet library="css" name="style.css"/>
 	<title>Log In</title>
 </h:head>
 <h:body>
-
+	<p:growl id="growl"/>
 	<p:layout fullPage="true" >
 		<p:layoutUnit position="north" header="Log In"/>
 		<p:layoutUnit position="center">
 			<h:form>
-				<h:panelGrid style="margin: auto" columns="3">
+				<h:panelGrid style="margin: auto" columns="2">
 
 					<p:outputLabel for="email" value="Email:"/>
 					<p:inputText id="email" value="#{loginBean.email}"/>
-					<p:message for="email" display="text"/>
 
 					<p:outputLabel for="password" value="Password:"/>
 					<p:password id="password" value="#{loginBean.password}"/>
-					<p:message for="password" display="text"/>
-
 
 					<f:facet name="footer" >
 						<h:panelGrid style="margin: auto" columns="2">
-							<p:commandButton ajax="false" value="Log in" action="#{loginBean.login}"/>
+							<p:commandButton update=":growl" value="Log in" action="#{loginBean.logIn}"/>
 							<p:button value="Sign up" outcome="signUpPage"/>
 						</h:panelGrid>
 					</f:facet>

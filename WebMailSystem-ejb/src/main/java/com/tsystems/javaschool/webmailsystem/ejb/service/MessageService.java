@@ -2,8 +2,10 @@ package com.tsystems.javaschool.webmailsystem.ejb.service;
 
 import com.tsystems.javaschool.webmailsystem.dto.FolderDTO;
 import com.tsystems.javaschool.webmailsystem.dto.MessageDTO;
+import com.tsystems.javaschool.webmailsystem.ejb.dao.FolderDAO;
 import com.tsystems.javaschool.webmailsystem.ejb.dao.MailBoxDAO;
 import com.tsystems.javaschool.webmailsystem.ejb.dao.MessageDAO;
+import com.tsystems.javaschool.webmailsystem.entity.Folder;
 import com.tsystems.javaschool.webmailsystem.entity.MailBox;
 import com.tsystems.javaschool.webmailsystem.entity.Message;
 import com.tsystems.javaschool.webmailsystem.exception.DataProcessingException;
@@ -21,6 +23,9 @@ public class MessageService {
 
 	@EJB
 	private MessageDAO messageDAO;
+
+	@EJB
+	private FolderDAO folderDAO;
 
 	@EJB
 	private MailBoxDAO mailBoxDAO;
@@ -91,6 +96,22 @@ public class MessageService {
 				messageDAO.delete(messageDTO[i].getId());
 			}
 			logger.info("Message successfully deleted");
+		} catch (Exception e) {
+			logger.error(e.getMessage(), e);
+			throw new DataProcessingException(ExceptionType.unexpectedException,e.getCause());
+		}
+	}
+
+	public void moveMessage(MessageDTO[] messageDTO, FolderDTO endFolder) throws DataProcessingException {
+		try {
+			Folder folder = folderDAO.getFolder(endFolder.getId());
+			Message message;
+			for (int i = 0; i < messageDTO.length; i++) {
+				message = messageDAO.findMessage(messageDTO[i].getId());
+				message.setFolder(folder);
+				messageDAO.move(message);
+			}
+			logger.info("Messages successfully moved");
 		} catch (Exception e) {
 			logger.error(e.getMessage(), e);
 			throw new DataProcessingException(ExceptionType.unexpectedException,e.getCause());

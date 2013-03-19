@@ -50,7 +50,7 @@ public class SignUpBean {
 			mailBoxService.signUp(email, password,new UserDTO(firstName, lastName, dateOfBirth, phoneNumber));
 			return "logInPage";
 		} catch (DataProcessingException e) {
-			return e.getExceptionPage();
+			return e.getExceptionMessage();
 		}
 	}
 

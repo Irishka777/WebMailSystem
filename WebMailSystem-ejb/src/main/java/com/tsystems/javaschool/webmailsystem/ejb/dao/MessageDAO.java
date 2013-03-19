@@ -48,6 +48,10 @@ public class MessageDAO {
 		entityManager.remove(entityManager.merge(message));
 	}
 
+	public void move(Message message) {
+		entityManager.merge(message);
+	}
+
 	public Message findMessage(long id) {
 		return entityManager.find(Message.class, id);
 	}

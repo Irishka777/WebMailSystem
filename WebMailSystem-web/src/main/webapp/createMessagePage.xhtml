@@ -9,36 +9,58 @@
 	  xmlns:h="http://java.sun.com/jsf/html"
 	  xmlns:p="http://primefaces.org/ui">
 <h:head>
+	<h:outputStylesheet library="css" name="style.css"/>
 	<title>Create a message</title>
 </h:head>
 <h:body>
-	<ui:composition template="foldersAndMessagesTemplate.xhtml">
-		<ui:define name="content">
+	<p:growl id="growl"/>
+	<p:layout fullPage="true">
+		<p:layoutUnit position="north">
+			<h:form>
+				<p:menubar style="text-align: right">
+					<!--<p:menuitem style="text-align: right" outcome="logInPage" value="Log Out" actionListener="{loginBean.logOut}"/>-->
+					<f:facet name="options">
+						<p:button outcome="foldersAndMessagesPage" value="Main page"/>
+						<p:commandButton update=":growl"
+										 value="LogOut" icon="ui-icon-extlink"
+										 action="#{loginBean.logOut}"/>
+					</f:facet>
+				</p:menubar>
+			</h:form>
+		</p:layoutUnit>
+		<p:layoutUnit position="center">
 			<h:form>
 				<h:panelGrid style="margin: auto" columns="2">
 					<f:facet name="header">
-						Create a message
+						New message
 					</f:facet>
 
 					<p:outputLabel for="receiver" value="Receiver: "/>
-					<p:inputText id="receiver" value="#{createMessageBean.receiver}"/>
+					<p:inputText style="width: 400px"
+								 id="receiver" value="#{createMessageBean.receiver}"/>
 
 					<p:outputLabel for="theme" value="Theme: "/>
-					<p:inputText id="theme" value="#{createMessageBean.theme}"/>
+					<p:inputText style="width: 400px"
+								 id="theme" value="#{createMessageBean.theme}"/>
 
 					<p:outputLabel for="messagebody" value="Message: "/>
-					<p:inputTextarea id="messagebody" value="#{createMessageBean.messageBody}"/>
+					<p:inputTextarea style="width: 400px; height: 250px" autoResize="false"
+									 id="messagebody" value="#{createMessageBean.messageBody}"/>
 
 					<f:facet name="footer">
 						<h:panelGrid style="margin: auto" columns="3">
-							<p:commandButton ajax="false" value="Send" action="#{createMessageBean.sendMessage}"/>
-							<p:commandButton ajax="false" value="Save" action="#{createMessageBean.saveMessage}"/>
-							<p:button value="Back" outcome="messagesPage"/>
+							<p:commandButton style="width: 105px;" value="Send"
+											 update=":growl"
+											 action="#{createMessageBean.sendMessage}"/>
+							<p:commandButton style="width: 105px;" value="Save"
+											 update=":growl"
+											 action="#{createMessageBean.saveMessage}"/>
+							<p:button style="width: 105px;" value="Cancel" outcome="foldersAndMessagesPage"/>
 						</h:panelGrid>
 					</f:facet>
 				</h:panelGrid>
 			</h:form>
-		</ui:define>
-	</ui:composition>
+		</p:layoutUnit>
+	</p:layout>
 </h:body>
 </html>

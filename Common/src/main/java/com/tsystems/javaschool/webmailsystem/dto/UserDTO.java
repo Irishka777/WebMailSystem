@@ -17,7 +17,11 @@ public class UserDTO {
 	public UserDTO(String firstName, String lastName, Date dateOfBirth, String phoneNumber) {
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.dateOfBirth.setTime(dateOfBirth);
+		if (dateOfBirth != null) {
+			this.dateOfBirth.setTime(dateOfBirth);
+		} else {
+			this.dateOfBirth = null;
+		}
 //		this.dateOfBirth = stringToDate(dateOfBirth);
 		this.phoneNumber = phoneNumber;
 	}

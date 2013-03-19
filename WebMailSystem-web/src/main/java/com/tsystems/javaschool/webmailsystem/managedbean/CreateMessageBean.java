@@ -49,7 +49,7 @@ public class CreateMessageBean {
 			FacesContext.getCurrentInstance().addMessage(null,
 					new FacesMessage("Error in process of sending message"));
 			return null;
-//			return e.getExceptionPage();
+//			return e.getExceptionMessage();
 		}
 	}
 
@@ -64,7 +64,7 @@ public class CreateMessageBean {
 			FacesContext.getCurrentInstance().addMessage(null,
 					new FacesMessage("Error in process of sending message"));
 			return null;
-//			return e.getExceptionPage();
+//			return e.getExceptionMessage();
 		}
 	}
 

@@ -1,15 +1,24 @@
-/*body{*/
-    /*margin: 0px;*/
-/*}*/
-
-/*#header{*/
-    /*height:100px;*/
-/*}*/
-/*#content{*/
-    /*width:80%;*/
-    /*position:absolute;*/
-    /*left: 20%;*/
-/*}*/
-/*#footer{*/
-    /*width: 20%;*/
-/*}*/
+.ui-layout-unit .ui-layout-unit-content {
+    height: auto;
+    padding: 0;
+}
+.ui-layout-unit-content {
+    height: auto;
+    padding: 0;
+}
+.ui-menu {
+    height: auto;
+    padding: 0;
+}
+.ui-layout-north {
+    padding: 0;
+    height: auto;
+}
+.ui-layout-center {
+    padding: 0;
+    height: auto;
+}
+.ui-layout-west {
+    padding: 0;
+    height: auto;
+}
