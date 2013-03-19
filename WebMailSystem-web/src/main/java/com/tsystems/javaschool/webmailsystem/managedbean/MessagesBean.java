@@ -9,10 +9,13 @@ import org.primefaces.model.DefaultTreeNode;
 import org.primefaces.model.TreeNode;
 
 import javax.ejb.EJB;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 import javax.faces.event.ValueChangeEvent;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -24,7 +27,8 @@ public class MessagesBean {
 	private MessageService messageService;
 
 	private List<MessageDTO> listOfMessages;
-	private MessageDTO[] selectedMessage;
+	private MessageDTO[] selectedMessages;
+	private MessageDTO selectedMessage;
 	private String selectedMessageBody;
 
 	private DefaultTreeNode endFolder;
@@ -36,44 +40,77 @@ public class MessagesBean {
 		endFolder1 = (FolderDTO)((TreeNode) even.getNewValue()).getData();
 	}
 	public void messageSelectedWithClick(SelectEvent event) {
+		selectedMessage = (MessageDTO) event.getObject();
 		selectedMessageBody = ((MessageDTO) event.getObject()).getMessageBody();
 	}
 
-	public void messageCheckBoxClicked(ValueChangeEvent event) {
-
-	}
-
 	public String deleteMessage() {
-		if (selectedMessage.length == 0) {
+		if (selectedMessages.length == 0) {
+			FacesContext.getCurrentInstance().addMessage(null,
+					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error",
+							"You have not selected messages for deletion"));
 			return null;
 		}
 		try {
-			messageService.deleteMessage(selectedMessage);
-			for (int i = 0; i < selectedMessage.length; i++) {
-				listOfMessages.remove(selectedMessage[i]);
+			messageService.deleteMessage(selectedMessages);
+			for (int i = 0; i < selectedMessages.length; i++) {
+				listOfMessages.remove(selectedMessages[i]);
 			}
+			selectedMessage = null;
 			selectedMessageBody = null;
+			FacesContext.getCurrentInstance().addMessage(null,
+					new FacesMessage("Messages successfully deleted"));
 			return null;
 		} catch (DataProcessingException e) {
-			return e.getExceptionMessage();
+			FacesContext.getCurrentInstance().addMessage(null,
+					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error",
+							e.getExceptionMessage()));
+			return null;
 		}
 	}
 
 	public String moveMessage() {
-		if (selectedMessage.length == 0) {
+		if (selectedMessages.length == 0) {
+			FacesContext.getCurrentInstance().addMessage(null,
+					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error",
+							"You have not selected messages to move"));
+			return null;
+		}
+		if (selectedMessages[0].getFolder().equals(((FolderDTO) endFolder.getData()).getFolderName())) {
+			FacesContext.getCurrentInstance().addMessage(null,
+					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error",
+							"You have not changed messages folder"));
 			return null;
 		}
 		try {
-			messageService.moveMessage(selectedMessage,(FolderDTO) endFolder.getData());
-			for (int i = 0; i < selectedMessage.length; i++) {
-				listOfMessages.remove(selectedMessage[i]);
+			messageService.moveMessage(selectedMessages,(FolderDTO) endFolder.getData());
+			for (int i = 0; i < selectedMessages.length; i++) {
+				listOfMessages.remove(selectedMessages[i]);
 			}
+			selectedMessage = null;
 			selectedMessageBody = null;
+			FacesContext.getCurrentInstance().addMessage(null,
+					new FacesMessage("Messages successfully moved to another folder"));
 			return null;
 		} catch (DataProcessingException e) {
-			return e.getExceptionMessage();
+			FacesContext.getCurrentInstance().addMessage(null,
+					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error",
+							e.getExceptionMessage()));
+			return null;
 		}
 	}
+
+//	public String resendMessage() {
+//		FacesContext.getCurrentInstance()
+//				.getExternalContext()
+//		Map<String,String> requestParams = FacesContext.getCurrentInstance()
+//				.getExternalContext().getRequestParameterMap();
+//
+//		receiver = requestParams.get("showmessage:receiver");
+//		theme = requestParams.get("showmessage:theme");
+//		messageBody = requestParams.get("showmessage:messagebody");
+//		return "createMessagePage?faces-redirect=true";
+//	}
 
 	public List<MessageDTO> getListOfMessages() {
 		return listOfMessages;
@@ -83,11 +120,19 @@ public class MessagesBean {
 		this.listOfMessages = listOfMessages;
 	}
 
-	public MessageDTO[] getSelectedMessage() {
+	public MessageDTO[] getSelectedMessages() {
+		return selectedMessages;
+	}
+
+	public void setSelectedMessages(MessageDTO[] selectedMessages) {
+		this.selectedMessages = selectedMessages;
+	}
+
+	public MessageDTO getSelectedMessage() {
 		return selectedMessage;
 	}
 
-	public void setSelectedMessage(MessageDTO[] selectedMessage) {
+	public void setSelectedMessage(MessageDTO selectedMessage) {
 		this.selectedMessage = selectedMessage;
 	}
 

@@ -13,7 +13,7 @@
 	<title>Create a message</title>
 </h:head>
 <h:body>
-	<p:growl id="growl"/>
+	<p:growl id="growl" showDetail="true"/>
 	<p:layout fullPage="true">
 		<p:layoutUnit position="north">
 			<h:form>
@@ -32,7 +32,7 @@
 			<h:form>
 				<h:panelGrid style="margin: auto" columns="2">
 					<f:facet name="header">
-						New message
+						Message
 					</f:facet>
 
 					<p:outputLabel for="receiver" value="Receiver: "/>
@@ -49,7 +49,7 @@
 
 					<f:facet name="footer">
 						<h:panelGrid style="margin: auto" columns="3">
-							<p:commandButton style="width: 105px;" value="Send"
+							<p:commandButton ajax="false" style="width: 105px;" value="Send"
 											 update=":growl"
 											 action="#{createMessageBean.sendMessage}"/>
 							<p:commandButton style="width: 105px;" value="Save"

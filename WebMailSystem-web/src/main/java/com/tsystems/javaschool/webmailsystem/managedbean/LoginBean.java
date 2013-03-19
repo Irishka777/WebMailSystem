@@ -36,7 +36,7 @@ public class LoginBean {
 		try {
 			MailBoxDTO mailBox = mailBoxService.login(email,password);
 			getCurrentInstance().getExternalContext().getSessionMap().put("mailBox",mailBox);
-			return "foldersAndMessagesPage";
+			return "foldersAndMessagesPage?faces-redirect=true";
 		} catch (DataProcessingException e) {
 			FacesContext.getCurrentInstance().addMessage(null,
 					new FacesMessage(e.getExceptionMessage()));
@@ -47,7 +47,7 @@ public class LoginBean {
 	public String logOut() {
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 		session.invalidate();
-		return "logInPage";
+		return "logInPage?faces-redirect=true";
 	}
 
 	public String getEmail() {

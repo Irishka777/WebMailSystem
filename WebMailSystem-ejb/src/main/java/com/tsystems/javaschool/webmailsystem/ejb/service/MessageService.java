@@ -54,16 +54,28 @@ public class MessageService {
 		MailBox receiver = null;
 		try {
 			sender = mailBoxDAO.find(messageDTO.getSender());
-			receiver = mailBoxDAO.find(messageDTO.getReceiver());
-			Message message = new Message(true, sender, receiver, messageDTO.getTheme(), messageDTO.getMessageBody());
+			if (messageDTO.getReceiver() != null) {
+				receiver = mailBoxDAO.find(messageDTO.getReceiver());
+			}
+		} catch (Exception e) {
+			logger.error(e.getMessage(), e);
+			throw new DataProcessingException(ExceptionType.unexpectedException,e.getCause());
+		}
+		Message message = new Message(true, sender, receiver, messageDTO.getTheme(), messageDTO.getMessageBody());
+		if (receiver == null) {
+			try {
+				logger.warn("Mailbox with email " + messageDTO.getReceiver() + " does not exist");
+				messageDAO.save(message);
+				logger.info("Message successfully saved in draft messages of" + sender.getEmail());
+			} catch (Exception e) {
+				logger.error(e.getMessage(), e);
+				throw new DataProcessingException(ExceptionType.unexpectedException,e.getCause());
+			}
+			throw new DataProcessingException(ExceptionType.wrongMessageReceiverEmail);
+		}
+		try {
 			messageDAO.send(message);
 			logger.info("Message successfully sent from " + messageDTO.getSender() + " to " + messageDTO.getReceiver());
-		} catch (NoResultException e) {
-			logger.warn("Mailbox with email " + messageDTO.getReceiver() + " does not exist", e);
-			Message message = new Message(true, sender, receiver, messageDTO.getTheme(), messageDTO.getMessageBody());
-			messageDAO.save(message);
-			logger.info("Message successfully saved in draft messages of" + sender.getEmail());
-			throw new DataProcessingException(ExceptionType.wrongMessageReceiverEmail);
 		} catch (Exception e) {
 			logger.error(e.getMessage(), e);
 			throw new DataProcessingException(ExceptionType.unexpectedException,e.getCause());
@@ -74,10 +86,11 @@ public class MessageService {
 		try {
 			MailBox sender = mailBoxDAO.find(messageDTO.getSender());
 			MailBox receiver = null;
-			try {
+			if (messageDTO.getReceiver() != null) {
 				receiver = mailBoxDAO.find(messageDTO.getReceiver());
-			} catch (NoResultException e) {
-				logger.warn("Mailbox with email " + messageDTO.getReceiver() + " does not exist", e);
+			}
+			if (receiver == null) {
+				logger.warn("Mailbox with email " + messageDTO.getReceiver() + " does not exist");
 			}
 			Message message = new Message(true, sender, receiver, messageDTO.getTheme(), messageDTO.getMessageBody());
 			messageDAO.save(message);
@@ -90,12 +103,10 @@ public class MessageService {
 	
 	public void deleteMessage(MessageDTO[] messageDTO) throws DataProcessingException {
 		try {
-//			Message message = messageDAO.findMessage(messageDTO.getId());
-//			messageDAO.delete(message);
 			for (int i = 0; i < messageDTO.length; i++) {
 				messageDAO.delete(messageDTO[i].getId());
 			}
-			logger.info("Message successfully deleted");
+			logger.info("Messages successfully deleted");
 		} catch (Exception e) {
 			logger.error(e.getMessage(), e);
 			throw new DataProcessingException(ExceptionType.unexpectedException,e.getCause());

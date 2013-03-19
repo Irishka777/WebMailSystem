@@ -6,6 +6,7 @@ import com.tsystems.javaschool.webmailsystem.ejb.service.FolderService;
 import com.tsystems.javaschool.webmailsystem.exception.DataProcessingException;
 import org.primefaces.component.api.UITree;
 import org.primefaces.component.tree.Tree;
+import org.primefaces.context.RequestContext;
 import org.primefaces.event.NodeSelectEvent;
 import org.primefaces.model.DefaultTreeNode;
 import org.primefaces.model.TreeNode;
@@ -38,7 +39,6 @@ public class FoldersBean {
 		this.messagesBean = messagesBean;
 	}
 
-	private UITree tree;
 	private DefaultTreeNode root;
 	private MailBoxDTO mailBox = (MailBoxDTO) FacesContext
 			.getCurrentInstance().getExternalContext().getSessionMap().get("mailBox");
@@ -61,13 +61,18 @@ public class FoldersBean {
 	public void initialiseFoldersTree() {
 		try {
 			root = new DefaultTreeNode(mailBox,null);
-//			tree = new Tree();
-//			tree.setValue(root);
 			List<FolderDTO> folders = folderService.getFoldersForMailBox(mailBox);
 			for (FolderDTO folder : folders) {
 				DefaultTreeNode node = new DefaultTreeNode(folder, root);
 				if (folder.getFolderName().equals("Inbox")) {
 					node.setSelected(true);
+					try {
+						messagesBean.setListOfMessages(folderService.getMessagesFromFolder(folder));
+//						RequestContext.getCurrentInstance().update(":messagesForm:messages");
+					} catch (DataProcessingException e) {
+						FacesContext.getCurrentInstance().addMessage(null,
+								new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", e.getExceptionMessage()));
+					}
 				}
 			}
 		} catch (DataProcessingException e) {
@@ -186,13 +191,6 @@ public class FoldersBean {
 		}
 	}
 
-	public UITree getTree() {
-		return tree;
-	}
-
-	public void setTree(UITree tree) {
-		this.tree = tree;
-	}
 	public DefaultTreeNode getRoot() {
 		return root;
 	}

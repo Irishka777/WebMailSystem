@@ -56,6 +56,7 @@
 				</p:menubar>
 			</h:form>
 		</p:layoutUnit>
+
 		<p:layoutUnit position="west" size="300">
 			<p:layout>
 				<p:layoutUnit position="south" size="170">
@@ -68,14 +69,14 @@
 										 type="button" onclick="renamedlg.show();"/>
 					</h:panelGrid>
 				</p:layoutUnit>
-				<!--binding="{foldersBean.tree}"-->
 				<p:layoutUnit position="center">
 					<p:tree id="folders" style="width: 97%"
 							value="#{foldersBean.root}"
 							selectionMode="single"
 							dynamic="true"
 							var="folder">
-						<p:ajax event="select" listener="#{foldersBean.onFolderSelect}" update=":messagesForm:messages, :renameFolderForm:renameFolderName, :deletefoldertext"/>
+						<p:ajax event="select" listener="#{foldersBean.onFolderSelect}"
+								update=":messagesForm:messages, :renameFolderForm:renameFolderName, :deletefoldertext"/>
 						<p:treeNode icon="ui-icon-folder-collapsed">
 							<h:outputText value="#{folder}"/>
 						</p:treeNode>
@@ -83,11 +84,11 @@
 				</p:layoutUnit>
 			</p:layout>
 		</p:layoutUnit>
+
 		<p:layoutUnit position="center">
 			<p:layout>
 				<p:layoutUnit position="north">
 					<p:menubar>
-						<!--<p:menuitem outcome="logInPage" value="Logout"/>-->
 						<f:facet name="options">
 							<p:button value="Create message" outcome="createMessagePage"/>
 							<p:commandButton value="Move message"
@@ -102,11 +103,12 @@
 						<p:dataTable id="messages"
 									 var="message"
 									 rowKey="#{message.id}"
-									 selection="#{messagesBean.selectedMessage}"
+									 selection="#{messagesBean.selectedMessages}"
 									 value="#{messagesBean.listOfMessages}">
 							<f:facet name="header">Messages:</f:facet>
 							<p:column selectionMode="multiple"/>
-							<p:ajax update=":messageBody" event="rowSelect"
+							<p:ajax update=":messageBodyPanel, :showmessage:sender, :showmessage:receiver, :showmessage:theme, :showmessage:messagebody"
+									event="rowSelect"
 									listener="#{messagesBean.messageSelectedWithClick}"/>
 							<p:column>
 								<f:facet name="header">sender</f:facet>
@@ -124,12 +126,16 @@
 								<f:facet name="header">date</f:facet>
 								#{message.date}
 							</p:column>
+							<p:column>
+								<!--<f:facet name="header">date</f:facet>-->
+								<p:commandButton value="Show" type="button" onclick="showmessagedlg.show();"/>
+							</p:column>
 						</p:dataTable>
 					</h:form>
 				</p:layoutUnit>
 				<p:layoutUnit position="south" size="200">
 					<p:inputTextarea style="width: 97%;height: 170px" autoResize="false" readonly="true"
-									 id="messageBody" value="#{messagesBean.selectedMessageBody}"/>
+									 id="messageBodyPanel" value="#{messagesBean.selectedMessage.messageBody}"/>
 				</p:layoutUnit>
 			</p:layout>
 		</p:layoutUnit>
@@ -205,7 +211,7 @@
 		Are you sure you want to delete selected messages?
 		<h:panelGrid style="margin: auto" columns="2">
 			<p:commandButton value="Yes"
-							 update=":messagesForm:messages, :messageBody"
+							 update=":messagesForm:messages, :messageBodyPanel"
 							 action="#{messagesBean.deleteMessage}"
 							 oncomplete="deletemessagedlg.hide();">
 			</p:commandButton>
@@ -226,13 +232,48 @@
 		</h:form>
 		<h:panelGrid style="margin: auto" columns="2">
 			<p:commandButton value="Yes"
-							 update=":messagesForm:messages, :messageBody"
+							 update=":messagesForm:messages, :messageBodyPanel"
 							 action="#{messagesBean.moveMessage}">
 				<!--oncomplete="movemessagedlg.hide();">-->
 			</p:commandButton>
 			<p:commandButton value="No"
 							 type="button" onclick="movemessagedlg.hide();"/>
 		</h:panelGrid>
+	</p:dialog>
+
+	<p:dialog closable="false" draggable="false" resizable="false"
+			  header="Message"
+			  widgetVar="showmessagedlg">
+		<h:form id="showmessage">
+			<h:panelGrid style="margin: auto" columns="2">
+
+				<p:outputLabel for="sender" value="Sender: "/>
+				<p:inputText style="width: 400px" readonly="true"
+							 id="sender" value="#{messagesBean.selectedMessage.sender}"/>
+
+				<p:outputLabel for="receiver" value="Receiver: "/>
+				<p:inputText style="width: 400px" readonly="true"
+							 id="receiver" value="#{messagesBean.selectedMessage.receiver}"/>
+
+				<p:outputLabel for="theme" value="Theme: "/>
+				<p:inputText style="width: 400px" readonly="true"
+							 id="theme" value="#{messagesBean.selectedMessage.theme}"/>
+
+				<p:outputLabel for="messagebody" value="Message: "/>
+				<p:inputTextarea style="width: 400px; height: 250px" autoResize="false" readonly="true"
+								 id="messagebody" value="#{messagesBean.selectedMessage.messageBody}"/>
+
+				<f:facet name="footer">
+					<h:panelGrid style="margin: auto" columns="3">
+						<p:commandButton value="Resend" oncomplete="showmessagedlg.hide();"
+										 update=":growl"
+										 action="#{createMessageBean.resendMessage}"/>
+						<p:commandButton value="Close"
+										 type="button" onclick="showmessagedlg.hide();"/>
+					</h:panelGrid>
+				</f:facet>
+			</h:panelGrid>
+		</h:form>
 	</p:dialog>
 </h:body>
 </html>

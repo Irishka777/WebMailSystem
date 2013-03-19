@@ -29,7 +29,7 @@ public class DataProcessingException extends Exception {
 			case NoSuchFolderException:
 			case unexpectedException:
 				default:
-				return "System error; Please try later";
+				return "System error";
 		}
 	}
 
