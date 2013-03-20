@@ -1,5 +1,6 @@
 package com.tsystems.javaschool.webmailsystem.dto;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
@@ -25,7 +26,7 @@ public class MessageDTO {
 		this.folder = folder;
 		this.sender = sender;
 		this.receiver = receiver;
-		this.date = date.getTime().toString();
+		this.date = dateToString(date);
 		this.theme = theme;
 		this.messageBody = messageBody;
 	}
@@ -48,10 +49,8 @@ public class MessageDTO {
 //	}
 
 	public String dateToString(Calendar date) {
-		return  date.getTime().toString();
-//		return date.get(Calendar.DAY_OF_MONTH)+
-//				"." + date.get(Calendar.MONTH) +
-//				"." + dateOfBirth.get(Calendar.YEAR);
+		SimpleDateFormat dateFormat = new SimpleDateFormat();
+		return dateFormat.format(date.getTimeInMillis());
 	}
 
 	public long getId() {

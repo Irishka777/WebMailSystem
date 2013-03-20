@@ -4,9 +4,6 @@ import com.tsystems.javaschool.webmailsystem.dto.FolderDTO;
 import com.tsystems.javaschool.webmailsystem.dto.MailBoxDTO;
 import com.tsystems.javaschool.webmailsystem.ejb.service.FolderService;
 import com.tsystems.javaschool.webmailsystem.exception.DataProcessingException;
-import org.primefaces.component.api.UITree;
-import org.primefaces.component.tree.Tree;
-import org.primefaces.context.RequestContext;
 import org.primefaces.event.NodeSelectEvent;
 import org.primefaces.model.DefaultTreeNode;
 import org.primefaces.model.TreeNode;
@@ -65,9 +62,12 @@ public class FoldersBean {
 			for (FolderDTO folder : folders) {
 				DefaultTreeNode node = new DefaultTreeNode(folder, root);
 				if (folder.getFolderName().equals("Inbox")) {
+					selectedFolder = node;
+					selectedFolderName = ((FolderDTO) selectedFolder.getData()).getFolderName();
 					node.setSelected(true);
 					try {
 						messagesBean.setListOfMessages(folderService.getMessagesFromFolder(folder));
+						messagesBean.setSelectedFolder(folder);
 //						RequestContext.getCurrentInstance().update(":messagesForm:messages");
 					} catch (DataProcessingException e) {
 						FacesContext.getCurrentInstance().addMessage(null,
@@ -82,11 +82,16 @@ public class FoldersBean {
 	}
 
 	public void onFolderSelect(NodeSelectEvent event) {
+		selectedFolder.setSelected(false);
 		selectedFolder = (DefaultTreeNode) event.getTreeNode();
-		FolderDTO folder = (FolderDTO) event.getTreeNode().getData();
-		selectedFolderName = folder.getFolderName();
+		selectedFolder.setSelected(true);
+		selectedFolderName = ((FolderDTO) selectedFolder.getData()).getFolderName();
+		FolderDTO folder = (FolderDTO) selectedFolder.getData();
+
 		try {
+			messagesBean.resetSelectedMessages();
 			messagesBean.setListOfMessages(folderService.getMessagesFromFolder(folder));
+			messagesBean.setSelectedFolder(folder);
 		} catch (DataProcessingException e) {
 			FacesContext.getCurrentInstance().addMessage(null,
 					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", e.getExceptionMessage()));
@@ -104,6 +109,7 @@ public class FoldersBean {
 					FacesContext.getCurrentInstance().addMessage(null,
 							new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error",
 									"Folder with such a name already exists"));
+					newFolderName = null;
 					return null;
 				}
 			}
@@ -111,11 +117,13 @@ public class FoldersBean {
 			new DefaultTreeNode(folder, root);
 			newFolderName = null;
 			FacesContext.getCurrentInstance().addMessage(null,
-					new FacesMessage("Folder successfully created"));
+					new FacesMessage(FacesMessage.SEVERITY_INFO, "Information",
+							"Folder successfully created"));
 			return null;
 		} catch (DataProcessingException e) {
 			FacesContext.getCurrentInstance().addMessage(null,
-					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", e.getExceptionMessage()));
+					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error",
+							e.getExceptionMessage()));
 			return null;
 		}
 	}
@@ -128,7 +136,9 @@ public class FoldersBean {
 			return null;
 		}
 		String folderName = ((FolderDTO) selectedFolder.getData()).getFolderName();
-		if (folderName.equals("Inbox") || folderName.equals("Outbox") || folderName.equals("Draft")) {
+		if (folderName.equals("Inbox")
+				|| folderName.equals("Outbox")
+				|| folderName.equals("Draft")) {
 			FacesContext.getCurrentInstance().addMessage(null,
 					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "You can not delete system folders"));
 			return null;
@@ -136,8 +146,28 @@ public class FoldersBean {
 		try {
 			folderService.deleteFolder((FolderDTO) selectedFolder.getData());
 			root.getChildren().remove(selectedFolder);
+
+			for (int i = 0; i < root.getChildCount(); i++) {
+				if (((FolderDTO)root.getChildren().get(i).getData()).getFolderName().equals("Inbox")) {
+					selectedFolder = (DefaultTreeNode) root.getChildren().get(i);
+					selectedFolder.setSelected(true);
+					selectedFolderName = ((FolderDTO) selectedFolder.getData()).getFolderName();
+					try {
+						messagesBean.resetSelectedMessages();
+						messagesBean.setListOfMessages(folderService.getMessagesFromFolder
+								((FolderDTO)root.getChildren().get(i).getData()));
+						messagesBean.setSelectedFolder((FolderDTO) selectedFolder.getData());
+					} catch (DataProcessingException e) {
+						FacesContext.getCurrentInstance().addMessage(null,
+								new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", e.getExceptionMessage()));
+					}
+					break;
+				}
+			}
+
 			FacesContext.getCurrentInstance().addMessage(null,
-					new FacesMessage("Folder successfully deleted"));
+					new FacesMessage(FacesMessage.SEVERITY_INFO, "Information","Folder successfully deleted"));
+
 			return null;
 		} catch (DataProcessingException e) {
 			FacesContext.getCurrentInstance().addMessage(null,
@@ -181,8 +211,10 @@ public class FoldersBean {
 			folder = folderService.renameFolder(folder);
 			root.getChildren().remove(selectedFolder);
 			selectedFolder = new DefaultTreeNode(folder, root);
+			messagesBean.setSelectedFolder(folder);
 			FacesContext.getCurrentInstance().addMessage(null,
-					new FacesMessage("Folder successfully renamed"));
+					new FacesMessage(FacesMessage.SEVERITY_INFO, "Information",
+							"Folder successfully renamed"));
 			return null;
 		} catch (DataProcessingException e) {
 			FacesContext.getCurrentInstance().addMessage(null,

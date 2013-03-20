@@ -53,25 +53,4 @@ public class MailBoxService {
 			throw new DataProcessingException(ExceptionType.unexpectedException,e.getCause());
 		}
 	}
-	
-//	public MailBox updateMailBoxData(Object mailBox) {
-//		try {
-//			return mailBoxDAO.update((MailBox) mailBox);
-//		} catch (Exception e) {
-//			logger.error(e.getMessage(), e);
-//			return null;
-//		}
-//	}
-	
-//	public MailBox getMailBoxEntityByEmailAddress(Object emailAddress) {
-//		try {
-//			return mailBoxDAO.findByEmail(((String) emailAddress).toLowerCase());
-//		} catch (NoResultException e) {
-//			logger.warn("Mail box with such email address does not exists", e);
-//			return null;
-//		} catch (Exception e) {
-//			logger.error(e.getMessage(), e);
-//			return null;
-//		}
-//	}
 }

@@ -38,11 +38,4 @@ public class MailBoxDAO {
 	public MailBox find(String email) {
 		return entityManager.find(MailBox.class,email);
 	}
-	
-//	public MailBox findByEmail(String email) {
-//		TypedQuery<MailBox> query = entityManager.createNamedQuery("findByEmail"
-//				, MailBox.class);
-//		query.setParameter("address", email);
-//		return query.getSingleResult();
-//	}
 }

@@ -9,8 +9,41 @@
 	  xmlns:h="http://java.sun.com/jsf/html"
 	  xmlns:p="http://primefaces.org/ui">
 <h:head>
-	<h:outputStylesheet library="css" name="style.css"/>
+	<!--<h:outputStylesheet library="css" name="style.css"/>-->
 	<title>Create a message</title>
+	<style type="text/css">
+		.ui-layout-unit .ui-layout-unit-content {
+			height: auto;
+			padding: 0;
+		}
+			/*.ui-layout-unit-content {*/
+			/*height: auto;*/
+			/*padding: 0;*/
+			/*}*/
+		.ui-menu {
+			height: auto;
+			padding: 0;
+		}
+			/*.ui-layout-pane-north {*/
+			/*padding: 0;*/
+			/*height: auto;*/
+			/*}*/
+		.ui-layout-north {
+			padding: 0;
+			height: auto;
+		}
+		.ui-layout-center {
+			padding: 0;
+			height: auto;
+		}
+		.ui-layout-west {
+			padding: 0;
+			height: auto;
+		}
+		.ui-button {
+			padding: 0;
+		}
+	</style>
 </h:head>
 <h:body>
 	<p:growl id="growl" showDetail="true"/>
@@ -18,11 +51,10 @@
 		<p:layoutUnit position="north">
 			<h:form>
 				<p:menubar style="text-align: right">
-					<!--<p:menuitem style="text-align: right" outcome="logInPage" value="Log Out" actionListener="{loginBean.logOut}"/>-->
 					<f:facet name="options">
 						<p:button outcome="foldersAndMessagesPage" value="Main page"/>
 						<p:commandButton update=":growl"
-										 value="LogOut" icon="ui-icon-extlink"
+										 value="LogOut"
 										 action="#{loginBean.logOut}"/>
 					</f:facet>
 				</p:menubar>
@@ -49,7 +81,7 @@
 
 					<f:facet name="footer">
 						<h:panelGrid style="margin: auto" columns="3">
-							<p:commandButton ajax="false" style="width: 105px;" value="Send"
+							<p:commandButton style="width: 105px;" value="Send"
 											 update=":growl"
 											 action="#{createMessageBean.sendMessage}"/>
 							<p:commandButton style="width: 105px;" value="Save"

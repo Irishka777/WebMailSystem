@@ -100,12 +100,15 @@ public class MessageService {
 			throw new DataProcessingException(ExceptionType.unexpectedException,e.getCause());
 		}
 	}
-	
-	public void deleteMessage(MessageDTO[] messageDTO) throws DataProcessingException {
+	public void deleteMessage(List<MessageDTO> messageDTO, long folderId) throws DataProcessingException {
 		try {
-			for (int i = 0; i < messageDTO.length; i++) {
-				messageDAO.delete(messageDTO[i].getId());
+			Folder folder = folderDAO.getFolder(folderId);
+			Message message;
+			for (int i = 0; i < messageDTO.size(); i++) {
+				message = messageDAO.findMessage(messageDTO.get(i).getId());
+				folder.getListOfMessages().remove(message);
 			}
+			folderDAO.update(folder);
 			logger.info("Messages successfully deleted");
 		} catch (Exception e) {
 			logger.error(e.getMessage(), e);
@@ -113,15 +116,58 @@ public class MessageService {
 		}
 	}
 
-	public void moveMessage(MessageDTO[] messageDTO, FolderDTO endFolder) throws DataProcessingException {
+	public void deleteMessage(MessageDTO[] messageDTO, long folderId) throws DataProcessingException {
 		try {
-			Folder folder = folderDAO.getFolder(endFolder.getId());
+			Folder folder = folderDAO.getFolder(folderId);
 			Message message;
 			for (int i = 0; i < messageDTO.length; i++) {
 				message = messageDAO.findMessage(messageDTO[i].getId());
-				message.setFolder(folder);
-				messageDAO.move(message);
+				folder.getListOfMessages().remove(message);
+//				messageDAO.delete(messageDTO[i].getId());
 			}
+			folderDAO.update(folder);
+			logger.info("Messages successfully deleted");
+		} catch (Exception e) {
+			logger.error(e.getMessage(), e);
+			throw new DataProcessingException(ExceptionType.unexpectedException,e.getCause());
+		}
+	}
+
+	public void moveMessage(List<MessageDTO> messageDTO, long newFolderId, long oldFolderId) throws DataProcessingException {
+		try {
+			Folder newFolder = folderDAO.getFolder(newFolderId);
+			Folder oldFolder = folderDAO.getFolder(oldFolderId);
+			Message message;
+
+			for (int i = 0; i < messageDTO.size(); i++) {
+				message = messageDAO.findMessage(messageDTO.get(i).getId());
+				oldFolder.getListOfMessages().remove(message);
+				message.setFolder(newFolder);
+				newFolder.getListOfMessages().add(message);
+			}
+			folderDAO.update(newFolder);
+			folderDAO.update(oldFolder);
+			logger.info("Messages successfully moved");
+		} catch (Exception e) {
+			logger.error(e.getMessage(), e);
+			throw new DataProcessingException(ExceptionType.unexpectedException,e.getCause());
+		}
+	}
+
+	public void moveMessage(MessageDTO[] messageDTO, long newFolderId, long oldFolderId) throws DataProcessingException {
+		try {
+			Folder newFolder = folderDAO.getFolder(newFolderId);
+			Folder oldFolder = folderDAO.getFolder(oldFolderId);
+			Message message;
+			for (int i = 0; i < messageDTO.length; i++) {
+				message = messageDAO.findMessage(messageDTO[i].getId());
+				oldFolder.getListOfMessages().remove(message);
+				message.setFolder(newFolder);
+				newFolder.getListOfMessages().add(message);
+//				messageDAO.move(message);
+			}
+			folderDAO.update(newFolder);
+			folderDAO.update(oldFolder);
 			logger.info("Messages successfully moved");
 		} catch (Exception e) {
 			logger.error(e.getMessage(), e);

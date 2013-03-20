@@ -132,8 +132,6 @@ public class FolderService {
 				listOfMessagesDTO.add(message.getMessageDTO());
 			}
 			return listOfMessagesDTO;
-//			Folder folder = folderDAO.findFolderByFolderNameAndEmail(folderName,mailBox);
-//			return folder.getListOfMessages();
 		} catch (NoResultException e) {
 			logger.warn("Folder with name " + folderName + " does not exist in " + email, e);
 			throw new DataProcessingException(ExceptionType.NoSuchFolderException);

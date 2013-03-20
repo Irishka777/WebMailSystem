@@ -18,8 +18,6 @@ public class FolderDAO {
 
 	public void create(Folder folder) {
 		entityManager.persist(folder);
-//		return findFolderByFolderNameAndEmail(folder.getFolderName(),folder.getMailBox());
-//		return getFolder(folder.getId());
 	}
 	
 	public void delete(Folder folder) {
@@ -28,8 +26,6 @@ public class FolderDAO {
 	
 	public void update(Folder folder) {
 		entityManager.merge(folder);
-//		return findFolderByFolderNameAndEmail(folder.getFolderName(),folder.getMailBox());
-//		return getFolder(folder.getId());
 	}
 	
 	public Folder getFolder(Folder folder) {
@@ -60,11 +56,6 @@ public class FolderDAO {
 		Folder folder = query.getSingleResult();
 		return folder.getListOfMessages();
 	}
-
-//	public List<Message> getMessagesFromFolder(Folder folder) {
-//		folder = entityManager.find(Folder.class,folder.getId());
-//		return folder.getListOfMessages();
-//	}
 
 	public Folder findFolderByFolderNameAndEmail(String folderName, MailBox email) {
 		TypedQuery<Folder> query = entityManager

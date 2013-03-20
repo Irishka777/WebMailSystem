@@ -10,7 +10,7 @@
 	  xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-	<h:outputStylesheet library="css" name="style.css"/>
+	<!--<h:outputStylesheet library="css" name="style.css"/>-->
 	<style type="text/css">
 		.ui-layout-unit .ui-layout-unit-content {
 			height: auto;
@@ -40,6 +40,9 @@
 			padding: 0;
 			height: auto;
 		}
+		.ui-button {
+			padding: 0;
+		}
 	</style>
 	<title></title>
 </h:head>
@@ -50,7 +53,7 @@
 				<p:menubar>
 					<f:facet name="options">
 						<p:commandButton value="Personal data"/>
-						<p:commandButton value="LogOut" icon="ui-icon-extlink"
+						<p:commandButton value="LogOut"
 										 action="#{loginBean.logOut}"/>
 					</f:facet>
 				</p:menubar>
@@ -103,13 +106,24 @@
 						<p:dataTable id="messages"
 									 var="message"
 									 rowKey="#{message.id}"
-									 selection="#{messagesBean.selectedMessages}"
+									 selection="#{messagesBean.selectedMessages2}"
+									 paginator="true" rows="5"
+									 scrollable="true"
+									 sortBy="#{message.date}" sortOrder="descending"
 									 value="#{messagesBean.listOfMessages}">
 							<f:facet name="header">Messages:</f:facet>
-							<p:column selectionMode="multiple"/>
-							<p:ajax update=":messageBodyPanel, :showmessage:sender, :showmessage:receiver, :showmessage:theme, :showmessage:messagebody"
-									event="rowSelect"
-									listener="#{messagesBean.messageSelectedWithClick}"/>
+							<p:column width="30" selectionMode="multiple"/>
+							<p:ajax event="rowSelect" listener="#{messagesBean.messageSelectedWithClick}"
+									update=":messageBodyPanel, :showmessage:sender, :showmessage:receiver, :showmessage:theme, :showmessage:messagebody"/>
+							<p:ajax event="rowUnselect" listener="#{messagesBean.messageUnselectedWithClick}"
+									update=":messageBodyPanel, :showmessage:sender, :showmessage:receiver, :showmessage:theme, :showmessage:messagebody"/>
+							<p:ajax event="rowSelectCheckbox" listener="#{messagesBean.messageSelectedWithCheckBox}"
+									update=":messageBodyPanel, :showmessage:sender, :showmessage:receiver, :showmessage:theme, :showmessage:messagebody"/>
+							<p:ajax event="rowUnselectCheckbox" listener="#{messagesBean.messageUnselectedWithCheckBox}"
+									update=":messageBodyPanel, :showmessage:sender, :showmessage:receiver, :showmessage:theme, :showmessage:messagebody"/>
+							<p:ajax event="toggleSelect" listener="#{messagesBean.messagesToggleSelect}"
+									update=":messageBodyPanel, :showmessage:sender, :showmessage:receiver, :showmessage:theme, :showmessage:messagebody"/>
+
 							<p:column>
 								<f:facet name="header">sender</f:facet>
 								#{message.sender}
@@ -127,8 +141,7 @@
 								#{message.date}
 							</p:column>
 							<p:column>
-								<!--<f:facet name="header">date</f:facet>-->
-								<p:commandButton value="Show" type="button" onclick="showmessagedlg.show();"/>
+								<p:commandButton style="padding: 0" value="Show" type="button" onclick="showmessagedlg.show();"/>
 							</p:column>
 						</p:dataTable>
 					</h:form>
@@ -144,7 +157,7 @@
 	<p:growl id="growl" showDetail="true"/>
 
 	<p:dialog closable="false" draggable="false" resizable="false"
-			  id="createFolderDialog" header="Create folder"
+			  id="createFolderDialog" header="Create folder" modal="true"
 			  widgetVar="createdlg">
 		<h:form id="form">
 			<h:panelGrid columns="2">
@@ -154,7 +167,8 @@
 				<f:facet name="footer">
 					<h:panelGrid style="margin: auto" columns="2">
 						<p:commandButton value="Create"
-										 update=":folders, :growl" onsuccess="createdlg.hide();"
+										 update=":folders, :growl, form:createfoldername, :moveMessageForm:moveSelectOneMenu"
+										 onsuccess="createdlg.hide();"
 										 action="#{foldersBean.createFolder}">
 						</p:commandButton>
 						<p:commandButton value="Cancel"
@@ -166,7 +180,7 @@
 	</p:dialog>
 
 	<p:dialog closable="false" draggable="false" resizable="false"
-			  id="renameFolderDialog" header="Rename folder"
+			  id="renameFolderDialog" header="Rename folder" modal="true"
 			  widgetVar="renamedlg">
 		<h:form id="renameFolderForm">
 			<h:panelGrid columns="2">
@@ -176,8 +190,9 @@
 				<f:facet name="footer">
 					<h:panelGrid style="margin: auto" columns="2">
 						<p:commandButton value="Rename"
-										 update=":folders, :growl"
-										 action="#{foldersBean.renameFolder}" oncomplete="renamedlg.hide();">
+										 update=":folders, :growl, renameFolderForm:renameFolderName"
+										 action="#{foldersBean.renameFolder}"
+										 oncomplete="renamedlg.hide();">
 						</p:commandButton>
 						<p:commandButton value="Cancel"
 										 type="button" onclick="renamedlg.hide();"/>
@@ -188,15 +203,16 @@
 	</p:dialog>
 
 	<p:dialog closable="false" draggable="false" resizable="false"
-			  header="Delete folder"
+			  header="Delete folder" modal="true"
 			  widgetVar="deletedlg">
 		<p:outputLabel id="deletefoldertext">
 			Are you sure you want to delete #{foldersBean.selectedFolderName} folder?
 		</p:outputLabel>
 		<h:panelGrid style="margin: auto" columns="2">
 			<p:commandButton value="Yes"
-							 update=":folders, :growl"
-							 action="#{foldersBean.deleteFolder}" onsuccess="deletedlg.hide();">
+							 update=":folders, :growl, :messagesForm:messages, :messageBodyPanel"
+							 action="#{foldersBean.deleteFolder}"
+							 onsuccess="deletedlg.hide();">
 			</p:commandButton>
 			<p:commandButton value="No"
 							 type="button" onclick="deletedlg.hide();"/>
@@ -206,12 +222,12 @@
 
 
 	<p:dialog closable="false" draggable="false" resizable="false"
-			  header="Delete message"
+			  header="Delete message" modal="true"
 			  widgetVar="deletemessagedlg">
 		Are you sure you want to delete selected messages?
 		<h:panelGrid style="margin: auto" columns="2">
 			<p:commandButton value="Yes"
-							 update=":messagesForm:messages, :messageBodyPanel"
+							 update=":messagesForm:messages, :messageBodyPanel, :growl"
 							 action="#{messagesBean.deleteMessage}"
 							 oncomplete="deletemessagedlg.hide();">
 			</p:commandButton>
@@ -221,28 +237,30 @@
 	</p:dialog>
 
 	<p:dialog closable="false" draggable="false" resizable="false"
-			  header="Move message"
+			  header="Move message" modal="true"
 			  widgetVar="movemessagedlg">
+		<h:form id="moveMessageForm">
 		Chose a folder for selected messages:
-		<h:form>
-			<p:selectOneMenu valueChangeListener="#{messagesBean.messageFolderChanged}"
-							 value="#{messagesBean.endFolder}">
-				<f:selectItems value="#{foldersBean.root.children}" var="movefolder" itemLabel="#{movefolder.data}" itemValue="#{movefolder}"/>
+			<p:selectOneMenu id="moveSelectOneMenu" valueChangeListener="#{messagesBean.messageFolderChanged}"
+							 value="#{messagesBean.endFolder}" converter="folderConverter">
+				<f:selectItems id="moveItems"
+							   value="#{foldersBean.root.children}"
+							   var="movefolder" itemLabel="#{movefolder.data}" itemValue="#{movefolder.data}"/>
 			</p:selectOneMenu>
-		</h:form>
 		<h:panelGrid style="margin: auto" columns="2">
 			<p:commandButton value="Yes"
-							 update=":messagesForm:messages, :messageBodyPanel"
-							 action="#{messagesBean.moveMessage}">
-				<!--oncomplete="movemessagedlg.hide();">-->
+							 update=":messagesForm:messages, :messageBodyPanel, :growl"
+							 action="#{messagesBean.moveMessage}"
+							 oncomplete="movemessagedlg.hide();">
 			</p:commandButton>
 			<p:commandButton value="No"
 							 type="button" onclick="movemessagedlg.hide();"/>
 		</h:panelGrid>
+		</h:form>
 	</p:dialog>
 
 	<p:dialog closable="false" draggable="false" resizable="false"
-			  header="Message"
+			  header="Message" modal="true"
 			  widgetVar="showmessagedlg">
 		<h:form id="showmessage">
 			<h:panelGrid style="margin: auto" columns="2">

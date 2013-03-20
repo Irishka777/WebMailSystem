@@ -16,6 +16,15 @@ public class FolderDTO {
 		this.folderName = folderName;
 	}
 
+	public boolean equals(Object ob) {
+		if (ob instanceof FolderDTO) {
+			if (id == ((FolderDTO) ob).getId()) {
+				return folderName.equals(((FolderDTO) ob).getFolderName());
+			}
+		}
+		return false;
+	}
+
 	public long getId() {
 		return id;
 	}

@@ -56,7 +56,7 @@ public class CreateMessageBean {
 		try {
 			messageService.sendMessage(new MessageDTO(sender, receiver, theme, messageBody));
 			FacesContext.getCurrentInstance().addMessage(null,
-					new FacesMessage("Message successfully sent"));
+					new FacesMessage(FacesMessage.SEVERITY_INFO, "Information", "Message successfully sent"));
 			receiver = null;
 			theme = null;
 			messageBody = null;
@@ -72,7 +72,7 @@ public class CreateMessageBean {
 		try {
 			messageService.saveMessage(new MessageDTO(sender, receiver, theme, messageBody));
 			FacesContext.getCurrentInstance().addMessage(null,
-					new FacesMessage("Message successfully saved"));
+					new FacesMessage(FacesMessage.SEVERITY_INFO, "Information", "Message successfully saved"));
 			receiver = null;
 			theme = null;
 			messageBody = null;
