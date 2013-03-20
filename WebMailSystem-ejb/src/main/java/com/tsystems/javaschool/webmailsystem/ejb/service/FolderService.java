@@ -29,16 +29,24 @@ public class FolderService {
 
 	private Logger logger = Logger.getLogger(FolderService.class);
 
-	public List<MessageDTO> getMessagesFromFolder(FolderDTO folder) throws DataProcessingException {
+	public List<MessageDTO> getMessagesFromFolder(FolderDTO folderDTO) throws DataProcessingException {
 		try {
-			List<Message> listOfMessages = folderDAO.getMessagesFromFolder(folder.getId());
+			boolean hadUnreadMessagesFlag = false;
+			Folder folder = folderDAO.getFolder(folderDTO.getId());
 			List<MessageDTO> listOfMessagesDTO = new ArrayList<MessageDTO>();
-			for (Message message : listOfMessages) {
+			for (Message message : folder.getListOfMessages()) {
+				if (message.getMessageReadFlag() == false) {
+					message.setMessageReadFlag(true);
+					hadUnreadMessagesFlag = true;
+				}
 				listOfMessagesDTO.add(message.getMessageDTO());
+			}
+			if (hadUnreadMessagesFlag == true) {
+				folderDAO.update(folder);
 			}
 			return listOfMessagesDTO;
 		} catch (NoResultException e) {
-			logger.warn("Folder with name " + folder.getFolderName() + " does not exist", e);
+			logger.warn("Folder with name " + folderDTO.getFolderName() + " does not exist", e);
 			throw new DataProcessingException(ExceptionType.NoSuchFolderException);
 		} catch (Exception e) {
 			logger.error(e.getMessage(), e);

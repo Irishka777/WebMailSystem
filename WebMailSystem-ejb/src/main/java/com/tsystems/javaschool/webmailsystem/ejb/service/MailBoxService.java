@@ -43,11 +43,36 @@ public class MailBoxService {
 	
 	public void signUp(String email, String password, UserDTO userDTO) throws DataProcessingException {
 		try {
-			mailBoxDAO.create(new MailBox(email,password, new User(userDTO)));
-			logger.info("Mailbox with email " + email + " successfully created");
+			if (mailBoxDAO.create(new MailBox(email,password, new User(userDTO))) == true) {
+				logger.info("Mailbox with email " + email + " successfully created");
+				return;
+			}
 		} catch (PersistenceException e) {
 			logger.warn("Mailbox with email " + email + " already exists", e);
 			throw new DataProcessingException(ExceptionType.mailBoxWithSuchANameAlreadyExists);
+		} catch (Exception e) {
+			logger.error(e.getMessage(), e);
+			throw new DataProcessingException(ExceptionType.unexpectedException,e.getCause());
+		}
+		logger.warn("Mailbox with email " + email + " already exists");
+		throw new DataProcessingException(ExceptionType.mailBoxWithSuchANameAlreadyExists);
+	}
+
+	public UserDTO getUser(MailBoxDTO mailBoxDTO) throws DataProcessingException {
+		try {
+			MailBox mailBox = mailBoxDAO.find(mailBoxDTO.getEmail());
+			return mailBox.getUser().getUserDTO();
+		} catch (Exception e) {
+			logger.error(e.getMessage(), e);
+			throw new DataProcessingException(ExceptionType.unexpectedException,e.getCause());
+		}
+	}
+
+	public void changeUserData(UserDTO userDTO, MailBoxDTO mailBoxDTO) throws DataProcessingException {
+		try {
+			MailBox mailBox = mailBoxDAO.find(mailBoxDTO.getEmail());
+			mailBox.setUser(new User(userDTO));
+			mailBoxDAO.update(mailBox);
 		} catch (Exception e) {
 			logger.error(e.getMessage(), e);
 			throw new DataProcessingException(ExceptionType.unexpectedException,e.getCause());

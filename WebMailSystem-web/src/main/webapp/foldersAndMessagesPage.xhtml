@@ -52,7 +52,7 @@
 			<h:form>
 				<p:menubar>
 					<f:facet name="options">
-						<p:commandButton value="Personal data"/>
+						<p:button value="Personal data" outcome="userDataPage"/>
 						<p:commandButton value="LogOut"
 										 action="#{loginBean.logOut}"/>
 					</f:facet>
@@ -109,10 +109,9 @@
 									 selection="#{messagesBean.selectedMessages2}"
 									 paginator="true" rows="5"
 									 scrollable="true"
-									 sortBy="#{message.date}" sortOrder="descending"
+									 sortBy="#{message.id}" sortOrder="descending"
 									 value="#{messagesBean.listOfMessages}">
-							<f:facet name="header">Messages:</f:facet>
-							<p:column width="30" selectionMode="multiple"/>
+							<p:column width="25" selectionMode="multiple"/>
 							<p:ajax event="rowSelect" listener="#{messagesBean.messageSelectedWithClick}"
 									update=":messageBodyPanel, :showmessage:sender, :showmessage:receiver, :showmessage:theme, :showmessage:messagebody"/>
 							<p:ajax event="rowUnselect" listener="#{messagesBean.messageUnselectedWithClick}"
@@ -140,10 +139,15 @@
 								<f:facet name="header">date</f:facet>
 								#{message.date}
 							</p:column>
-							<p:column>
+							<p:column width="90">
 								<p:commandButton style="padding: 0" value="Show" type="button" onclick="showmessagedlg.show();"/>
 							</p:column>
 						</p:dataTable>
+					</h:form>
+					<h:form id="pollForm">
+						<p:poll interval="10"
+								listener="#{messagesBean.receiveMessages}"
+								update=":messagesForm:messages" />
 					</h:form>
 				</p:layoutUnit>
 				<p:layoutUnit position="south" size="200">

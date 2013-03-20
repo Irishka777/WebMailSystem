@@ -18,6 +18,7 @@ public class UserDTO {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		if (dateOfBirth != null) {
+			this.dateOfBirth = new GregorianCalendar();
 			this.dateOfBirth.setTime(dateOfBirth);
 		} else {
 			this.dateOfBirth = null;
@@ -66,19 +67,19 @@ public class UserDTO {
 		this.dateOfBirth = dateOfBirth;
 	}
 
-	public String dateToString() {
-		return dateOfBirth.get(Calendar.DAY_OF_MONTH)+
-				"." + dateOfBirth.get(Calendar.MONTH) +
-				"." + dateOfBirth.get(Calendar.YEAR);
-	}
-
-	public Calendar stringToDate(String dateOfBirth) {
-
-		String[] dayMonthYear = dateOfBirth.split("\\.");
-		Calendar calendarDateOfBirth = new GregorianCalendar(Integer.parseInt(dayMonthYear[2]),
-				(Integer.parseInt(dayMonthYear[1])-1),Integer.parseInt(dayMonthYear[0]));
-		return  calendarDateOfBirth;
-	}
+//	public String dateToString() {
+//		return dateOfBirth.get(Calendar.DAY_OF_MONTH)+
+//				"." + dateOfBirth.get(Calendar.MONTH) +
+//				"." + dateOfBirth.get(Calendar.YEAR);
+//	}
+//
+//	public Calendar stringToDate(String dateOfBirth) {
+//
+//		String[] dayMonthYear = dateOfBirth.split("\\.");
+//		Calendar calendarDateOfBirth = new GregorianCalendar(Integer.parseInt(dayMonthYear[2]),
+//				(Integer.parseInt(dayMonthYear[1])-1),Integer.parseInt(dayMonthYear[0]));
+//		return  calendarDateOfBirth;
+//	}
 
 	public String getPhoneNumber() {
 		return phoneNumber;

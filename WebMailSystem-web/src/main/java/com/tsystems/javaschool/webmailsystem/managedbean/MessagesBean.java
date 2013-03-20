@@ -134,6 +134,21 @@ public class MessagesBean {
 		}
 	}
 
+	public void receiveMessages() {
+		if (selectedFolder.getFolderName().equals("Inbox")) {
+			try {
+				List<MessageDTO> newMessages = messageService.receiveNewMessages(selectedFolder);
+				if (newMessages != null) {
+					listOfMessages.addAll(newMessages);
+				}
+			} catch (DataProcessingException e) {
+				FacesContext.getCurrentInstance().addMessage(null,
+						new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error",
+								e.getExceptionMessage()));
+			}
+		}
+	}
+
 	public List<MessageDTO> getListOfMessages() {
 		return listOfMessages;
 	}

@@ -61,7 +61,7 @@
 
 					<f:facet name="footer" >
 						<h:panelGrid style="margin: auto" columns="2">
-							<p:commandButton update=":growl" value="Log in" action="#{loginBean.logIn}"/>
+							<p:commandButton ajax="false" update=":growl" value="Log in" action="#{loginBean.logIn}"/>
 							<p:button value="Sign up" outcome="signUpPage"/>
 						</h:panelGrid>
 					</f:facet>

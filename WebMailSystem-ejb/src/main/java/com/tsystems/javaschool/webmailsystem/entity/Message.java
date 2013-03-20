@@ -7,6 +7,9 @@ import java.io.Serializable;
 import java.util.Calendar;
 
 @Entity
+@NamedQuery(name = "receiveNewMessages", query = "SELECT messages FROM Message messages" +
+		" WHERE messages.folder = :folder " +
+		"AND messages.messageReadFlag = false ")
 public class Message implements Serializable {
 	
 	@Id

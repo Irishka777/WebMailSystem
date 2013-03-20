@@ -10,7 +10,7 @@
 
 <h:head>
 	<!--<h:outputStylesheet library="css" name="style.css"/>-->
-	<title>Sign up</title>
+	<title>Log In</title>
 	<style type="text/css">
 		.ui-layout-unit .ui-layout-unit-content {
 			height: auto;
@@ -47,44 +47,45 @@
 </h:head>
 <h:body>
 	<p:growl id="growl"/>
-	<p:layout fullPage="true">
-		<p:layoutUnit position="north" header="Sign Up"/>
+	<p:layout fullPage="true" >
+		<p:layoutUnit position="north">
+			<h:form>
+				<p:menubar style="text-align: right">
+					<f:facet name="options">
+						<p:button outcome="foldersAndMessagesPage" value="Main page"/>
+						<p:commandButton update=":growl"
+										 value="LogOut"
+										 action="#{loginBean.logOut}"/>
+					</f:facet>
+				</p:menubar>
+			</h:form>
+		</p:layoutUnit>
 		<p:layoutUnit position="center">
 			<h:form>
 				<h:panelGrid style="margin: auto" columns="2">
 
-					<p:outputLabel for="email" value="Email: *"/>
-					<p:inputText id="email" value="#{signUpBean.email}"/>
+					<f:facet name="header">
+						Personal data
+					</f:facet>
 
-					<p:outputLabel for="password1" value="Password 1: *"/>
-					<p:password id="password1"
-								value="#{signUpBean.password}"
-								label="Password1"
-								match="password2"/>
+					<p:outputLabel for="firstname" value="First name: "/>
+					<p:inputText id="firstname" value="#{userBean.firstName}"/>
 
-					<p:outputLabel for="password2" value="Password 2: *"/>
-					<p:password id="password2"
-								value="#{signUpBean.password}"
-								label="password2"/>
-
-					<p:outputLabel for="firstname" value="First name: *"/>
-					<p:inputText id="firstname" value="#{signUpBean.firstName}"/>
-
-					<p:outputLabel for="lastname" value="Last name: *"/>
-					<p:inputText id="lastname" value="#{signUpBean.lastName}"/>
+					<p:outputLabel for="lastname" value="Last name: "/>
+					<p:inputText id="lastname" value="#{userBean.lastName}"/>
 
 					<p:outputLabel for="dateofbirth" value="Date of birth: "/>
-					<p:inputText id="dateofbirth" value="#{signUpBean.dateOfBirth}">
+					<p:inputText id="dateofbirth" value="#{userBean.dateOfBirth}">
 						<f:convertDateTime pattern="dd.MM.yyyy"/>
 					</p:inputText>
 
 					<p:outputLabel for="phonenumber" value="Phone number: "/>
-					<p:inputText id="phonenumber" value="#{signUpBean.phoneNumber}"/>
+					<p:inputText id="phonenumber" value="#{userBean.phoneNumber}"/>
 
 					<f:facet name="footer">
 						<h:panelGrid style="margin: auto" columns="2">
-							<p:commandButton ajax="false" update=":growl" value="Sign up" action="#{signUpBean.signUp}"/>
-							<p:button value="Back" outcome="logInPage"/>
+							<p:commandButton update=":growl" value="Save changes" action="#{userBean.changeData}"/>
+							<p:button value="Cancel" outcome="foldersAndMessagesPage"/>
 						</h:panelGrid>
 					</f:facet>
 				</h:panelGrid>

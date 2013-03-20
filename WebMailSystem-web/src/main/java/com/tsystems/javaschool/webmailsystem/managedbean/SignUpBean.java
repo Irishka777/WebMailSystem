@@ -5,7 +5,9 @@ import com.tsystems.javaschool.webmailsystem.ejb.service.MailBoxService;
 import com.tsystems.javaschool.webmailsystem.exception.DataProcessingException;
 
 import javax.ejb.EJB;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
 import javax.validation.constraints.*;
 import java.util.Date;
 
@@ -48,9 +50,11 @@ public class SignUpBean {
 	public String signUp() {
 		try {
 			mailBoxService.signUp(email, password,new UserDTO(firstName, lastName, dateOfBirth, phoneNumber));
-			return "logInPage";
+			return "logInPage?faces-redirect=true";
 		} catch (DataProcessingException e) {
-			return e.getExceptionMessage();
+			FacesContext.getCurrentInstance().addMessage(null,
+					new FacesMessage(e.getExceptionMessage()));
+			return null;
 		}
 	}
 

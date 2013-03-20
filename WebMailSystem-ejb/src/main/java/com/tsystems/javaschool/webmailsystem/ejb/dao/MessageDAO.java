@@ -1,6 +1,7 @@
 package com.tsystems.javaschool.webmailsystem.ejb.dao;
 
 import com.tsystems.javaschool.webmailsystem.entity.Folder;
+import com.tsystems.javaschool.webmailsystem.entity.MailBox;
 import com.tsystems.javaschool.webmailsystem.entity.Message;
 
 import javax.ejb.EJB;
@@ -59,5 +60,25 @@ public class MessageDAO {
 	public List<Message> getMessagesFromFolder(long folderId) {
 		Folder folder = folderDAO.getFolder(folderId);
 		return folder.getListOfMessages();
+	}
+
+	public List<Message> getNewMessages(long folderId) {
+		Folder folder = folderDAO.getFolder(folderId);
+		TypedQuery<Message> query = entityManager.createNamedQuery("receiveNewMessages", Message.class);
+		query.setParameter("folder", folder);
+		List<Message> messages = query.getResultList();
+		if ((messages == null) || (messages.size() == 0)) {
+			return null;
+		}
+		Message message;
+		int index;
+		for (int i = 0; i < messages.size(); i++) {
+			message = messages.get(i);
+			index = folder.getListOfMessages().indexOf(message);
+			message.setMessageReadFlag(true);
+			folder.getListOfMessages().get(index).setMessageReadFlag(true);
+		}
+		folderDAO.update(folder);
+		return messages;
 	}
 }

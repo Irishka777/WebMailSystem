@@ -1,6 +1,7 @@
 package com.tsystems.javaschool.webmailsystem.ejb.service;
 
 import com.tsystems.javaschool.webmailsystem.dto.FolderDTO;
+import com.tsystems.javaschool.webmailsystem.dto.MailBoxDTO;
 import com.tsystems.javaschool.webmailsystem.dto.MessageDTO;
 import com.tsystems.javaschool.webmailsystem.ejb.dao.FolderDAO;
 import com.tsystems.javaschool.webmailsystem.ejb.dao.MailBoxDAO;
@@ -169,6 +170,24 @@ public class MessageService {
 			folderDAO.update(newFolder);
 			folderDAO.update(oldFolder);
 			logger.info("Messages successfully moved");
+		} catch (Exception e) {
+			logger.error(e.getMessage(), e);
+			throw new DataProcessingException(ExceptionType.unexpectedException,e.getCause());
+		}
+	}
+
+	public List<MessageDTO> receiveNewMessages(FolderDTO folderDTO)
+			throws DataProcessingException {
+		try {
+			List<Message> receivedMessages = messageDAO.getNewMessages(folderDTO.getId());
+			if (receivedMessages == null) {
+				return null;
+			}
+			List<MessageDTO> listOfMessagesDTO = new ArrayList<MessageDTO>();
+			for (Message message : receivedMessages) {
+				listOfMessagesDTO.add(message.getMessageDTO());
+			}
+			return listOfMessagesDTO;
 		} catch (Exception e) {
 			logger.error(e.getMessage(), e);
 			throw new DataProcessingException(ExceptionType.unexpectedException,e.getCause());

@@ -23,7 +23,12 @@ public class FolderDAO {
 	public void delete(Folder folder) {
 		entityManager.remove(folder);
 	}
-	
+
+	public void update(long folderId) {
+		Folder folder = getFolder(folderId);
+		entityManager.merge(folder);
+	}
+
 	public void update(Folder folder) {
 		entityManager.merge(folder);
 	}
