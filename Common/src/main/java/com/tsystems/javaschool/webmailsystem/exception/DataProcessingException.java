@@ -1,9 +1,12 @@
 package com.tsystems.javaschool.webmailsystem.exception;
 
+import javax.ejb.ApplicationException;
+
 /**
  *
  */
-public class DataProcessingException extends Exception {
+@ApplicationException(rollback=true)
+public class DataProcessingException extends RuntimeException {
 
 	private ExceptionType exceptionType;
 
@@ -26,6 +29,8 @@ public class DataProcessingException extends Exception {
 				return "Wrong email or password";
 			case wrongMessageReceiverEmail:
 				return "Receiver with such email does not exist; message saved in draft messages";
+			case mailBoxDoesNotExist:
+				return "Mailbox with such email does not exist";
 			case NoSuchFolderException:
 			case unexpectedException:
 				default:

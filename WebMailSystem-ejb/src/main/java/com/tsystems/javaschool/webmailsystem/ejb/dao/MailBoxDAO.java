@@ -1,11 +1,11 @@
 package com.tsystems.javaschool.webmailsystem.ejb.dao;
 
-import com.tsystems.javaschool.webmailsystem.entity.Folder;
 import com.tsystems.javaschool.webmailsystem.entity.MailBox;
-import com.tsystems.javaschool.webmailsystem.entity.User;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -18,27 +18,20 @@ public class MailBoxDAO {
 	@EJB
 	private FolderDAO folderDAO;
 
-	public boolean create(MailBox mailBox) {
-		if (find(mailBox.getEmail()) != null) {
-			return false;
-		}
+	@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
+	public void create(MailBox mailBox) {
 		entityManager.persist(mailBox);
-
-		folderDAO.create(new Folder("Outbox", mailBox));
-		folderDAO.create(new Folder("Inbox", mailBox));
-		folderDAO.create(new Folder("Draft", mailBox));
-		
-		return true;
 	}
 
-	public MailBox update(MailBox mailBox) {
-		return entityManager.merge(mailBox);
-	}
+//	public MailBox update(MailBox mailBox) {
+//		return entityManager.merge(mailBox);
+//	}
 	
-	public boolean delete(MailBox mailBox) {
-		return true;
-	}
+//	public boolean delete(MailBox mailBox) {
+//		return true;
+//	}
 
+	@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
 	public MailBox find(String email) {
 		return entityManager.find(MailBox.class,email);
 	}
