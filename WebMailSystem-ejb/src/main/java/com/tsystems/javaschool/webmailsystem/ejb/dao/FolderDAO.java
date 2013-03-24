@@ -5,6 +5,8 @@ import com.tsystems.javaschool.webmailsystem.entity.MailBox;
 import com.tsystems.javaschool.webmailsystem.entity.Message;
 
 import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
@@ -16,13 +18,30 @@ public class FolderDAO {
 	@PersistenceContext(unitName = "webMailSystem")
 	private EntityManager entityManager;
 
+//	@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
+	public Folder getFolder(long folderId) {
+		return entityManager.find(Folder.class, folderId);
+	}
+
+	public void flush() {
+		entityManager.flush();
+	}
+
+	public List<Folder> getFoldersForMailBox(MailBox mailBox) {
+		TypedQuery<Folder> query = entityManager.createNamedQuery("getFoldersForMailBox", Folder.class);
+		query.setParameter("mailBox", mailBox);
+		return query.getResultList();
+	}
+
+	@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
 	public void create(Folder folder) {
 		entityManager.persist(folder);
 	}
-	
+
 	public void delete(Folder folder) {
 		entityManager.remove(folder);
 	}
+
 
 	public void update(long folderId) {
 		Folder folder = getFolder(folderId);
@@ -33,34 +52,34 @@ public class FolderDAO {
 		entityManager.merge(folder);
 	}
 	
-	public Folder getFolder(Folder folder) {
-		return entityManager.find(Folder.class, folder.getId());
-	}
+//	public Folder getFolder(Folder folder) {
+//		return entityManager.find(Folder.class, folder.getId());
+//	}
 
-	public Folder getFolder(long folderId) {
-		return entityManager.find(Folder.class, folderId);
-	}
 
-	public List<Message> getMessagesFromFolder(long folderId) {
-		Folder folder = getFolder(folderId);
-		return folder.getListOfMessages();
-	}
-	
-	public List<Folder> getFoldersForMailBox(String email) {
-		MailBox mailBox = entityManager.find(MailBox.class,email);
-		TypedQuery<Folder> query = entityManager.createNamedQuery("getFoldersForMailBox", Folder.class);
-		query.setParameter("mailBox", mailBox);
-		return query.getResultList();
-	}
 
-	public List<Message> getMessagesFromFolder(String folderName, String email) {
-		TypedQuery<Folder> query = entityManager
-				.createNamedQuery("findFolderByFolderNameAndEmail", Folder.class);
-		query.setParameter("folderName", folderName);
-		query.setParameter("mailBox", email);
-		Folder folder = query.getSingleResult();
-		return folder.getListOfMessages();
-	}
+//	public List<Message> getMessagesFromFolder(long folderId) {
+//		Folder folder = getFolder(folderId);
+//		return folder.getListOfMessages();
+//	}
+
+
+
+//	public List<Folder> getFoldersForMailBox(String email) {
+//		MailBox mailBox = entityManager.find(MailBox.class,email);
+//		TypedQuery<Folder> query = entityManager.createNamedQuery("getFoldersForMailBox", Folder.class);
+//		query.setParameter("mailBox", mailBox);
+//		return query.getResultList();
+//	}
+
+//	public List<Message> getMessagesFromFolder(String folderName, String email) {
+//		TypedQuery<Folder> query = entityManager
+//				.createNamedQuery("findFolderByFolderNameAndEmail", Folder.class);
+//		query.setParameter("folderName", folderName);
+//		query.setParameter("mailBox", email);
+//		Folder folder = query.getSingleResult();
+//		return folder.getListOfMessages();
+//	}
 
 	public Folder findFolderByFolderNameAndEmail(String folderName, MailBox email) {
 		TypedQuery<Folder> query = entityManager

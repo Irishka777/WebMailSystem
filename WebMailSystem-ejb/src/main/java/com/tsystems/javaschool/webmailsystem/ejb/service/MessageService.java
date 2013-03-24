@@ -1,7 +1,6 @@
 package com.tsystems.javaschool.webmailsystem.ejb.service;
 
 import com.tsystems.javaschool.webmailsystem.dto.FolderDTO;
-import com.tsystems.javaschool.webmailsystem.dto.MailBoxDTO;
 import com.tsystems.javaschool.webmailsystem.dto.MessageDTO;
 import com.tsystems.javaschool.webmailsystem.ejb.dao.FolderDAO;
 import com.tsystems.javaschool.webmailsystem.ejb.dao.MailBoxDAO;
@@ -43,7 +42,7 @@ public class MessageService {
 			return listOfMessagesDTO;
 		} catch (NoResultException e) {
 			logger.warn("Folder with name " + folder.getFolderName() + " does not exist", e);
-			throw new DataProcessingException(ExceptionType.NoSuchFolderException);
+			throw new DataProcessingException(ExceptionType.folderDoesNotExist);
 		} catch (Exception e) {
 			logger.error(e.getMessage(), e);
 			throw new DataProcessingException(ExceptionType.unexpectedException,e.getCause());

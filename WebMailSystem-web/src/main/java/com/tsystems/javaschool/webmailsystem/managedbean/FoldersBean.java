@@ -100,32 +100,17 @@ public class FoldersBean {
 
 	public String createFolder() {
 		try {
-			if (newFolderName == null) {
-				return null;
-			}
-			List<TreeNode> list = root.getChildren();
-			for (int i = 0; i < list.size(); i++) {
-				if (((FolderDTO) list.get(i).getData()).getFolderName().equals(newFolderName)) {
-					FacesContext.getCurrentInstance().addMessage(null,
-							new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error",
-									"Folder with such a name already exists"));
-					newFolderName = null;
-					return null;
-				}
-			}
 			FolderDTO folder = folderService.createFolder(new FolderDTO(newFolderName), mailBox);
+
 			new DefaultTreeNode(folder, root);
-			newFolderName = null;
 			FacesContext.getCurrentInstance().addMessage(null,
-					new FacesMessage(FacesMessage.SEVERITY_INFO, "Information",
-							"Folder successfully created"));
-			return null;
+					new FacesMessage(FacesMessage.SEVERITY_INFO, "Information", "Folder successfully created"));
 		} catch (DataProcessingException e) {
 			FacesContext.getCurrentInstance().addMessage(null,
-					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error",
-							e.getExceptionMessage()));
-			return null;
+					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", e.getExceptionMessage()));
 		}
+		newFolderName = null;
+		return null;
 	}
 
 	public String deleteFolder() {
@@ -135,7 +120,9 @@ public class FoldersBean {
 							"You have not selected a folder for deletion"));
 			return null;
 		}
+
 		String folderName = ((FolderDTO) selectedFolder.getData()).getFolderName();
+
 		if (folderName.equals("Inbox")
 				|| folderName.equals("Outbox")
 				|| folderName.equals("Draft")) {
@@ -183,37 +170,26 @@ public class FoldersBean {
 							"You have not selected a folder for renaming"));
 			return null;
 		}
+
 		FolderDTO folder = (FolderDTO) selectedFolder.getData();
+
 		if (folder.getFolderName().equals(selectedFolderName)) {
-			FacesContext.getCurrentInstance().addMessage(null,
-					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error",
-							"You have not specified a new name for folder"));
+			FacesContext.getCurrentInstance().addMessage(null,new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error",
+							"You have not specified a new name for a folder"));
 			return null;
 		}
 		if (folder.getFolderName().equals("Inbox")
 				|| folder.getFolderName().equals("Outbox")
 				|| folder.getFolderName().equals("Draft")) {
-			FacesContext.getCurrentInstance().addMessage(null,
-					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "You can not rename system folders"));
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error",
+					"You can not rename system folders"));
 			return null;
 		}
-		List<TreeNode> list = root.getChildren();
-		for (int i = 0; i < list.size(); i++) {
-			if (((FolderDTO) list.get(i).getData()).getFolderName().equals(selectedFolderName)) {
-				FacesContext.getCurrentInstance().addMessage(null,
-						new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error",
-								"Folder with such a name already exists"));
-				return null;
-			}
-		}
+
 		try {
+			folderService.renameFolder(folder, selectedFolderName);
 			folder.setFolderName(selectedFolderName);
-			folder = folderService.renameFolder(folder);
-			root.getChildren().remove(selectedFolder);
-			selectedFolder = new DefaultTreeNode(folder, root);
-			messagesBean.setSelectedFolder(folder);
-			FacesContext.getCurrentInstance().addMessage(null,
-					new FacesMessage(FacesMessage.SEVERITY_INFO, "Information",
+			FacesContext.getCurrentInstance().addMessage(null,new FacesMessage(FacesMessage.SEVERITY_INFO,"Information",
 							"Folder successfully renamed"));
 			return null;
 		} catch (DataProcessingException e) {

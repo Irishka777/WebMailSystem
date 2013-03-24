@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Table(uniqueConstraints = @UniqueConstraint(columnNames = {"FOLDERNAME","MAILBOX_EMAIL"}))
 @NamedQueries({
 	@NamedQuery(name = "findFolderByFolderNameAndEmail", query = "SELECT folder FROM Folder folder WHERE " +
 			"folder.folderName = :folderName AND folder.mailBox = :mailBox"),
@@ -19,10 +20,11 @@ public class Folder implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long id;
 
-	@Column(columnDefinition = "varchar(30)")
+	@Column(name = "FOLDERNAME", columnDefinition = "varchar(30)")
 	private String folderName;
 	
 	@OneToOne
+	@JoinColumn(name = "MAILBOX_EMAIL")
 	private MailBox mailBox;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "folder", orphanRemoval = true)

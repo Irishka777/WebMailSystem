@@ -4,6 +4,6 @@ package com.tsystems.javaschool.webmailsystem.exception;
  *
  */
 public enum ExceptionType {
-	NoSuchAlgorithmException, wrongEmailOrPassword, wrongMessageReceiverEmail, NoSuchFolderException,
-	mailBoxWithSuchANameAlreadyExists, unexpectedException, mailBoxDoesNotExist
+	NoSuchAlgorithmException, wrongEmailOrPassword, wrongMessageReceiverEmail, folderDoesNotExist,
+	mailBoxWithSuchANameAlreadyExists, unexpectedException, mailBoxDoesNotExist, folderWithSuchANameAlreadyExists
 }

@@ -31,7 +31,7 @@ public class MailBoxDAO {
 //		return true;
 //	}
 
-	@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
+//	@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
 	public MailBox find(String email) {
 		return entityManager.find(MailBox.class,email);
 	}

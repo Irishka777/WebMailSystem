@@ -20,7 +20,7 @@ import java.util.Date;
  *
  */
 @ManagedBean
-@SessionScoped
+//@SessionScoped
 public class UserBean {
 	@EJB
 	private MailBoxService mailBoxService;
@@ -65,7 +65,11 @@ public class UserBean {
 			firstName = user.getFirstName();
 			lastName = user.getLastName();
 			phoneNumber = user.getPhoneNumber();
-			dateOfBirth = user.getDateOfBirth().getTime();
+			if (user.getDateOfBirth() == null) {
+				dateOfBirth = null;
+			} else {
+				dateOfBirth = user.getDateOfBirth().getTime();
+			}
 		} catch (DataProcessingException e) {
 			FacesContext.getCurrentInstance().addMessage(null,
 					new FacesMessage(e.getExceptionMessage()));

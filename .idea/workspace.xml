@@ -2,26 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="96dbb7a3-680e-4f09-afdb-4c2671af77bf" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Common/Common.iml" afterPath="$PROJECT_DIR$/Common/Common.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Common/src/main/java/com/tsystems/javaschool/webmailsystem/exception/DataProcessingException.java" afterPath="$PROJECT_DIR$/Common/src/main/java/com/tsystems/javaschool/webmailsystem/exception/DataProcessingException.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Common/src/main/java/com/tsystems/javaschool/webmailsystem/exception/ExceptionType.java" afterPath="$PROJECT_DIR$/Common/src/main/java/com/tsystems/javaschool/webmailsystem/exception/ExceptionType.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/entity/Folder.java" afterPath="$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/entity/Folder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/dao/FolderDAO.java" afterPath="$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/dao/FolderDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/service/FolderService.java" afterPath="$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/service/FolderService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/FoldersBean.java" afterPath="$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/FoldersBean.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/dao/MailBoxDAO.java" afterPath="$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/dao/MailBoxDAO.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/service/MailBoxService.java" afterPath="$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/service/MailBoxService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Common/pom.xml" afterPath="$PROJECT_DIR$/Common/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/service/MessageService.java" afterPath="$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/service/MessageService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/UserBean.java" afterPath="$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/UserBean.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebMailSystem-ejb/WebMailSystem-ejb.iml" afterPath="$PROJECT_DIR$/WebMailSystem-ejb/WebMailSystem-ejb.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="WebMailSystem.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="$PROJECT_DIR$/WebMailSystem-ear/target/application.xml" changelist="96dbb7a3-680e-4f09-afdb-4c2671af77bf" time="1363600635256" ignored="false" />
-    <file path="/Dummy.txt" changelist="96dbb7a3-680e-4f09-afdb-4c2671af77bf" time="1364028775457" ignored="false" />
+    <file path="/Dummy.txt" changelist="96dbb7a3-680e-4f09-afdb-4c2671af77bf" time="1364155834070" ignored="false" />
     <file path="/messagesPage.xhtml" changelist="96dbb7a3-680e-4f09-afdb-4c2671af77bf" time="1363645297267" ignored="false" />
     <file path="/MessageDTO.java" changelist="96dbb7a3-680e-4f09-afdb-4c2671af77bf" time="1363726597852" ignored="false" />
     <file path="/foldersPage.xhtml" changelist="96dbb7a3-680e-4f09-afdb-4c2671af77bf" time="1363680832007" ignored="false" />
-    <file path="/FoldersBean.java" changelist="96dbb7a3-680e-4f09-afdb-4c2671af77bf" time="1363746450688" ignored="false" />
+    <file path="/FoldersBean.java" changelist="96dbb7a3-680e-4f09-afdb-4c2671af77bf" time="1364167040707" ignored="false" />
     <file path="$PROJECT_DIR$/WebMailSystem-web/src/main/webapp/foldersAndMessages.html" changelist="96dbb7a3-680e-4f09-afdb-4c2671af77bf" time="1363603065427" ignored="false" />
     <file path="/foldersAndMessagesPage.xhtml" changelist="96dbb7a3-680e-4f09-afdb-4c2671af77bf" time="1363773194659" ignored="false" />
     <file path="/MessagesBean.java" changelist="96dbb7a3-680e-4f09-afdb-4c2671af77bf" time="1363770309041" ignored="false" />
-    <file path="/FolderService.java" changelist="96dbb7a3-680e-4f09-afdb-4c2671af77bf" time="1363767461510" ignored="false" />
+    <file path="/FolderService.java" changelist="96dbb7a3-680e-4f09-afdb-4c2671af77bf" time="1364167361534" ignored="false" />
     <file path="/MessageService.java" changelist="96dbb7a3-680e-4f09-afdb-4c2671af77bf" time="1363770647866" ignored="false" />
     <file path="/logOutPage.xhtml" changelist="96dbb7a3-680e-4f09-afdb-4c2671af77bf" time="1363644515942" ignored="false" />
     <file path="/CreateMessageBean.java" changelist="96dbb7a3-680e-4f09-afdb-4c2671af77bf" time="1363734951715" ignored="false" />
@@ -33,18 +40,19 @@
     <file path="/logInPage.xhtml" changelist="96dbb7a3-680e-4f09-afdb-4c2671af77bf" time="1363771641872" ignored="false" />
     <file path="/LoginBean.java" changelist="96dbb7a3-680e-4f09-afdb-4c2671af77bf" time="1363710688998" ignored="false" />
     <file path="/MessageDAO.java" changelist="96dbb7a3-680e-4f09-afdb-4c2671af77bf" time="1363769883957" ignored="false" />
-    <file path="/DataProcessingException.java" changelist="96dbb7a3-680e-4f09-afdb-4c2671af77bf" time="1364050740342" ignored="false" />
+    <file path="/DataProcessingException.java" changelist="96dbb7a3-680e-4f09-afdb-4c2671af77bf" time="1364159950412" ignored="false" />
     <file path="/UserDTO.java" changelist="96dbb7a3-680e-4f09-afdb-4c2671af77bf" time="1363766015978" ignored="false" />
     <file path="/signUpPage.xhtml" changelist="96dbb7a3-680e-4f09-afdb-4c2671af77bf" time="1363771624425" ignored="false" />
-    <file path="/MailBoxService.java" changelist="96dbb7a3-680e-4f09-afdb-4c2671af77bf" time="1364050772807" ignored="false" />
+    <file path="/MailBoxService.java" changelist="96dbb7a3-680e-4f09-afdb-4c2671af77bf" time="1364163400403" ignored="false" />
     <file path="/FolderDTOConverter.java" changelist="96dbb7a3-680e-4f09-afdb-4c2671af77bf" time="1363730164431" ignored="false" />
     <file path="/FolderDTO.java" changelist="96dbb7a3-680e-4f09-afdb-4c2671af77bf" time="1363730257630" ignored="false" />
-    <file path="/UserBean.java" changelist="96dbb7a3-680e-4f09-afdb-4c2671af77bf" time="1363765390940" ignored="false" />
+    <file path="/UserBean.java" changelist="96dbb7a3-680e-4f09-afdb-4c2671af77bf" time="1364162785115" ignored="false" />
     <file path="/MailBoxDAO.java" changelist="96dbb7a3-680e-4f09-afdb-4c2671af77bf" time="1364045762590" ignored="false" />
     <file path="/userDataPage.xhtml" changelist="96dbb7a3-680e-4f09-afdb-4c2671af77bf" time="1363766264281" ignored="false" />
-    <file path="/FolderDAO.java" changelist="96dbb7a3-680e-4f09-afdb-4c2671af77bf" time="1363766839655" ignored="false" />
+    <file path="/FolderDAO.java" changelist="96dbb7a3-680e-4f09-afdb-4c2671af77bf" time="1364167354357" ignored="false" />
     <file path="/pom.xml" changelist="96dbb7a3-680e-4f09-afdb-4c2671af77bf" time="1364048891050" ignored="false" />
-    <file path="/ExceptionType.java" changelist="96dbb7a3-680e-4f09-afdb-4c2671af77bf" time="1364050716797" ignored="false" />
+    <file path="/ExceptionType.java" changelist="96dbb7a3-680e-4f09-afdb-4c2671af77bf" time="1364159920152" ignored="false" />
+    <file path="/Folder.java" changelist="96dbb7a3-680e-4f09-afdb-4c2671af77bf" time="1364159533558" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,22 +72,6 @@
     <sortChildren value="false" />
   </component>
   <component name="DebuggerManager">
-    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
-      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/dao/FolderDAO.java" line="23" class="com.tsystems.javaschool.webmailsystem.ejb.dao.FolderDAO" package="com.tsystems.javaschool.webmailsystem.ejb.dao">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-    </line_breakpoints>
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -114,6 +106,64 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
+    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
+      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/FoldersBean.java" line="189" class="com.tsystems.javaschool.webmailsystem.managedbean.FoldersBean" package="com.tsystems.javaschool.webmailsystem.managedbean">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/FoldersBean.java" line="191" class="com.tsystems.javaschool.webmailsystem.managedbean.FoldersBean" package="com.tsystems.javaschool.webmailsystem.managedbean">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/FoldersBean.java" line="193" class="com.tsystems.javaschool.webmailsystem.managedbean.FoldersBean" package="com.tsystems.javaschool.webmailsystem.managedbean">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/FoldersBean.java" line="195" class="com.tsystems.javaschool.webmailsystem.managedbean.FoldersBean" package="com.tsystems.javaschool.webmailsystem.managedbean">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+    </line_breakpoints>
     <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
@@ -124,76 +174,46 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MessagesBean.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/MessagesBean.java">
+      <file leaf-file-name="FoldersBean.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/FoldersBean.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="100" column="0" selection-start="3227" selection-end="3227" vertical-scroll-proportion="0.0">
+            <state line="124" column="0" selection-start="4653" selection-end="4653" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MailBoxService.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/service/MailBoxService.java">
+      <file leaf-file-name="mailsystemdb.folder" pinned="false" current="false" current-in-tab="false">
+        <entry file="dbDummy://dbtable:/b2563434/e580267e-7c07-4eb1-94aa-c0954284ddd3/mailsystemdb..folder">
+          <provider editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+          <provider selected="true" editor-type-id="com.intellij.persistence.database.editor.DatabaseTableFileEditorProvider">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FolderService.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/service/FolderService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="48" column="25" selection-start="1876" selection-end="1876" vertical-scroll-proportion="2.2783506">
+            <state line="96" column="0" selection-start="3463" selection-end="3463" vertical-scroll-proportion="-0.36336336">
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#1568#1579#0" expanded="true" />
+                <element signature="e#2104#2116#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ExceptionType.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Common/src/main/java/com/tsystems/javaschool/webmailsystem/exception/ExceptionType.java">
+      <file leaf-file-name="MailBoxService.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/service/MailBoxService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="79" selection-start="272" selection-end="272" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebMailSystem-web/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="26" selection-start="1105" selection-end="1105" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebMailSystem-ejb/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="8" selection-start="947" selection-end="1042" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Common/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="21" selection-start="585" selection-end="585" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DataProcessingException.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Common/src/main/java/com/tsystems/javaschool/webmailsystem/exception/DataProcessingException.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="64" selection-start="1026" selection-end="1026" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SignUpBean.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/SignUpBean.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="55" column="0" selection-start="2223" selection-end="2223" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="87" column="5" selection-start="3371" selection-end="3371" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -201,10 +221,38 @@
       <file leaf-file-name="MailBoxDAO.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/dao/MailBoxDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="0" selection-start="796" selection-end="796" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state line="34" column="39" selection-start="898" selection-end="898" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserBean.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/UserBean.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="23" column="16" selection-start="769" selection-end="769" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mailsystemdb.mailbox" pinned="false" current="false" current-in-tab="false">
+        <entry file="dbDummy://dbtable:/b2563434/e580267e-7c07-4eb1-94aa-c0954284ddd3/mailsystemdb..mailbox">
+          <provider editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+          <provider selected="true" editor-type-id="com.intellij.persistence.database.editor.DatabaseTableFileEditorProvider">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FolderDAO.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/dao/FolderDAO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="25" column="23" selection-start="804" selection-end="804" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -227,22 +275,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/dao/FolderDAO.java" />
-        <option value="dbtable:/b2563434/e580267e-7c07-4eb1-94aa-c0954284ddd3/mailsystemdb..message" />
-        <option value="$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/entity/Message.java" />
-        <option value="$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/dao/MessageDAO.java" />
-        <option value="$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/MessagesBean.java" />
-        <option value="$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/service/MessageService.java" />
-        <option value="$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/service/FolderService.java" />
-        <option value="$PROJECT_DIR$/WebMailSystem-web/src/main/webapp/signUpPage.xhtml" />
         <option value="$PROJECT_DIR$/WebMailSystem-web/src/main/webapp/logInPage.xhtml" />
         <option value="$PROJECT_DIR$/WebMailSystem-web/src/main/webapp/foldersAndMessagesPage.xhtml" />
         <option value="$PROJECT_DIR$/Common/pom.xml" />
+        <option value="$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/entity/Folder.java" />
         <option value="dbtable:/b2563434/e580267e-7c07-4eb1-94aa-c0954284ddd3/mailsystemdb..folder" />
         <option value="$PROJECT_DIR$/Common/src/main/java/com/tsystems/javaschool/webmailsystem/exception/ExceptionType.java" />
         <option value="$PROJECT_DIR$/Common/src/main/java/com/tsystems/javaschool/webmailsystem/exception/DataProcessingException.java" />
-        <option value="$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/service/MailBoxService.java" />
+        <option value="$PROJECT_DIR$/WebMailSystem-ejb/src/main/resources/META-INF/persistence.xml" />
+        <option value="dbtable:/b2563434/e580267e-7c07-4eb1-94aa-c0954284ddd3/mailsystemdb..user" />
         <option value="$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/dao/MailBoxDAO.java" />
+        <option value="$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/UserBean.java" />
+        <option value="dbtable:/b2563434/e580267e-7c07-4eb1-94aa-c0954284ddd3/mailsystemdb..mailbox" />
+        <option value="$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/service/MailBoxService.java" />
+        <option value="$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/dao/FolderDAO.java" />
+        <option value="$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/service/FolderService.java" />
+        <option value="$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/FoldersBean.java" />
       </list>
     </option>
   </component>
@@ -333,7 +381,7 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -846,7 +894,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -859,15 +907,15 @@
     <property name="last_opened_file_path" value="C:/Program Files/glassfish3/glassfish/lib/javaee.jar!/" />
     <property name="DefaultHtmlFileTemplate" value="Xhtml" />
     <property name="MemberChooser.copyJavadoc" value="false" />
-    <property name="Database.TableEditor.Splitter" value="0.8999999" />
+    <property name="Database.TableEditor.Splitter" value="0.8999998" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="restartRequiresConfirmation" value="true" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="dynamic.classpath" value="false" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
+    <property name="dynamic.classpath" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -923,6 +971,19 @@
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -949,19 +1010,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -1000,17 +1048,17 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="true" type="com.intellij.persistence.run.ConsoleRunConfigurationType" factoryName="Query Language Console">
-      <option name="VM_PARAMETERS" value="" />
-      <option name="USER_CFG_CLASS" />
-      <option name="CONTEXT_PROVIDER" />
-      <method />
-    </configuration>
     <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local">
       <deployment />
       <server-settings />
       <predefined_log_file id="Tomcat" enabled="true" />
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <method />
+    </configuration>
+    <configuration default="true" type="com.intellij.persistence.run.ConsoleRunConfigurationType" factoryName="Query Language Console">
+      <option name="VM_PARAMETERS" value="" />
+      <option name="USER_CFG_CLASS" />
+      <option name="CONTEXT_PROVIDER" />
       <method />
     </configuration>
     <configuration default="false" name="Glassfish 3.1.2.2" type="GlassfishConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="Glassfish 3.1.2.2">
@@ -1114,24 +1162,24 @@
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="JavaEE:App" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.11893939" sideWeight="0.9111111" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18712121" sideWeight="0.61880344" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.08888889" sideWeight="0.4969697" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24444444" sideWeight="0.4969697" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3880342" sideWeight="0.49772727" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991454" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.022222223" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24786325" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="EJB" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27348486" sideWeight="0.6717949" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.108333334" sideWeight="0.6717949" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991454" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31363636" sideWeight="0.6717949" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32820514" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3007576" sideWeight="0.6717949" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32820514" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1195,95 +1243,99 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/dao/MessageDAO.java">
+    <entry file="file://$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/entity/Folder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="82" column="0" selection-start="2585" selection-end="2585" vertical-scroll-proportion="0.0">
+        <state line="58" column="16" selection-start="1571" selection-end="1571" vertical-scroll-proportion="0.17295597">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/javax/javaee-api/6.0/javaee-api-6.0.jar!/javax/persistence/PersistenceException.class">
+    <entry file="file://$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/service/MessageService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="13" selection-start="160" selection-end="160" vertical-scroll-proportion="0.16504854">
+        <state line="21" column="13" selection-start="910" selection-end="910" vertical-scroll-proportion="0.2672956">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/javax/javaee-api/6.0/javaee-api-6.0.jar!/javax/persistence/Entity.class">
+    <entry file="file://$PROJECT_DIR$/WebMailSystem-ejb/src/main/resources/META-INF/persistence.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="18" selection-start="346" selection-end="346" vertical-scroll-proportion="0.26407766">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/dao/FolderDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="0" selection-start="650" selection-end="650" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/javax/javaee-api/6.0/javaee-api-6.0.jar!/javax/persistence/EntityManager.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="9" selection-start="845" selection-end="845" vertical-scroll-proportion="0.3617021">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Common/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="21" selection-start="585" selection-end="585" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebMailSystem-ejb/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="8" selection-start="947" selection-end="1042" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebMailSystem-web/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="26" selection-start="1105" selection-end="1105" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Program Files/glassfish3/glassfish/docs/javaee-tutorial/examples/ejb/cart/cart-ejb/src/java/cart/util/BookException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.22660099">
-          <folding>
-            <element signature="e#0#686#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/MessagesBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="100" column="0" selection-start="3227" selection-end="3227" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Common/src/main/java/com/tsystems/javaschool/webmailsystem/exception/ExceptionType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="79" selection-start="272" selection-end="272" vertical-scroll-proportion="0.0">
+        <state line="13" column="32" selection-start="733" selection-end="794" vertical-scroll-proportion="0.7245902">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Common/src/main/java/com/tsystems/javaschool/webmailsystem/exception/DataProcessingException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="64" selection-start="1026" selection-end="1026" vertical-scroll-proportion="0.0">
+        <state line="28" column="64" selection-start="849" selection-end="849" vertical-scroll-proportion="0.6698113">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Common/src/main/java/com/tsystems/javaschool/webmailsystem/exception/ExceptionType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="87" selection-start="277" selection-end="277" vertical-scroll-proportion="0.35103244">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/dao/MessageDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="80" column="33" selection-start="2565" selection-end="2565" vertical-scroll-proportion="2.1592128">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/b2563434/e580267e-7c07-4eb1-94aa-c0954284ddd3/mailsystemdb..user">
+      <provider editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.persistence.database.editor.DatabaseTableFileEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/UserBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="16" selection-start="769" selection-end="769" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/dao/MailBoxDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="0" selection-start="796" selection-end="796" vertical-scroll-proportion="0.0">
+        <state line="34" column="39" selection-start="898" selection-end="898" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/javax/javaee-api/6.0/javaee-api-6.0.jar!/javax/persistence/EntityManager.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="11" selection-start="292" selection-end="292" vertical-scroll-proportion="-3.66426">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/dao/FolderDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="23" selection-start="804" selection-end="804" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/b2563434/e580267e-7c07-4eb1-94aa-c0954284ddd3/mailsystemdb..mailbox">
+      <provider editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.persistence.database.editor.DatabaseTableFileEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/service/MailBoxService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="87" column="5" selection-start="3371" selection-end="3371" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1300,18 +1352,19 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/SignUpBean.java">
+    <entry file="file://$PROJECT_DIR$/WebMailSystem-web/src/main/java/com/tsystems/javaschool/webmailsystem/managedbean/FoldersBean.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="0" selection-start="2223" selection-end="2223" vertical-scroll-proportion="0.0">
+        <state line="124" column="0" selection-start="4653" selection-end="4653" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/service/MailBoxService.java">
+    <entry file="file://$PROJECT_DIR$/WebMailSystem-ejb/src/main/java/com/tsystems/javaschool/webmailsystem/ejb/service/FolderService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="25" selection-start="1876" selection-end="1876" vertical-scroll-proportion="2.2783506">
+        <state line="96" column="0" selection-start="3463" selection-end="3463" vertical-scroll-proportion="-0.36336336">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#1568#1579#0" expanded="true" />
+            <element signature="e#2104#2116#0" expanded="true" />
           </folding>
         </state>
       </provider>

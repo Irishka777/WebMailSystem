@@ -584,6 +584,7 @@
       <primary-key name="PRIMARY" columns="ID" />
       <foreign-key name="FK_FOLDER_MAILBOX_EMAIL" columns="MAILBOX_EMAIL" ref-table="mailbox" ref-schema="" ref-catalog="mailsystemdb" ref-columns="EMAIL" update-rule="3" delete-rule="3" deferrability="2" />
       <exported-key name="FK_MESSAGE_FOLDER_ID" table="message" schema="" catalog="mailsystemdb" columns="FOLDER_ID" />
+      <index name="UNQ_FOLDER_0" unique="true" columns="FOLDERNAME,MAILBOX_EMAIL" />
     </table>
     <table name="mailbox" schema="" catalog="mailsystemdb" type="TABLE">
       <column name="EMAIL" sqlType="VARCHAR" length="30" precision="0" nullable="false" jdbcType="12" def="Jyc=" />
@@ -606,8 +607,8 @@
       <column name="RECEIVER_EMAIL" sqlType="VARCHAR" length="30" precision="0" nullable="true" jdbcType="12" />
       <column name="SENDER_EMAIL" sqlType="VARCHAR" length="30" precision="0" nullable="true" jdbcType="12" />
       <primary-key name="PRIMARY" columns="ID" />
-      <foreign-key name="FK_MESSAGE_FOLDER_ID" columns="FOLDER_ID" ref-table="folder" ref-schema="" ref-catalog="mailsystemdb" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2" />
       <foreign-key name="FK_MESSAGE_RECEIVER_EMAIL" columns="RECEIVER_EMAIL" ref-table="mailbox" ref-schema="" ref-catalog="mailsystemdb" ref-columns="EMAIL" update-rule="3" delete-rule="3" deferrability="2" />
+      <foreign-key name="FK_MESSAGE_FOLDER_ID" columns="FOLDER_ID" ref-table="folder" ref-schema="" ref-catalog="mailsystemdb" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2" />
       <foreign-key name="FK_MESSAGE_SENDER_EMAIL" columns="SENDER_EMAIL" ref-table="mailbox" ref-schema="" ref-catalog="mailsystemdb" ref-columns="EMAIL" update-rule="3" delete-rule="3" deferrability="2" />
     </table>
     <table name="user" schema="" catalog="mailsystemdb" type="TABLE">

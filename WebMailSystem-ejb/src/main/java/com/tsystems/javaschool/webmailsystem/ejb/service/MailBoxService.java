@@ -80,6 +80,10 @@ public class MailBoxService {
 			throw new DataProcessingException(ExceptionType.mailBoxDoesNotExist);
 		}
 
-		mailBox.setUser(new User(userDTO));
+		mailBox.getUser().setFirstName(userDTO.getFirstName());
+		mailBox.getUser().setLastName(userDTO.getLastName());
+		mailBox.getUser().setDate(userDTO.getDateOfBirth());
+		mailBox.getUser().setPhoneNumber(userDTO.getPhoneNumber());
+//		mailBox.setUser(new User(userDTO));
 	}
 }
