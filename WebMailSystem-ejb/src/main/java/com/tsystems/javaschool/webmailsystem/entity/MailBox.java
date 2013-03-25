@@ -51,7 +51,7 @@ public class MailBox implements Serializable {
 			return encodedPassword;
 
 		} catch (NoSuchAlgorithmException e) {
-			throw new DataProcessingException(ExceptionType.NoSuchAlgorithmException);
+			throw new DataProcessingException(ExceptionType.noSuchAlgorithmException);
 		}
 	}
 

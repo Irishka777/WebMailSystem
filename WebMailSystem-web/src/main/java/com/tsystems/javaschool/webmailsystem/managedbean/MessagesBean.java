@@ -85,7 +85,7 @@ public class MessagesBean {
 			return null;
 		}
 		try {
-			messageService.deleteMessage(selectedMessages1,selectedFolder.getId());
+			messageService.deleteMessage(selectedMessages1,selectedFolder);
 			while (selectedMessages1.size() != 0) {
 				listOfMessages.remove(selectedMessages1.get(0));
 				selectedMessages1.remove(0);
@@ -96,8 +96,7 @@ public class MessagesBean {
 			return null;
 		} catch (DataProcessingException e) {
 			FacesContext.getCurrentInstance().addMessage(null,
-					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error",
-							e.getExceptionMessage()));
+					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error",e.getExceptionMessage()));
 			return null;
 		}
 	}
@@ -116,7 +115,7 @@ public class MessagesBean {
 			return null;
 		}
 		try {
-			messageService.moveMessage(selectedMessages1,endFolder.getId(),selectedFolder.getId());
+			messageService.moveMessage(selectedMessages1,endFolder,selectedFolder);
 			while (selectedMessages1.size() != 0) {
 				listOfMessages.remove(selectedMessages1.get(0));
 				selectedMessages1.remove(0);

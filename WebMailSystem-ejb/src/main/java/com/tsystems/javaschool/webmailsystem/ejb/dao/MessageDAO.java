@@ -20,38 +20,33 @@ public class MessageDAO {
 	@EJB
 	private FolderDAO folderDAO;
 
-	public void send(Message message) {
-		Folder senderFolder = folderDAO.findFolderByFolderNameAndEmail("Outbox", message.getSender());
-		message.setFolder(senderFolder);
-		senderFolder.getListOfMessages().add(message);
-		
-		Folder receiverFolder = folderDAO.findFolderByFolderNameAndEmail("Inbox", message.getReceiver());
-		receiverFolder.getListOfMessages().add(new Message(message,receiverFolder));
-
-		entityManager.merge(senderFolder);
-		entityManager.merge(receiverFolder);
-	}
+//	public void send(Message message) {
+//		Folder senderFolder = folderDAO.findFolderByFolderNameAndEmail("Outbox", message.getSender());
+//		message.setFolder(senderFolder);
+//		senderFolder.getListOfMessages().add(message);
+//
+//		Folder receiverFolder = folderDAO.findFolderByFolderNameAndEmail("Inbox", message.getReceiver());
+//		receiverFolder.getListOfMessages().add(new Message(message,receiverFolder));
+//	}
 	
-	public void save(Message message) {
-		Folder senderFolder = folderDAO.findFolderByFolderNameAndEmail("Draft", message.getSender());
-		message.setFolder(senderFolder);
-		senderFolder.getListOfMessages().add(message);
-
-		entityManager.merge(senderFolder);
-	}
+//	public void save(Message message) {
+//		Folder senderFolder = folderDAO.findFolderByFolderNameAndEmail("Draft", message.getSender());
+//		message.setFolder(senderFolder);
+//		senderFolder.getListOfMessages().add(message);
+//	}
 	
-	public void delete(Message message) {
-		entityManager.remove(entityManager.merge(message));
-	}
+//	public void delete(Message message) {
+//		entityManager.remove(entityManager.merge(message));
+//	}
 
-	public void delete(long id) {
-		Message message = entityManager.find(Message.class, id);
-		entityManager.remove(entityManager.merge(message));
-	}
+//	public void delete(long id) {
+//		Message message = entityManager.find(Message.class, id);
+//		entityManager.remove(entityManager.merge(message));
+//	}
 
-	public void move(Message message) {
-		entityManager.merge(message);
-	}
+//	public void move(Message message) {
+//		entityManager.merge(message);
+//	}
 
 	public Message findMessage(long id) {
 		return entityManager.find(Message.class, id);

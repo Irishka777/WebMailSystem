@@ -21,20 +21,25 @@ public class DataProcessingException extends RuntimeException {
 
 	public String getExceptionMessage() {
 		switch (exceptionType) {
-			case NoSuchAlgorithmException:
-				return "noSuchAlgorithmException";
-			case mailBoxWithSuchANameAlreadyExists:
-				return "Mailbox with such a name already exists; try to use another email";
-			case folderWithSuchANameAlreadyExists:
-				return "Folder with such a name already exists";
-			case wrongEmailOrPassword:
-				return "Wrong email or password";
-			case wrongMessageReceiverEmail:
-				return "Receiver with such email does not exist; message saved in draft messages";
 			case mailBoxDoesNotExist:
 				return "Mailbox with such email does not exist";
+			case mailBoxWithSuchANameAlreadyExists:
+				return "Mailbox with such a name already exists; try to use another email";
+			case wrongEmailOrPassword:
+				return "Wrong email or password";
+
 			case folderDoesNotExist:
 				return "Folder with such a name does not exist";
+			case folderWithSuchANameAlreadyExists:
+				return "Folder with such a name already exists";
+
+			case messageDoesNotExist:
+				return "One of selected messages have been deleted by some one else";
+			case wrongMessageReceiverEmail:
+				return "Receiver with such email does not exist; message saved in draft messages";
+
+			case noSuchAlgorithmException:
+				return "noSuchAlgorithmException";
 			case unexpectedException:
 				default:
 				return "System error";

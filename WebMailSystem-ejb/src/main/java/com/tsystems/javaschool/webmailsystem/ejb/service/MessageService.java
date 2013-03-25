@@ -50,129 +50,125 @@ public class MessageService {
 	}
 
 	public void sendMessage(MessageDTO messageDTO) throws DataProcessingException {
-		MailBox sender = null;
-		MailBox receiver = null;
-		try {
-			sender = mailBoxDAO.find(messageDTO.getSender());
-			if (messageDTO.getReceiver() != null) {
-				receiver = mailBoxDAO.find(messageDTO.getReceiver());
-			}
-		} catch (Exception e) {
-			logger.error(e.getMessage(), e);
-			throw new DataProcessingException(ExceptionType.unexpectedException,e.getCause());
+		MailBox sender = mailBoxDAO.find(messageDTO.getSender());
+		if (sender == null) {
+			logger.warn("Mailbox with email " + messageDTO.getSender() + " does not exist");
+			throw new DataProcessingException(ExceptionType.mailBoxDoesNotExist);
 		}
+
+		MailBox receiver = null;
+		if (messageDTO.getReceiver() != null) {
+			receiver = mailBoxDAO.find(messageDTO.getReceiver());
+		}
+
 		Message message = new Message(true, sender, receiver, messageDTO.getTheme(), messageDTO.getMessageBody());
+
 		if (receiver == null) {
-			try {
-				logger.warn("Mailbox with email " + messageDTO.getReceiver() + " does not exist");
-				messageDAO.save(message);
-				logger.info("Message successfully saved in draft messages of" + sender.getEmail());
-			} catch (Exception e) {
-				logger.error(e.getMessage(), e);
-				throw new DataProcessingException(ExceptionType.unexpectedException,e.getCause());
-			}
+			logger.warn("Mailbox with email " + messageDTO.getReceiver() + " does not exist");
+			save(message);
+			logger.info("Message successfully saved in draft messages of" + sender.getEmail());
 			throw new DataProcessingException(ExceptionType.wrongMessageReceiverEmail);
 		}
-		try {
-			messageDAO.send(message);
-			logger.info("Message successfully sent from " + messageDTO.getSender() + " to " + messageDTO.getReceiver());
-		} catch (Exception e) {
-			logger.error(e.getMessage(), e);
-			throw new DataProcessingException(ExceptionType.unexpectedException,e.getCause());
-		}
+
+		send(message);
+		logger.info("Message successfully sent from " + messageDTO.getSender() + " to " + messageDTO.getReceiver());
 	}
 
 	public void saveMessage(MessageDTO messageDTO) throws DataProcessingException {
-		try {
-			MailBox sender = mailBoxDAO.find(messageDTO.getSender());
-			MailBox receiver = null;
-			if (messageDTO.getReceiver() != null) {
-				receiver = mailBoxDAO.find(messageDTO.getReceiver());
-			}
-			if (receiver == null) {
-				logger.warn("Mailbox with email " + messageDTO.getReceiver() + " does not exist");
-			}
-			Message message = new Message(true, sender, receiver, messageDTO.getTheme(), messageDTO.getMessageBody());
-			messageDAO.save(message);
-			logger.info("Message successfully saved in draft messages of" + sender.getEmail());
-		} catch (Exception e) {
-			logger.error(e.getMessage(), e);
-			throw new DataProcessingException(ExceptionType.unexpectedException,e.getCause());
+		MailBox sender = mailBoxDAO.find(messageDTO.getSender());
+		if (sender == null) {
+			logger.warn("Mailbox with email " + messageDTO.getSender() + " does not exist");
+			throw new DataProcessingException(ExceptionType.mailBoxDoesNotExist);
 		}
-	}
-	public void deleteMessage(List<MessageDTO> messageDTO, long folderId) throws DataProcessingException {
-		try {
-			Folder folder = folderDAO.getFolder(folderId);
-			Message message;
-			for (int i = 0; i < messageDTO.size(); i++) {
-				message = messageDAO.findMessage(messageDTO.get(i).getId());
-				folder.getListOfMessages().remove(message);
-			}
-			folderDAO.update(folder);
-			logger.info("Messages successfully deleted");
-		} catch (Exception e) {
-			logger.error(e.getMessage(), e);
-			throw new DataProcessingException(ExceptionType.unexpectedException,e.getCause());
+
+		MailBox receiver = null;
+		if (messageDTO.getReceiver() != null) {
+			receiver = mailBoxDAO.find(messageDTO.getReceiver());
 		}
+
+		if (receiver == null) {
+			logger.warn("Mailbox with email " + messageDTO.getReceiver() + " does not exist");
+		}
+		Message message = new Message(true, sender, receiver, messageDTO.getTheme(), messageDTO.getMessageBody());
+		save(message);
+		logger.info("Message successfully saved in draft messages of" + sender.getEmail());
 	}
 
-	public void deleteMessage(MessageDTO[] messageDTO, long folderId) throws DataProcessingException {
-		try {
-			Folder folder = folderDAO.getFolder(folderId);
-			Message message;
-			for (int i = 0; i < messageDTO.length; i++) {
-				message = messageDAO.findMessage(messageDTO[i].getId());
-				folder.getListOfMessages().remove(message);
-//				messageDAO.delete(messageDTO[i].getId());
-			}
-			folderDAO.update(folder);
-			logger.info("Messages successfully deleted");
-		} catch (Exception e) {
-			logger.error(e.getMessage(), e);
-			throw new DataProcessingException(ExceptionType.unexpectedException,e.getCause());
+	private void send(Message message) {
+		Folder senderFolder = folderDAO.findFolderByFolderNameAndEmail("Outbox", message.getSender());
+		if (senderFolder == null) {
+			logger.warn("Sender outbox folder does not exist");
+			throw new DataProcessingException(ExceptionType.folderDoesNotExist);
 		}
+		message.setFolder(senderFolder);
+		senderFolder.getListOfMessages().add(message);
+
+		Folder receiverFolder = folderDAO.findFolderByFolderNameAndEmail("Inbox", message.getReceiver());
+		if (receiverFolder == null) {
+			logger.warn("Receiver inbox folder does not exist");
+			throw new DataProcessingException(ExceptionType.folderDoesNotExist);
+		}
+		receiverFolder.getListOfMessages().add(new Message(message,receiverFolder));
 	}
 
-	public void moveMessage(List<MessageDTO> messageDTO, long newFolderId, long oldFolderId) throws DataProcessingException {
-		try {
-			Folder newFolder = folderDAO.getFolder(newFolderId);
-			Folder oldFolder = folderDAO.getFolder(oldFolderId);
-			Message message;
-
-			for (int i = 0; i < messageDTO.size(); i++) {
-				message = messageDAO.findMessage(messageDTO.get(i).getId());
-				oldFolder.getListOfMessages().remove(message);
-				message.setFolder(newFolder);
-				newFolder.getListOfMessages().add(message);
-			}
-			folderDAO.update(newFolder);
-			folderDAO.update(oldFolder);
-			logger.info("Messages successfully moved");
-		} catch (Exception e) {
-			logger.error(e.getMessage(), e);
-			throw new DataProcessingException(ExceptionType.unexpectedException,e.getCause());
+	private void save(Message message) {
+		Folder senderFolder = folderDAO.findFolderByFolderNameAndEmail("Draft", message.getSender());
+		if (senderFolder == null) {
+			logger.warn("Folder for draft messages does not exist");
+			throw new DataProcessingException(ExceptionType.folderDoesNotExist);
 		}
+		message.setFolder(senderFolder);
+		senderFolder.getListOfMessages().add(message);
 	}
 
-	public void moveMessage(MessageDTO[] messageDTO, long newFolderId, long oldFolderId) throws DataProcessingException {
-		try {
-			Folder newFolder = folderDAO.getFolder(newFolderId);
-			Folder oldFolder = folderDAO.getFolder(oldFolderId);
-			Message message;
-			for (int i = 0; i < messageDTO.length; i++) {
-				message = messageDAO.findMessage(messageDTO[i].getId());
-				oldFolder.getListOfMessages().remove(message);
-				message.setFolder(newFolder);
-				newFolder.getListOfMessages().add(message);
-//				messageDAO.move(message);
-			}
-			folderDAO.update(newFolder);
-			folderDAO.update(oldFolder);
-			logger.info("Messages successfully moved");
-		} catch (Exception e) {
-			logger.error(e.getMessage(), e);
-			throw new DataProcessingException(ExceptionType.unexpectedException,e.getCause());
+	public void deleteMessage(List<MessageDTO> messageDTO, FolderDTO folderDTO) throws DataProcessingException {
+		Folder folder = folderDAO.getFolder(folderDTO.getId());
+		if (folder == null) {
+			logger.warn("Folder with name " + folderDTO.getFolderName() + " does not exist");
+			throw new DataProcessingException(ExceptionType.folderDoesNotExist);
 		}
+
+		Message message;
+		for (int i = 0; i < messageDTO.size(); i++) {
+			message = messageDAO.findMessage(messageDTO.get(i).getId());
+			if (message == null) {
+				logger.warn("One of selected messages have been deleted by some one else");
+				throw new DataProcessingException(ExceptionType.messageDoesNotExist);
+			}
+			folder.getListOfMessages().remove(message);
+		}
+
+		logger.info("Messages successfully deleted");
+	}
+
+	public void moveMessage(List<MessageDTO> messageDTO, FolderDTO newFolderDTO, FolderDTO oldFolderDTO)
+			throws DataProcessingException {
+		Folder newFolder = folderDAO.getFolder(newFolderDTO.getId());
+		if (newFolder == null) {
+			logger.warn("Folder with name " + newFolderDTO.getFolderName() + " does not exist");
+			throw new DataProcessingException(ExceptionType.folderDoesNotExist);
+		}
+
+		Folder oldFolder = folderDAO.getFolder(oldFolderDTO.getId());
+		if (oldFolder == null) {
+			logger.warn("Folder with name " + oldFolderDTO.getFolderName() + " does not exist");
+			throw new DataProcessingException(ExceptionType.folderDoesNotExist);
+		}
+
+		Message message;
+
+		for (int i = 0; i < messageDTO.size(); i++) {
+			message = messageDAO.findMessage(messageDTO.get(i).getId());
+			if (message == null) {
+				logger.warn("One of selected messages have been deleted by some one else");
+				throw new DataProcessingException(ExceptionType.messageDoesNotExist);
+			}
+			oldFolder.getListOfMessages().remove(message);
+			message.setFolder(newFolder);
+			newFolder.getListOfMessages().add(message);
+		}
+
+		logger.info("Messages successfully moved");
 	}
 
 	public List<MessageDTO> receiveNewMessages(FolderDTO folderDTO)
