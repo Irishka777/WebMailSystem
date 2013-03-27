@@ -68,10 +68,10 @@ public class Message implements Serializable {
 
 	public MessageDTO getMessageDTO() {
 		if (receiver == null) {
-			return new MessageDTO(id, messageReadFlag, folder.getFolderName(),
+			return new MessageDTO(id, messageReadFlag, folder.getId(),
 					sender.getEmail(), null, date, theme, messageBody);
 		}
-		return new MessageDTO(id, messageReadFlag, folder.getFolderName(),
+		return new MessageDTO(id, messageReadFlag, folder.getId(),
 				sender.getEmail(), receiver.getEmail(), date, theme, messageBody);
 	}
 	

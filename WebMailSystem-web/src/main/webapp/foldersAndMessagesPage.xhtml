@@ -16,18 +16,6 @@
 			height: auto;
 			padding: 0;
 		}
-		/*.ui-layout-unit-content {*/
-			/*height: auto;*/
-			/*padding: 0;*/
-		/*}*/
-		.ui-menu {
-			height: auto;
-			padding: 0;
-		}
-		/*.ui-layout-pane-north {*/
-			/*padding: 0;*/
-			/*height: auto;*/
-		/*}*/
 		.ui-layout-north {
 			padding: 0;
 			height: auto;
@@ -40,7 +28,28 @@
 			padding: 0;
 			height: auto;
 		}
-		.ui-button {
+		.ui-layout-south {
+			padding: 0;
+			height: auto;
+		}
+		.ui-layout-north .ui-layout-unit-content {
+			padding: 0;
+			height: auto;
+			overflow:visible
+		}
+		.ui-layout-west .ui-layout-unit-content {
+			padding: 0;
+			height: auto;
+			overflow:visible
+		}
+		.ui-layout-south .ui-layout-unit-content {
+			padding: 0;
+			height: auto;
+			overflow:visible
+		}
+
+		.ui-menu {
+			height: auto;
 			padding: 0;
 		}
 	</style>
@@ -62,7 +71,7 @@
 
 		<p:layoutUnit position="west" size="300">
 			<p:layout>
-				<p:layoutUnit position="south" size="170">
+				<p:layoutUnit position="south" size="150">
 					<h:panelGrid style="margin: auto; text-align: center" columns="1">
 						<p:commandButton style="width: 180px" value="Create folder"
 										 type="button" onclick="createdlg.show();"/>
@@ -84,6 +93,11 @@
 							<h:outputText value="#{folder}"/>
 						</p:treeNode>
 					</p:tree>
+					<h:form id="pollForm">
+						<p:poll interval="10"
+								listener="#{foldersBean.receiveNewMessages}"
+								update=":messagesForm:messages" />
+					</h:form>
 				</p:layoutUnit>
 			</p:layout>
 		</p:layoutUnit>
@@ -111,7 +125,7 @@
 									 scrollable="true"
 									 sortBy="#{message.id}" sortOrder="descending"
 									 value="#{messagesBean.listOfMessages}">
-							<p:column width="25" selectionMode="multiple"/>
+							<p:column width="20" selectionMode="multiple"/>
 							<p:ajax event="rowSelect" listener="#{messagesBean.messageSelectedWithClick}"
 									update=":messageBodyPanel, :showmessage:sender, :showmessage:receiver, :showmessage:theme, :showmessage:messagebody"/>
 							<p:ajax event="rowUnselect" listener="#{messagesBean.messageUnselectedWithClick}"
@@ -139,19 +153,16 @@
 								<f:facet name="header">date</f:facet>
 								#{message.date}
 							</p:column>
-							<p:column width="90">
-								<p:commandButton style="padding: 0" value="Show" type="button" onclick="showmessagedlg.show();"/>
+							<p:column width="85">
+								<p:commandButton style="padding: 0" value="Show" type="button"
+												 onclick="showmessagedlg.show();" actionListener="#{messagesBean.showButtonClicked}"
+												 update=":messageBodyPanel, :showmessage:sender, :showmessage:receiver, :showmessage:theme, :showmessage:messagebody"/>
 							</p:column>
 						</p:dataTable>
 					</h:form>
-					<h:form id="pollForm">
-						<p:poll interval="10"
-								listener="#{messagesBean.receiveMessages}"
-								update=":messagesForm:messages" />
-					</h:form>
 				</p:layoutUnit>
-				<p:layoutUnit position="south" size="200">
-					<p:inputTextarea style="width: 97%;height: 170px" autoResize="false" readonly="true"
+				<p:layoutUnit position="south" size="150">
+					<p:inputTextarea style="width: 99%; height: 100%" autoResize="false" readonly="true"
 									 id="messageBodyPanel" value="#{messagesBean.selectedMessage.messageBody}"/>
 				</p:layoutUnit>
 			</p:layout>
@@ -214,7 +225,7 @@
 		</p:outputLabel>
 		<h:panelGrid style="margin: auto" columns="2">
 			<p:commandButton value="Yes"
-							 update=":folders, :growl, :messagesForm:messages, :messageBodyPanel"
+							 update=":folders, :growl, :messagesForm:messages, :messageBodyPanel, renameFolderForm:renameFolderName"
 							 action="#{foldersBean.deleteFolder}"
 							 onsuccess="deletedlg.hide();">
 			</p:commandButton>
@@ -222,8 +233,6 @@
 							 type="button" onclick="deletedlg.hide();"/>
 		</h:panelGrid>
 	</p:dialog>
-
-
 
 	<p:dialog closable="false" draggable="false" resizable="false"
 			  header="Delete message" modal="true"

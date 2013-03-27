@@ -20,7 +20,6 @@ import java.util.Date;
  *
  */
 @ManagedBean
-//@SessionScoped
 public class UserBean {
 	@EJB
 	private MailBoxService mailBoxService;
@@ -72,7 +71,7 @@ public class UserBean {
 			}
 		} catch (DataProcessingException e) {
 			FacesContext.getCurrentInstance().addMessage(null,
-					new FacesMessage(e.getExceptionMessage()));
+					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", e.getExceptionMessage()));
 		}
 	}
 
@@ -84,7 +83,7 @@ public class UserBean {
 		} catch (DataProcessingException e) {
 			getUserData();
 			FacesContext.getCurrentInstance().addMessage(null,
-					new FacesMessage(e.getExceptionMessage()));
+					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", e.getExceptionMessage()));
 			return null;
 		}
 	}

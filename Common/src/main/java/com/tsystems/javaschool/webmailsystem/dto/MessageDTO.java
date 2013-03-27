@@ -10,15 +10,14 @@ import java.util.GregorianCalendar;
 public class MessageDTO {
 	private long id;
 	private boolean messageReadFlag;
-	private String folder;
+	private long folder;
 	private String sender;
 	private String receiver;
 	private String date;
-//	private Calendar date;
 	private String theme;
 	private String messageBody;
 
-	public MessageDTO(long id, boolean messageReadFlag,String folder,
+	public MessageDTO(long id, boolean messageReadFlag, long folder,
 					  String sender, String receiver,
 					  Calendar date, String theme, String messageBody) {
 		this.id = id;
@@ -38,15 +37,6 @@ public class MessageDTO {
 		this.theme = theme;
 		this.messageBody = messageBody;
 	}
-
-
-
-//	public Calendar stringToDate(String dateOfBirth) {
-//		String[] dayMonthYear = dateOfBirth.split("\\.");
-//		Calendar calendarDateOfBirth = new GregorianCalendar(Integer.parseInt(dayMonthYear[2]),
-//				Integer.parseInt(dayMonthYear[1]),Integer.parseInt(dayMonthYear[0]));
-//		return  calendarDateOfBirth;
-//	}
 
 	public String dateToString(Calendar date) {
 		SimpleDateFormat dateFormat = new SimpleDateFormat();
@@ -69,11 +59,11 @@ public class MessageDTO {
 		this.messageReadFlag = messageReadFlag;
 	}
 
-	public String getFolder() {
+	public long getFolder() {
 		return folder;
 	}
 
-	public void setFolder(String folder) {
+	public void setFolder(long folder) {
 		this.folder = folder;
 	}
 

@@ -1,24 +1,26 @@
-.ui-layout-unit .ui-layout-unit-content {
+ui-layout-unit ui-layout-unit-content {
     height: auto;
     padding: 0;
+    overflow:visible
 }
-.ui-layout-unit-content {
-    height: auto;
-    padding: 0;
-}
-.ui-menu {
-    height: auto;
-    padding: 0;
-}
-.ui-layout-north {
+ui-layout-north {
     padding: 0;
     height: auto;
 }
-.ui-layout-center {
+ui-layout-center {
     padding: 0;
     height: auto;
 }
-.ui-layout-west {
+ui-layout-west {
     padding: 0;
     height: auto;
+}
+ui-layout-south {
+    padding: 0;
+    height: auto;
+}
+
+ui-menu {
+    height: auto;
+    padding: 0;
 }

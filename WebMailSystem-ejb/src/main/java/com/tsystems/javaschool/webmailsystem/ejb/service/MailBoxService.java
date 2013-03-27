@@ -48,9 +48,9 @@ public class MailBoxService {
 
 			mailBoxDAO.create(mailBox);
 
-			folderDAO.create(new Folder("Draft", mailBox));
-			folderDAO.create(new Folder("Outbox", mailBox));
 			folderDAO.create(new Folder("Inbox", mailBox));
+			folderDAO.create(new Folder("Outbox", mailBox));
+			folderDAO.create(new Folder("Draft", mailBox));
 
 			logger.info("Mailbox with email " + email + " successfully created");
 
@@ -84,6 +84,5 @@ public class MailBoxService {
 		mailBox.getUser().setLastName(userDTO.getLastName());
 		mailBox.getUser().setDate(userDTO.getDateOfBirth());
 		mailBox.getUser().setPhoneNumber(userDTO.getPhoneNumber());
-//		mailBox.setUser(new User(userDTO));
 	}
 }

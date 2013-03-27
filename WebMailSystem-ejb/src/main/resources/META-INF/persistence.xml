@@ -6,13 +6,12 @@
 <persistence-unit name="webMailSystem"
 				  transaction-type="JTA">
 	<jta-data-source>jdbc/__mysql</jta-data-source>
-	<!--<class>com.tsystems.javaschool.webmailsystem.entity.Users>-->
-	<!--<class>com.tsystems.javaschool.webmailsystem.entity.MailBoxs>-->
-	<!--<class>com.tsystems.javaschool.webmailsystem.entity.Messages>-->
-	<!--<class>com.tsystems.javaschool.webmailsystem.entity.Folders>-->
+	<!--<class>com.tsystems.javaschool.webmailsystem.entity.User>-->
+	<!--<class>com.tsystems.javaschool.webmailsystem.entity.MailBox>-->
+	<!--<class>com.tsystems.javaschool.webmailsystem.entity.Message>-->
+	<!--<class>com.tsystems.javaschool.webmailsystem.entity.Folder>-->
 	<properties>
-		<!--<property name="eclipselink.ddl-generation"-->
-				  <!--value="create-tables" />-->
+		<property name="eclipselink.ddl-generation" value="create-tables" />
 		<!--<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>-->
 		<!--<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/MailSystemDB"/>-->
 		<!--<property name="javax.persistence.jdbc.user" value="root" />-->

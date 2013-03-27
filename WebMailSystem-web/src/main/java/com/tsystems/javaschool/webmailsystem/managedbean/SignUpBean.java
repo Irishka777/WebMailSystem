@@ -42,9 +42,6 @@ public class SignUpBean {
 	@Size(max = 30, message = "Length of the phone number should be no more then 30 characters")
 	private String phoneNumber;
 
-//	@Pattern(regexp = "\\d{2}\\.\\d{2}\\.\\d{4}", message = "You should specify your date of birth in dd.mm.yyyy format")
-//	private String dateOfBirth;
-
 	private Date dateOfBirth;
 
 	public String signUp() {
@@ -98,13 +95,6 @@ public class SignUpBean {
 		this.phoneNumber = phoneNumber;
 	}
 
-//	public String getDateOfBirth() {
-//		return dateOfBirth;
-//	}
-//
-//	public void setDateOfBirth(String dateOfBirth) {
-//		this.dateOfBirth = dateOfBirth;
-//	}
 	public Date getDateOfBirth() {
 		return dateOfBirth;
 	}

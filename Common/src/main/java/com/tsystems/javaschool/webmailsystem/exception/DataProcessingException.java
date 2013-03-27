@@ -32,9 +32,13 @@ public class DataProcessingException extends RuntimeException {
 				return "Folder with such a name does not exist";
 			case folderWithSuchANameAlreadyExists:
 				return "Folder with such a name already exists";
+			case systemFolderDeletion:
+				return "You can not delete system folders";
+			case systemFolderRenaming:
+				return "You can not rename system folders";
 
 			case messageDoesNotExist:
-				return "One of selected messages have been deleted by some one else";
+				return "One of selected messages have been deleted by someone else";
 			case wrongMessageReceiverEmail:
 				return "Receiver with such email does not exist; message saved in draft messages";
 

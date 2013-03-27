@@ -6,7 +6,6 @@ import com.tsystems.javaschool.webmailsystem.ejb.service.FolderService;
 import com.tsystems.javaschool.webmailsystem.exception.DataProcessingException;
 import org.primefaces.event.NodeSelectEvent;
 import org.primefaces.model.DefaultTreeNode;
-import org.primefaces.model.TreeNode;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
@@ -42,6 +41,8 @@ public class FoldersBean {
 
 	private DefaultTreeNode selectedFolder;
 
+	private DefaultTreeNode inboxFolder;
+
 	@NotNull(message = "You have not specified the folder name")
 	@Pattern(regexp = "[a-zA-Z][a-zA-Z0-9]*",
 			message = "Folder name should start with a latter and contain just letters and digits")
@@ -62,17 +63,8 @@ public class FoldersBean {
 			for (FolderDTO folder : folders) {
 				DefaultTreeNode node = new DefaultTreeNode(folder, root);
 				if (folder.getFolderName().equals("Inbox")) {
-					selectedFolder = node;
-					selectedFolderName = ((FolderDTO) selectedFolder.getData()).getFolderName();
-					node.setSelected(true);
-					try {
-						messagesBean.setListOfMessages(folderService.getMessagesFromFolder(folder));
-						messagesBean.setSelectedFolder(folder);
-//						RequestContext.getCurrentInstance().update(":messagesForm:messages");
-					} catch (DataProcessingException e) {
-						FacesContext.getCurrentInstance().addMessage(null,
-								new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", e.getExceptionMessage()));
-					}
+					inboxFolder = node;
+					setSelectedFolder(node);
 				}
 			}
 		} catch (DataProcessingException e) {
@@ -83,19 +75,16 @@ public class FoldersBean {
 
 	public void onFolderSelect(NodeSelectEvent event) {
 		selectedFolder.setSelected(false);
-		selectedFolder = (DefaultTreeNode) event.getTreeNode();
-		selectedFolder.setSelected(true);
-		selectedFolderName = ((FolderDTO) selectedFolder.getData()).getFolderName();
-		FolderDTO folder = (FolderDTO) selectedFolder.getData();
+		setSelectedFolder((DefaultTreeNode) event.getTreeNode());
+	}
 
-		try {
-			messagesBean.resetSelectedMessages();
-			messagesBean.setListOfMessages(folderService.getMessagesFromFolder(folder));
-			messagesBean.setSelectedFolder(folder);
-		} catch (DataProcessingException e) {
-			FacesContext.getCurrentInstance().addMessage(null,
-					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", e.getExceptionMessage()));
-		}
+	private void setSelectedFolder(DefaultTreeNode node) {
+		selectedFolder = node;
+		selectedFolder.setSelected(true);
+		FolderDTO folderDTO = (FolderDTO) selectedFolder.getData();
+		selectedFolderName = folderDTO.getFolderName();
+		messagesBean.receiveMessagesFromFolder(folderDTO);
+//		RequestContext.getCurrentInstance().update(":messagesForm:messages");
 	}
 
 	public String createFolder() {
@@ -121,36 +110,10 @@ public class FoldersBean {
 			return null;
 		}
 
-		String folderName = ((FolderDTO) selectedFolder.getData()).getFolderName();
-
-		if (folderName.equals("Inbox")
-				|| folderName.equals("Outbox")
-				|| folderName.equals("Draft")) {
-			FacesContext.getCurrentInstance().addMessage(null,
-					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "You can not delete system folders"));
-			return null;
-		}
 		try {
 			folderService.deleteFolder((FolderDTO) selectedFolder.getData());
 			root.getChildren().remove(selectedFolder);
-
-			for (int i = 0; i < root.getChildCount(); i++) {
-				if (((FolderDTO)root.getChildren().get(i).getData()).getFolderName().equals("Inbox")) {
-					selectedFolder = (DefaultTreeNode) root.getChildren().get(i);
-					selectedFolder.setSelected(true);
-					selectedFolderName = ((FolderDTO) selectedFolder.getData()).getFolderName();
-					try {
-						messagesBean.resetSelectedMessages();
-						messagesBean.setListOfMessages(folderService.getMessagesFromFolder
-								((FolderDTO)root.getChildren().get(i).getData()));
-						messagesBean.setSelectedFolder((FolderDTO) selectedFolder.getData());
-					} catch (DataProcessingException e) {
-						FacesContext.getCurrentInstance().addMessage(null,
-								new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", e.getExceptionMessage()));
-					}
-					break;
-				}
-			}
+			setSelectedFolder(inboxFolder);
 
 			FacesContext.getCurrentInstance().addMessage(null,
 					new FacesMessage(FacesMessage.SEVERITY_INFO, "Information","Folder successfully deleted"));
@@ -178,13 +141,6 @@ public class FoldersBean {
 							"You have not specified a new name for a folder"));
 			return null;
 		}
-		if (folder.getFolderName().equals("Inbox")
-				|| folder.getFolderName().equals("Outbox")
-				|| folder.getFolderName().equals("Draft")) {
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error",
-					"You can not rename system folders"));
-			return null;
-		}
 
 		try {
 			folderService.renameFolder(folder, selectedFolderName);
@@ -199,16 +155,14 @@ public class FoldersBean {
 		}
 	}
 
+	public void receiveNewMessages() {
+		if (selectedFolderName.equals("Inbox")) {
+			messagesBean.receiveNewMessages((FolderDTO) selectedFolder.getData());
+		}
+	}
+
 	public DefaultTreeNode getRoot() {
 		return root;
-	}
-
-	public TreeNode getSelectedFolder() {
-		return selectedFolder;
-	}
-
-	public void setSelectedFolder(DefaultTreeNode selectedFolder) {
-		this.selectedFolder = selectedFolder;
 	}
 
 	public String getNewFolderName() {
